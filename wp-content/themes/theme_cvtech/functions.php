@@ -151,6 +151,7 @@ function theme_cvtech_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	wp_register_script('main_théo', get_template_directory_uri() . '/assets/js/main_theo.js', array(), '1.0.0', true);
     wp_enqueue_script('main_théo');
 
 	wp_register_script('main_alexis', get_template_directory_uri() . '/assets/js/main_alexis.js', array(), '1.0.0', true);
