@@ -140,12 +140,31 @@ add_action( 'widgets_init', 'theme_cvtech_widgets_init' );
 function theme_cvtech_scripts() {
 	wp_enqueue_style( 'theme_cvtech-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'theme_cvtech-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'cvtech-custom-style_theo', get_stylesheet_directory_uri(). "/assets/css/style_theo.css",false,1.1,'all');
+	wp_enqueue_style( 'cvtech-custom-style_alexis', get_stylesheet_directory_uri(). "/assets/css/style_alexis.css",false,1.1,'all');
+	wp_enqueue_style( 'cvtech-custom-style_safia', get_stylesheet_directory_uri(). "/assets/css/style_safia.css",false,1.1,'all');
+	wp_enqueue_style( 'cvtech-custom-style_maxime', get_stylesheet_directory_uri(). "/assets/css/style_maxime.css",false,1.1,'all');
+	wp_enqueue_style( 'cvtech-custom-style_fabien', get_stylesheet_directory_uri(). "/assets/css/style_fabien.css",false,1.1,'all');
 
 	wp_enqueue_script( 'theme_cvtech-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	wp_register_script('main_théo', get_template_directory_uri() . '/assets/js/main_théo.js', array(), '1.0.0', true);
+    wp_enqueue_script('main_théo');
+
+	wp_register_script('main_alexis', get_template_directory_uri() . '/assets/js/main_alexis.js', array(), '1.0.0', true);
+    wp_enqueue_script('main_alexis');
+
+	wp_register_script('main_fabien', get_template_directory_uri() . '/assets/js/main_fabien.js', array(), '1.0.0', true);
+    wp_enqueue_script('main_fabien');
+
+	wp_register_script('main_maxime', get_template_directory_uri() . '/assets/js/main_maxime.js', array(), '1.0.0', true);
+    wp_enqueue_script('main_maxime');
+
+	wp_register_script('main_safia', get_template_directory_uri() . '/assets/js/main_safia.js', array(), '1.0.0', true);
+    wp_enqueue_script('main_safia');
 }
 add_action( 'wp_enqueue_scripts', 'theme_cvtech_scripts' );
 
