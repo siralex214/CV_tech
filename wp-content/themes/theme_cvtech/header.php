@@ -36,5 +36,15 @@
 			<li><a href="#skillsContainer">Contact</a></li>
 			<li><a href="#projectsContainer">Connexion</a></li>
 		</ul>
+
+		<!-- <div id="nav-menu">
+
+			<?php
+			wp_nav_menu(array(
+				'theme_location' => 'my-custom-menu',
+				'container_class' => 'custom-menu-class'
+			));
+			?>
+		</div> -->
 	</nav>
 </header>
