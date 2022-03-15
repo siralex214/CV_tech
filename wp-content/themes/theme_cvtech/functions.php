@@ -145,6 +145,7 @@ function theme_cvtech_scripts() {
 	wp_enqueue_style( 'cvtech-custom-style_safia', get_stylesheet_directory_uri(). "/assets/css/style_safia.css",false,1.1,'all');
 	wp_enqueue_style( 'cvtech-custom-style_maxime', get_stylesheet_directory_uri(). "/assets/css/style_maxime.css",false,1.1,'all');
 	wp_enqueue_style( 'cvtech-custom-style_fabien', get_stylesheet_directory_uri(). "/assets/css/style_fabien.css",false,1.1,'all');
+	wp_enqueue_style('fontawesome', "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 
 	wp_enqueue_script( 'theme_cvtech-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
