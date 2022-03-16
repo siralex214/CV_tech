@@ -7,6 +7,7 @@
  * @package theme_cvtech
  */
 
+require get_template_directory().'/inc/my_function.php';
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
@@ -152,6 +153,8 @@ function theme_cvtech_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+    wp_register_script('type-writter', "https://unpkg.com/typewriter-effect@latest/dist/core.js", array(), '1.0.0', true);
+    wp_enqueue_script('type-writter');
 	wp_register_script('main_théo', get_template_directory_uri() . '/assets/js/main_theo.js', array(), '1.0.0', true);
     wp_enqueue_script('main_théo');
 
