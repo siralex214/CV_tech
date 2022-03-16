@@ -1,84 +1,84 @@
-                                            .mention-text {
-                                                margin: 10px 67px 20px;
-                                            }
-                                            
-                                            .mention-h3 {
-                                                text-decoration: underline;
-                                                margin: 10px 67px 20px;
-                                            }
-                                            
-                                            .mention-a {
-                                                color: #1614b4;
-                                            }
-                                            
-                                            .mention-h1 {
-                                                text-align: center;
-                                                text-decoration: underline;
-                                            }
-                                            
-                                            .mention-all {
-                                                -webkit-font-smoothing: antialiased;
-                                                font-weight: bold;
-                                                line-height: 140%;
-                                                font-family: helvetica, sans-serif;
-                                                box-sizing: border-box;
-                                                color: #44475d;
-                                            }
-                                            
-                                            .mention-mention {
-                                                line-height: 2em;
-                                            }
-                                            
-                                            .mention-ruban {
-                                                text-align: center;
-                                                background: #F3F2EF;
-                                                padding: 10px 50px 20px;
-                                                border-radius: 30px;
-                                                opacity: 0.5;
-                                            }
-                                            
-                                            .mention-ol {
-                                                list-style: none;
-                                            }
-                                            
-                                            .recruteur-bordure {
-                                                border: 1px solid black;
-                                                margin: 50px;
-                                                /* padding: 5% 10%; */
-                                                display: flex;
-                                                flex-direction: row;
-                                                justify-content: space-between;
-                                            }
-                                            
-                                            .changement-color {
-                                                background: linear-gradient(70deg, #F3F2EF, #FFCD00);
-                                            }
-                                            
-                                            .recruteur-main {
-                                                padding: 130px;
-                                            }
-                                            
-                                            .recruteur-button {
-                                                border: 1px solid black;
-                                                padding: 20px;
-                                                padding: 5% 10%;
-                                                text-align: center;
-                                            }
-                                            
-                                            .recruteur-right {
-                                                display: flex;
-                                                flex-direction: column;
-                                                border: 1px solid black;
-                                                padding: 20px;
-                                                padding: 5% 10%;
-                                                text-align: center;
-                                            }
-                                            
-                                            .recruteur-milieu {
-                                                display: flex;
-                                                flex-direction: column;
-                                                border: 1px solid black;
-                                                padding: 20px;
-                                                padding: 5% 10%;
-                                                text-align: center;
-                                            }
+.mention-text {
+    margin: 10px 67px 20px;
+}
+
+.mention-h3 {
+    text-decoration: underline;
+    margin: 10px 67px 20px;
+}
+
+.mention-a {
+    color: #1614b4;
+}
+
+.mention-h1 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.mention-all {
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    line-height: 140%;
+    font-family: helvetica, sans-serif;
+    box-sizing: border-box;
+    color: #44475d;
+}
+
+.mention-mention {
+    line-height: 2em;
+}
+
+.mention-ruban {
+    text-align: center;
+    background: #F3F2EF;
+    padding: 10px 50px 20px;
+    border-radius: 30px;
+    opacity: 0.5;
+}
+
+.mention-ol {
+    list-style: none;
+}
+
+.recruteur-bordure {
+    border: 1px solid black;
+    margin: 50px;
+    /* padding: 5% 10%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.changement-color {
+    background: linear-gradient(70deg, #F3F2EF, #FFCD00);
+}
+
+.recruteur-main {
+    padding: 130px;
+}
+
+.recruteur-button {
+    border: 1px solid black;
+    padding: 20px;
+    padding: 5% 10%;
+    text-align: center;
+}
+
+.recruteur-right {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 20px;
+    padding: 5% 10%;
+    text-align: center;
+}
+
+.recruteur-milieu {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 20px;
+    padding: 5% 10%;
+    text-align: center;
+}
