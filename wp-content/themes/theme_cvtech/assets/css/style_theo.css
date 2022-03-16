@@ -1,0 +1,50 @@
+                                    .mention-text {
+                                        margin: 10px 67px 20px;
+                                    }
+                                    
+                                    .mention-h3 {
+                                        text-decoration: underline;
+                                        margin: 10px 67px 20px;
+                                    }
+                                    
+                                    .mention-a {
+                                        color: #1614b4;
+                                    }
+                                    
+                                    .mention-h1 {
+                                        text-align: center;
+                                        text-decoration: underline;
+                                    }
+                                    
+                                    .mention-all {
+                                        -webkit-font-smoothing: antialiased;
+                                        font-weight: bold;
+                                        line-height: 140%;
+                                        font-family: helvetica, sans-serif;
+                                        box-sizing: border-box;
+                                        color: #44475d;
+                                    }
+                                    
+                                    .mention-mention {
+                                        line-height: 2em;
+                                    }
+                                    
+                                    .mention-ruban {
+                                        text-align: center;
+                                        background: #F3F2EF;
+                                        padding: 10px 50px 20px;
+                                        border-radius: 30px;
+                                        opacity: 0.5;
+                                    }
+                                    
+                                    .mention-ol {
+                                        list-style: none;
+                                    }
+                                    
+                                    .recruteur-bordure {
+                                        border-radius: 10px;
+                                    }
+                                    
+                                    .changement-color {
+                                        background: linear-gradient(70deg, #F3F2EF, #FFCD00);
+                                    }
