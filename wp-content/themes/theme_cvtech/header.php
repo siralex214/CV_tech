@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -12,48 +13,38 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'theme_cvtech' ); ?></a>
+<header>
+	<nav>
+		<div class="logo">
+			<a class="nav_title" href="#">Bertolucci</a>
+		</div>
+		<input type="checkbox" id="click">
+		<label for="click" class="menu-btn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<ul>
+			<li><a href="#aboutContainer">Accueil</a></li>
+			<li><a href="#skillsContainer">Contact</a></li>
+			<li><a href="#projectsContainer">Connexion</a></li>
+		</ul>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$theme_cvtech_description = get_bloginfo( 'description', 'display' );
-			if ( $theme_cvtech_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $theme_cvtech_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+		<!-- <div id="nav-menu">
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'theme_cvtech' ); ?></button>
 			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
+			wp_nav_menu(array(
+				'theme_location' => 'my-custom-menu',
+				'container_class' => 'custom-menu-class'
+			));
 			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		</div> -->
+	</nav>
+</header>
