@@ -7,7 +7,7 @@
     margin: 10px 67px 20px;
 }
 
-a {
+.mention-a {
     color: #1614b4;
 }
 
@@ -16,7 +16,7 @@ a {
     text-decoration: underline;
 }
 
-body {
+.mention-all {
     -webkit-font-smoothing: antialiased;
     font-weight: bold;
     line-height: 140%;
@@ -37,6 +37,6 @@ body {
     opacity: 0.5;
 }
 
-ol {
+.mention-ol {
     list-style: none;
 }

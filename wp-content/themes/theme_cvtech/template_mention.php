@@ -1,24 +1,12 @@
 <?php 
 /* Template Name: mention */
 get_header();
-
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
 
-    <title> bertolucci</title>
-</head>
-<?php
-?>
 <main>
-
-    <ol>
+<div class=mention-all>
+    <ol  class=mention-ol>
         <div class=mention-ruban>
             <h1 class="mention-h1">Mentions Légales</h1>
         </div>
@@ -43,7 +31,7 @@ get_header();
     </ol>
 
     <div class="mention-mention">
-        <ol>
+        <ol  class=mention-ol>
             <h3  class="mention-h3">Conditions d’utilisation :</h3>
             <h3  class="mention-h3">
                 <li>Conditions lié au RGPD :</li>
@@ -94,13 +82,16 @@ get_header();
             <h3  class="mention-h3">
                 <li>Données personnelles :
             </h3>
-            <p class="mention-text">De manière générale, vous n’êtes pas tenu de nous communiquer vos données personnelles lorsque vous visitez notre site Internet <a href="index.php"></a>
+            <p class="mention-text">De manière générale, vous n’êtes pas tenu de nous communiquer vos données personnelles lorsque vous visitez notre site Internet <a class="mention-a" href="index.php"></a>
                 Cependant, ce principe comporte certaines exceptions. En effet, pour certains services proposés par notre site, vous pouvez être amenés à nous communiquer certaines données telles que : votre nom, votre fonction, le nom de votre société, votre adresse électronique, et votre numéro de téléphone. Tel est le cas lorsque vous remplissez le formulaire qui vous est proposé en ligne, dans la rubrique « <a href="footer.php">contact</a> ».
                 Dans tous les cas, vous pouvez refuser de fournir vos données personnelles. Dans ce cas, vous ne pourrez pas utiliser les services du site, notamment celui de solliciter des renseignements sur notre société, ou de recevoir les lettres d’information.
                 Enfin, nous pouvons collecter de manière automatique certaines informations vous concernant lors d’une simple navigation sur notre site Internet, notamment : des informations concernant l’utilisation de notre site, comme les zones que vous visitez et les services auxquels vous accédez, votre adresse IP, le type de votre navigateur, vos temps d’accès.
                 De telles informations sont utilisées exclusivement à des fins de statistiques internes, de manière à améliorer la qualité des services qui vous sont proposés. Les bases de données sont protégées par les dispositions de la loi du 1er juillet 1998 transposant la directive 96/9 du 11 mars 1996 relative à la protection juridique des bases de données.</p>
-            <p class="mention-text"> cliquer <a href="mailto: bertolucci@gmail.com">ici </a>pour nous envoyer un email </p>
+            <p class="mention-text"> cliquer <a class="mention-a" href="mailto: bertolucci@gmail.com">ici </a>pour nous envoyer un email </p>
     </div>
     </ol>
+    </div>
+</div>
+
 </main>
 <?php get_footer(); ?>

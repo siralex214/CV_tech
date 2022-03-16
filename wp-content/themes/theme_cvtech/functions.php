@@ -148,11 +148,15 @@ function theme_cvtech_scripts() {
 
 	wp_enqueue_script( 'theme_cvtech-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
+	wp_register_script('pdfjs', "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js", array(), '1.0.0', true);
+    wp_enqueue_script('pdfjs');
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-	wp_register_script('main_théo', get_template_directory_uri() . '/assets/js/main_theo.js', array(), '1.0.0', true);
-    wp_enqueue_script('main_théo');
+
+	wp_register_script('main_theo', get_template_directory_uri() . '/assets/js/main_theo.js', array(), '1.0.0', true);
+    wp_enqueue_script('main_theo');
 
 	wp_register_script('main_alexis', get_template_directory_uri() . '/assets/js/main_alexis.js', array(), '1.0.0', true);
     wp_enqueue_script('main_alexis');
