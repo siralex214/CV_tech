@@ -1,8 +1,8 @@
-p {
+.mention-text {
     margin: 10px 67px 20px;
 }
 
-h3 {
+.mention-h3 {
     text-decoration: underline;
     margin: 10px 67px 20px;
 }
@@ -11,7 +11,7 @@ a {
     color: #1614b4;
 }
 
-h1 {
+.mention-h1 {
     text-align: center;
     text-decoration: underline;
 }
@@ -25,11 +25,11 @@ body {
     color: #44475d;
 }
 
-.mention {
+.mention-mention {
     line-height: 2em;
 }
 
-.ruban {
+.mention-ruban {
     text-align: center;
     background: #F3F2EF;
     padding: 10px 50px 20px;
