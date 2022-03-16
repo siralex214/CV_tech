@@ -1,0 +1,321 @@
+.front {
+  z-index: 2;
+  background: #be8282;
+}
+
+.back {
+  transform: rotateY(180deg);
+  z-index: 0;
+  padding-top: 10px;
+  background: #d89090;
+}
+
+form {
+  text-align: left;
+}
+
+.back h1 {
+  margin: 0;
+}
+
+.container_modal {
+  /*min-width: 700px;*/
+  min-height: 400px;
+  border-radius: 20px;
+  position: relative;
+  -webkit-transition: 0.8s ease-in-out;
+  transition: 0.8s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.side {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 680px;
+  color: #fff;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 20px;
+}
+
+.content {
+  transform: translatez(70px) scale(0.8);
+  line-height: 1.5em;
+}
+
+.content h1 {
+  margin: 0;
+  position: relative;
+  color: black;
+}
+
+/* formulaire */
+h2 {
+  text-align: center;
+}
+
+.row {
+  float: left;
+  margin-bottom: 2em;
+}
+
+.row1 {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.row2 {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.row3 {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.row1 h2,
+.row2 h2 {
+  color: #004;
+}
+
+label {
+  color: black;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: black;
+  font-style: italic;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: black;
+  opacity: 1;
+  font-style: italic;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: black;
+  opacity: 1;
+  font-style: italic;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: black;
+  font-style: italic;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: black;
+  font-style: italic;
+}
+
+:focus {
+  outline: none;
+}
+
+.col-3 {
+  float: left;
+  width: 300px;
+  position: relative;
+}
+
+/* necessary to give position: relative to parent. */
+input[type="text"],
+input[type="password"] {
+  font: 25px/24px "Lato", Arial, sans-serif;
+  background-color: transparent;
+  color: #000;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.effect-2 {
+  border: 0;
+  padding: 7px 0;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+}
+
+.effect-2 ~ .focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #3399ff;
+  transition: 0.4s;
+}
+
+.effect-2:focus ~ .focus-border {
+  width: 100%;
+  transition: 0.4s;
+  left: 0;
+}
+
+/*= input focus effects css End
+            =============================== */
+
+/*= input focus effects css End
+            =============================== */
+/* bouton submit */
+.submit_div {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+.submit_button {
+  background-color: #279b8f;
+  color: white;
+  margin: auto;
+  cursor: pointer;
+  padding: 1rem 3rem;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 76px;
+}
+.fa-close:before,
+.fa-multiply:before,
+.fa-remove:before,
+.fa-times:before,
+.fa-xmark:before {
+  content: "\f00d";
+  color: #48c9b0;
+}
+.error {
+  text-align: center;
+  color: red;
+  font-size: 17px;
+  margin-top: 1rem;
+}
+
+.last_button {
+  margin-top: 50px;
+  width: 100%;
+}
+
+/*----bouton connexion----*/
+.vers_inscription {
+  pointer-events: auto;
+  cursor: pointer;
+  margin: 0;
+  font-size: 1.2rem;
+  position: relative;
+  display: inline-block;
+  font-family: monospace;
+  font-weight: 500;
+  border-radius: 3rem;
+  padding: 1rem 1.5rem;
+  overflow: hidden;
+  color: rgb(0, 0, 0);
+}
+
+/* Spinner */
+
+@-moz-keyframes throbber-loader {
+  0% {
+    background: #dde2e7;
+  }
+  10% {
+    background: #6b9dc8;
+  }
+  40% {
+    background: #dde2e7;
+  }
+}
+
+@-webkit-keyframes throbber-loader {
+  0% {
+    background: #dde2e7;
+  }
+  10% {
+    background: #338ec5ff;
+  }
+  40% {
+    background: #dde2e7;
+  }
+}
+
+@keyframes throbber-loader {
+  0% {
+    background: #dde2e7;
+  }
+  10% {
+    background: #338ec5ff;
+  }
+  40% {
+    background: #dde2e7;
+  }
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.throbber-loader:not(:required) {
+  -moz-animation: throbber-loader 2000ms 300ms infinite ease-out;
+  -webkit-animation: throbber-loader 2000ms 300ms infinite ease-out;
+  animation: throbber-loader 2000ms 300ms infinite ease-out;
+  background: #dde2e7;
+  display: inline-block;
+  position: relative;
+  text-indent: -9999px;
+  width: 0.9em;
+  height: 1em;
+  margin: 0 1.6em;
+}
+
+.throbber-loader:not(:required):before,
+.throbber-loader:not(:required):after {
+  background: #dde2e7;
+  content: "\x200B";
+  display: inline-block;
+  width: 0.9em;
+  height: 1em;
+  position: absolute;
+  top: 0;
+}
+
+.throbber-loader:not(:required):before {
+  -moz-animation: throbber-loader 2000ms 150ms infinite ease-out;
+  -webkit-animation: throbber-loader 2000ms 150ms infinite ease-out;
+  animation: throbber-loader 2000ms 150ms infinite ease-out;
+  left: -1.6em;
+}
+
+.throbber-loader:not(:required):after {
+  -moz-animation: throbber-loader 2000ms 450ms infinite ease-out;
+  -webkit-animation: throbber-loader 2000ms 450ms infinite ease-out;
+  animation: throbber-loader 2000ms 450ms infinite ease-out;
+  right: -1.6em;
+}
+
+#label_cgu {
+  font-size: 1.2rem;
+}
+
+#img_connexion {
+  width: auto;
+  height: 466px;
+}
+
+#content_connexion {
+  align-items: center;
+  display: flex;
+  margin-top: 50px;
+}
+
+.form_connexion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inscription form {
+  margin-top: 50px;
+}
