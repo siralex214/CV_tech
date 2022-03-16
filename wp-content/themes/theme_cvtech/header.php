@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -10,13 +11,40 @@
  */
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html <?php language_attributes(); ?>>
+
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Création CV</title>
-	<?php wp_head();?>
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<?php wp_head(); ?>
 </head>
-<body>
+
+<header>
+	<nav>
+		<div class="logo">
+			<a class="nav_title" href="#">Bertolucci</a>
+		</div>
+		<input type="checkbox" id="click">
+		<label for="click" class="menu-btn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<ul>
+			<li><a href="#aboutContainer">Accueil</a></li>
+			<li><a href="#skillsContainer">Contact</a></li>
+			<li><a href="#projectsContainer">Connexion</a></li>
+		</ul>
+
+		<!-- <div id="nav-menu">
+
+			<?php
+			wp_nav_menu(array(
+				'theme_location' => 'my-custom-menu',
+				'container_class' => 'custom-menu-class'
+			));
+			?>
+		</div> -->
+	</nav>
+</header>
