@@ -138,6 +138,18 @@ add_action( 'widgets_init', 'theme_cvtech_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
+
+/*function capitaine_assets() {
+
+    // Charger notre script
+    wp_enqueue_script( 'capitaine', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '1.0', true );
+
+    // Envoyer une variable de PHP à JS proprement
+    wp_localize_script( 'capitaine', 'capitaine', [ ajaxurl => admin_url( 'admin-ajax.php' ) ] );
+
+}
+add_action( 'wp_enqueue_scripts', 'capitaine_assets' );
+*/
 function theme_cvtech_scripts() {
 	wp_enqueue_style( 'theme_cvtech-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'theme_cvtech-style', 'rtl', 'replace' );
@@ -198,3 +210,15 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+function cv_tech_session_start()
+{
+    if (!session_id()) {
+        @session_start();
+    }
+
+}
+
+
+add_action('init', 'cv_tech_session_start', 1);
+

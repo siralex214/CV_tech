@@ -10,14 +10,16 @@ html {
 }
 
 * {
-    margin: 0;
-    padding: 0;
+    /*margin: 0;*/
+    /*padding: 0;*/
     list-style-type: none;
     box-sizing: border-box;
     text-decoration: none;
 }
 
 body {
+    margin: 0;
+    padding: 0;
   background-color: #ebebeb;
     min-height: 100%;
     position: relative;
@@ -45,12 +47,12 @@ nav{
     padding: 0 50px 0 50px;
     flex-wrap: wrap;
     }
-  
+
     .logo {
       color: #040500;
       margin-right: 10px;
   }
-    
+
     .nav_title, #footer-title{
       font-size: 35px;
       color: #040500;
@@ -63,21 +65,21 @@ nav{
         color: #f3f2ef;
         margin-bottom: 20px;
     }
-  
+
     .bold {
       font-weight: 600;
     }
-  
+
     nav ul{
       display: flex;
       flex-wrap: wrap;
       margin: 0;
     }
-  
+
     nav ul li{
       margin: 0 5px;
     }
-  
+
     nav ul li a{
     color: #040500;
       text-decoration: none;
@@ -88,29 +90,29 @@ nav{
       letter-spacing: 1px;
       transition: all 0.3s;
     }
-  
+
     nav ul li a.active,
     nav ul li a:hover{
       color: #ffcd00;
     }
-  
+
     nav .menu-btn i{
       color: #fff;
       font-size: 22px;
       cursor: pointer;
       display: none;
     }
-  
+
     input[type="checkbox"]{
       display: none;
     }
-  
+
     @media (max-width: 1000px){
       nav{
         padding: 0 40px 0 50px;
       }
     }
-  
+
     @media (max-width: 960px) {
       nav .menu-btn i{
         display: block;
@@ -150,7 +152,7 @@ nav{
         color: #ffcd00;
       }
     }
-  
+
     @media (max-width: 420px) {
       nav {
         padding: 0px 8px 0 8px;
@@ -182,7 +184,7 @@ nav{
       text-decoration: none;
       transition: all 0.3s;
     }
-  
+
     .footer-links.active,
     .footer-links:hover{
       color: #ffcd00;
