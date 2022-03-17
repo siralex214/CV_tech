@@ -84,7 +84,7 @@ if (!empty($_POST)) {
 		<div class="container_modal">
 			<div class="front side">
 				<div class="content">
-					<h1>Connexion</h1>
+					<h1 class="connectionco">Connexion</h1>
 					<div id="content_connexion">
 						<form name="connexion" class="form_connexion" action="" method="POST">
 							<div class="col-3">
