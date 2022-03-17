@@ -1,13 +1,22 @@
+.modal {
+  scale: (0.8);
+  width: 80%;
+  position: absolute;
+  z-index: 999999;
+  margin-left: 100px;
+  margin-top: 70px;
+}
+
 .front {
   z-index: 2;
-  background: #be8282;
+  background: #82be91;
 }
 
 .back {
   transform: rotateY(180deg);
   z-index: 0;
   padding-top: 10px;
-  background: #d89090;
+  background: #90d8ba;
 }
 
 form {
@@ -307,6 +316,7 @@ input[type="password"] {
   align-items: center;
   display: flex;
   margin-top: 50px;
+  justify-content: center;
 }
 
 .form_connexion {
@@ -318,4 +328,15 @@ input[type="password"] {
 
 .inscription form {
   margin-top: 50px;
+}
+
+input[type="submit"] {
+  width: 150px;
+  padding: 10px 10px;
+  margin: 20px;
+  background-color: #ffcd00;
+  color: #fff;
+  border: none;
+  text-align: center;
+  margin-left: 120px;
 }
