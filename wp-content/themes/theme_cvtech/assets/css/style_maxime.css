@@ -276,7 +276,7 @@ nav{
 .card-box {
   display: flex;
   width: 236px;
-  height: 336px;
+  min-height: 336px;
   background-color: #f3f2ef;
   box-shadow: 0 2px 30px rgb(0 0 0 / 50%);
   border-radius: 6px;
