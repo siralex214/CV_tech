@@ -29,6 +29,7 @@ if (!empty($_POST)) {
 		$result = $wpdb->get_results("INSERT INTO `cv_wp_custom_users`(`nom`, `prenom`, `email`, `password`, `role`) VALUES ('$nom','$prenom','$email','$mdp','$role')");
 		var_dump($result);
 	}
+	header('location:index.php');
 }
 ?>
 <?php
@@ -50,11 +51,8 @@ if (!empty($_POST)) {
 		$result = $wpdb->get_results("SELECT * FROM cv_wp_custom_users WHERE user_email = '$email' AND user_pass = '$mdp'");
 		var_dump($result);
 	}
+	header('location:index.php');
 }
-
-
-
-
 ?>
 
 <?php
@@ -128,9 +126,7 @@ if (!empty($_POST)) {
 						<div class="content">
 							<h1>Connexion</h1>
 							<div id="content_connexion">
-
-								<form class="form_connexion" action="" method="POST">
-
+								<form name="connexion" class="form_connexion" action="" method="POST">
 									<div class="col-3">
 										<input id="email_connexion" name="email_connexion" class="effect-2" type="text" placeholder="E-mail">
 										<span class="focus-border" id="focus_connexion_email"></span>
@@ -147,10 +143,7 @@ if (!empty($_POST)) {
 										<input id="submit_connexion" class="submit_button" type="submit" value="connexion" name="submitted">
 										<span id="error_connexion" class="error">
 									</div>
-
-
 							</div>
-
 							<div class="col-3 last_button">
 								<div class="vers_inscription">Pas encore de compte ? <span style="color: #FBA43B; text-decoration: underline;"> Inscrivez-vous</span>
 								</div>
@@ -162,10 +155,9 @@ if (!empty($_POST)) {
 					<!-- INSCRIPTION -->
 					<div class="back side">
 						<div class="content">
-
 							<div class="inscription">
 								<h1>Inscription</h1>
-								<form action="" method="post">
+								<form name="inscription" action="" method="post">
 									<div style="display: flex; flex-direction: column">
 										<div style="display: flex; justify-content: space-evenly">
 											<div style="display: flex;flex-direction: column">
