@@ -59,9 +59,6 @@ const nom_inscription = document.querySelector("#nom_inscription");
 const erreur_nom_insc = document.querySelector("#erreur_nom_inscription");
 const focus_nom_inscription = document.querySelector("#focus_nom_inscription");
 
-const cgu_inscription = document.querySelector("#cgu_inscription");
-const label_cgu = document.querySelector("#label_cgu");
-
 let erreur_insc = true;
 let verifPrenomInsc = () => {
   if (prenom_inscription.value == "") {
@@ -142,64 +139,6 @@ if (submit_inscription != null) {
       erreur_insc = true;
     } else {
       erreur_insc = false;
-    }
-  });
-}
-
-const email_connexion = document.querySelector("#email_connexion");
-const focus_connexion_email = document.querySelector("#focus_connexion_email");
-const focus_connexion_password = document.querySelector(
-  "#focus_connexion_password"
-);
-const focus_connexion2_password = document.querySelector(
-  "#focus_connexion_password"
-);
-const password_connexion = document.querySelector("#password_connexion");
-const password_connexion2 = document.querySelector("#password_connexion2");
-const erreur_mail_co = document.querySelector("#erreur_mail_co");
-const erreur_password_co = document.querySelector("#erreur_password_co");
-const erreur_password2_co = document.querySelector("#erreur_password2_co");
-const submit_connexion = document.querySelector("#submit_connexion");
-const error_connexion = document.querySelector("#error_connexion");
-let erreur = true;
-
-if (email_connexion != null && password_connexion != null) {
-  email_connexion.addEventListener("input", async () => {
-    if (
-      !email_connexion.value.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)
-    ) {
-      erreur_mail_co.innerHTML = "l'email n'est pas une adresse valide";
-      focus_connexion_email.style = "background-color: red";
-      erreur = true;
-    } else {
-      submit_connexion.style = "cursor: pointer";
-      erreur_mail_co.innerHTML = "&nbsp;";
-      focus_connexion_email.style = "background-color: green";
-      erreur = false;
-    }
-  });
-  password_connexion.addEventListener("input", async () => {
-    if (password_connexion.value.length < 8) {
-      erreur_password_co.innerHTML = "mot de passe non réglementaire";
-      focus_connexion_password.style = "background-color: red";
-      erreur = true;
-    } else {
-      focus_connexion_password.style = "background-color: green";
-      erreur_password_co.innerHTML = "&nbsp;";
-      submit_connexion.style = "cursor: pointer";
-      erreur = false;
-    }
-  });
-  password_connexion.addEventListener("input", async () => {
-    if (password_connexion2.value != password_connexion.value) {
-      erreur_password2_co.innerHTML = "mot de passe non réglementaire";
-      focus_connexion2_password.style = "background-color: red";
-      erreur = true;
-    } else {
-      focus_connexion2_password.style = "background-color: green";
-      erreur_password2_co.innerHTML = "&nbsp;";
-      submit_connexion.style = "cursor: pointer";
-      erreur = false;
     }
   });
 }
