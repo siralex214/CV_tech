@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -11,24 +12,34 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'theme_cvtech' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'theme_cvtech' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'theme_cvtech' ), 'theme_cvtech', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+<footer>
+	<section id="footer">
+		<div class="footer-container">
+			<div id="footer-title">Bertolucci</div>
+			<div id="social_network">
+				<a href="#" target="_blank" class="social_logo">
+					<i class="fa-brands fa-facebook-square fa-2x"></i>
+				</a>
+				<a href="#" target="_blank" class="social_logo">
+					<i class="fa-brands fa-twitter-square fa-2x"></i>
+				</a>
+				<a href="#" target="_blank" class="social_logo">
+					<i class="fa-brands fa-linkedin fa-2x"></i></i>
+				</a>
+			</div>
+		</div>
+		<div class="footer-container">
+			<a href="#" id="legals" class="footer-links">Mentions légales</a>
+			<div id="right">© 2022, Bertolucci, All rights reserved.</div>
+		</div>
+		<div class="footer-container">
+			<a href="#" class="footer-links">Nous contacter</a>
+		</div>
+	</section>
+</footer>
 
 <?php wp_footer(); ?>
 
 </body>
+
 </html>

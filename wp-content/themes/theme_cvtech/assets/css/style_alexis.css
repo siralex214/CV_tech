@@ -1,0 +1,37 @@
+.wrap_profil_user {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 1000px;
+}
+
+.profil_user_h1 {
+    padding-top: 100px;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+.menu_nav_profil_user {
+    display: flex;
+    justify-content: space-around;
+}
+
+button.but_profil_user {
+    margin-right: 10px;
+    width: 100%;
+    height: 80px;
+    font-size: 1rem;
+}
+
+button.but_profil_user:last-child {
+    margin: 0;
+}
+
+.show_block_profil_user {
+    display: block;
+    height: 500px;
+    border: 1px solid black;
+}
+
+.none_block_profil_user {
+    display: none;
+}
