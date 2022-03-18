@@ -79,103 +79,92 @@ if (!empty($_POST)) {
 </head>
 
 <div class='modal'>
-	<div>
-		<i id="fermeture_connexion" class="fas fa-times"></i>
-		<div class="container_modal">
-			<div class="front side">
-				<div class="content">
-					<h1 class="connectionco">Connexion</h1>
-					<div id="content_connexion">
-						<form name="connexion" class="form_connexion" action="" method="POST">
-							<div class="col-3">
-								<input id="email_connexion" name="email_connexion" class="effect-2" type="text" placeholder="E-mail">
-								<span class="focus-border" id="focus_connexion_email"></span>
-							</div>
-
-							<p class="error" id="erreur_mail_co">&nbsp;</p>
-
-							<div class="col-3">
-								<input id="password_connexion" class="effect-2" type="password" name="password_connexion" placeholder="Mot de passe">
-								<span class="focus-border" id="focus_connexion_password"></span>
-							</div>
-							<p class="error" id="erreur_password_co">&nbsp;</p>
-							<div class="col-3 submit_div">
-								<input id="submit_connexion" class="submit_button" type="submit" value="connexion" name="submitted">
-								<span id="error_connexion" class="error">
-							</div>
-					</div>
-					<div class="col-3 last_button">
-						<div class="vers_inscription">Pas encore de compte ? <span style="color: #FBA43B; text-decoration: underline;"> Inscrivez-vous</span>
-						</div>
-					</div>
-					</form>
-				</div>
-
+	<div id="popupInscription" class="modal">
+		<div class="popup">
+			<div>
+				<button id="btn_co">connexion</button>
+				<button id="btn_ins"> inscription</button>
 			</div>
-			<!-- INSCRIPTION -->
-			<div class="back side">
-				<div class="content">
-					<div class="inscription">
-						<h1>Inscription</h1>
-						<form name="inscription" action="" method="post">
-							<div style="display: flex; flex-direction: column">
-								<div style="display: flex; justify-content: space-evenly">
-									<div style="display: flex;flex-direction: column">
-										<div class="col-3">
-											<input id="prenom_inscription" class="effect-2" type="text" name="prenom" placeholder="Prénom">
-											<span class="focus-border" id="focus_prenom_inscription"></span>
-										</div>
-										<span class="error" id="erreur_prenom_inscription">&nbsp;</span>
-									</div>
-									<div class="col-3">
-										<input id="nom_inscription" class="effect-2" type="text" name="nom" placeholder="nom">
-										<span class="focus-border" id="focus_nom_inscription"></span>
-									</div>
-									<span class="error" id="erreur_prenom_inscription">&nbsp;</span>
-								</div>
-								<div style="display: flex;flex-direction: column">
-									<span class="error" id="erreur_nom_inscription">&nbsp;</span>
-								</div>
-							</div>
+			<p id="close_modal" class='close' href='#'>&times;</p>
+			<div class='content_connexion' id="inscriptionform">
+				<form method="post" action="insert_users.php">
+					<div class="input-box">
+						<label class="label title_popup"></label>
 					</div>
-					<div style="display: flex; flex-direction: column; align-items: center;">
-						<div style="display: flex;flex-direction: column">
-							<div class="col-3" style="width: 500px; margin: 24px auto 0;">
-								<input id="email_inscription" name="email_inscription" class="effect-2" type="text" placeholder="Email">
-								<span class="focus-border" id="focus_email_inscription"></span>
-							</div>
-							<span class="error" id="erreur_mail_inscription">&nbsp;</span>
-						</div>
-						<div style="display: flex;flex-direction: column">
-							<div class="col-3" style="width: 500px; margin: 24px auto 0;">
-								<input id="password_inscription" class="effect-2" name="password_inscription" type="password" placeholder="Mot de passe">
-								<span class="focus-border" id="focus_password_inscription"></span>
-							</div>
-							<span style="color: black"> Caractère min:8; Caractère spécial obligatoire; 1 majuscule et 1 minuscule</span>
-							<span class="error" id="erreur_password_inscription">&nbsp;</span>
-						</div>
-						<div style="display: flex;flex-direction: column">
-							<div class="col-3" style="width: 500px; margin: 24px auto 0;">
-								<input id="password_inscription2" class="effect-2" name="password2" type="password" placeholder="Mot de passe">
-								<span class="focus-border" id="focus_password_inscription2"></span>
-							</div>
-							<span style="color: black"> Caractère min:8; Caractère spécial obligatoire; 1 majuscule et 1 minuscule</span>
-							<span class="error" id="erreur_password_inscription">&nbsp;</span>
-						</div>
-						<div class="col-3 submit_div">
-							<input id="submit_inscription" class="submit_button" type="submit" value="inscription" name="submitted">
-							<span id="error_inscription" class="error"> &nbsp;</span>
-						</div>
+					<div class="input-box">
+						<label class="label">Nom</label>
+						<input class="input" type="text" name="nom" id="nom">
 					</div>
-					</form>
-					<br>
-					<div class="vers_inscription2">Vous avez déjà un compte? <span style="color: #FBA43B; text-decoration: underline;">Connectez-vous</span>
+					<div class="errors">
+						<span id="nomError">Entre 2 et 20 caractères</span>
 					</div>
-				</div>
+					<div class="input-box">
+						<label class="label">Prenom</label>
+						<input class="input" type="text" name="prenom" id="prenom">
+					</div>
+					<div class="errors">
+						<span id="prenomError">Entre 2 et 20 caractères</span>
+					</div>
+					<div class="input-box">
+						<label class="label">Email</label>
+						<input class="input" type="email" name="email_inscription" id="email">
+					</div>
+					<div class="errors">
+						<span id="emailError">Email valide</span>
+					</div>
+					<div class="input-box">
+						<label class="label">Mot de passe</label>
+						<input class="input" type="password" name="password_inscription" id="password">
+					</div>
+					<div class="errors">
+						<span id="passwordErrorMajuscule">1 majuscule</span>
+						<span id="passwordErrorMinuscule">1 minuscule</span>
+						<span id="passwordErrorNombre">1 chiffre</span>
+						<span id="passwordErrorSpecial">1 caractère special</span>
+						<span id="passwordErrorSize">8 caractères minimum</span>
+					</div>
+					<div class="input-box">
+						<label class="label">Vérification de mot de passe</label>
+					</div>
+					<div class="input-box">
+						<input class="input" type="password" name="password2" id="passwordVerif">
+					</div>
+					<div class="errors">
+						<span id="passwordVerifError">Mot de passe identique</span>
+					</div>
+					<div class="input-box">
+						<input class="button" type='submit' value="S'inscrire" id="boutton">
+					</div>
+				</form>
 			</div>
+			<div class='content' id="connexionform">
+				<form class="form-login" action="" method="post">
+					<div class="input-box">
+						<label class="label title_popup"></label>
+					</div>
+					<div class="input-box">
+						<label class="label">Email</label>
+						<input class="input" type="email" name="email_connexion" placeholder="email">
+					</div>
+					<div class="input-box">
+						<label class="label">Mot de passe</label>
+						<input class="input" type="password" name="password_connexion" placeholder="Mot de passe">
+					</div>
+
+					<div class="input-box">
+						<button class="button" type="submit" value="Connexion" id="Connexion">Se connecter</button>
+					</div>
+				</form>
+			</div>
+
 		</div>
 	</div>
-</div>
+
+	<!-- formulaire popup de connexion -->
+
+
+
+
 </div>
 <header>
 	<nav>
@@ -189,7 +178,7 @@ if (!empty($_POST)) {
 		<ul>
 			<li><a href="#aboutContainer">Accueil</a></li>
 			<li><a href="#skillsContainer">Contact</a></li>
-			<li><a id="btn_connexion">Connexion</a></li>
+			<li id="btn_connexion">Connexion</li>
 		</ul>
 
 		<!-- <div id="nav-menu">

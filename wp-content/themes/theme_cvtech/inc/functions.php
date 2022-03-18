@@ -124,3 +124,4 @@ function verif_type($key, $type, $errors)
     }
     return $errors;
 }
+
