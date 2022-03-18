@@ -94,10 +94,10 @@ if (!empty($_POST)) {
 					<div class="input-box">
 						<label class="label">Nom</label>
 						<input class="input" type="text" name="nom" id="nom" id="focus_nom_inscription">
-						<span class="error" id="erreur_nom_inscription">&nbsp;</span>
 					</div>
 					<div class="errors">
 						<span id="nomError">Entre 2 et 20 caractères</span>
+						<span class="error" id="erreur_nom_inscription">&nbsp;</span>
 					</div>
 					<div class="input-box">
 						<label class="label">Prenom</label>
@@ -106,6 +106,7 @@ if (!empty($_POST)) {
 					</div>
 					<div class="errors">
 						<span id="prenomError">Entre 2 et 20 caractères</span>
+						<span class="error" id="erreur_prenom_inscription">&nbsp;</span>
 					</div>
 					<div class="input-box">
 						<label class="label">Email</label>
@@ -113,6 +114,7 @@ if (!empty($_POST)) {
 					</div>
 					<div class="errors">
 						<span id="emailError">Email valide</span>
+						<span class="error" id="erreur_mail_inscription">&nbsp;</span>
 					</div>
 					<div class="input-box">
 						<label class="label">Mot de passe</label>
@@ -124,6 +126,7 @@ if (!empty($_POST)) {
 						<span id="passwordErrorNombre">1 chiffre</span>
 						<span id="passwordErrorSpecial">1 caractère special</span>
 						<span id="passwordErrorSize">8 caractères minimum</span>
+						<span class="error" id="erreur_password_inscription">&nbsp;</span>
 					</div>
 					<div class="input-box">
 						<label class="label">Vérification de mot de passe</label>
@@ -148,11 +151,12 @@ if (!empty($_POST)) {
 						<label class="label">Email</label>
 						<input class="input" type="email" name="email_connexion" placeholder="email" id="focus_connexion_email">
 					</div>
+					<p class="error" id="erreur_mail_co">&nbsp;</p>
 					<div class="input-box">
 						<label class="label">Mot de passe</label>
 						<input class="input" type="password" name="password_connexion" placeholder="Mot de passe" id="focus_connexion_password">
 					</div>
-
+					<p class="error" id="erreur_password_co">&nbsp;</p>
 					<div class="input-box">
 						<button class="button" type="submit" value="Connexion" id="Connexion">Se connecter</button>
 					</div>
