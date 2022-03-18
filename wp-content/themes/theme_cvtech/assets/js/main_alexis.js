@@ -29,3 +29,34 @@ if (profil_user != null) {
         })
     })
 }
+
+const more_permis = document.querySelector("#more_permis")
+const permis = document.querySelector(".permis")
+let etat = false
+more_permis.addEventListener("click", () => {
+    if (etat == false) {
+        etat = true
+        permis.classList.add("permis_show")
+    } else {
+        etat = false
+        permis.classList.remove("permis_show")
+    }
+})
+
+const btn_edit_info_perso = document.querySelectorAll(".btn_edit_info_perso")
+const info_perso_profil_user = document.querySelectorAll(".info_perso_profil_user")
+
+// console.log(btn_edit_info_perso)
+// console.log(info_perso_profil_user)
+btn_edit_info_perso.forEach(onebutton => {
+    onebutton.addEventListener("click", (event) => {
+        event.preventDefault()
+        let element = onebutton.parentNode
+        console.log(element)
+        element.innerHTML = "<form class='form_edit_userProfil' method='post'>" +
+            "<input type='text' name='' class='input_edit_userProfil' value='" + element.textContent + "'>" +
+            "<input class='submit_edit_userProfil' type='submit' value='modifier'>" +
+            "</form>"
+    })
+})
+

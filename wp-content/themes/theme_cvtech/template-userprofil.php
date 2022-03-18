@@ -36,6 +36,16 @@ while ($i < count($formations)) {
 
 $prepare3 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_exp-pro` WHERE id_user = %d", [$_SESSION['id']]);
 $exp_pros = $wpdb->get_results($prepare3, ARRAY_A);
+$i = 0;
+while ($i < count($exp_pros)) {
+    $date_debut = new DateTime($exp_pros[$i]['date_debut']);
+    $date_debut = $date_debut->format("m-Y");
+    $exp_pros[$i]['date_debut'] = $date_debut;
+    $date_fin = new DateTime($exp_pros[$i]['date_fin']);
+    $date_fin = $date_fin->format("m-Y");
+    $exp_pros[$i]['date_fin'] = $date_fin;
+    $i++;
+}
 
 $prepare4 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_hobbies` WHERE id_user = %d", [$_SESSION['id']]);
 $hobbies = $wpdb->get_results($prepare4, ARRAY_A);
@@ -46,26 +56,35 @@ $prepare5 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_info_perso` WHERE id_use
 $info_persos = $wpdb->get_results($prepare5, ARRAY_A);
 $info_persos = $info_persos[0];
 $info_persos['permis'] = explode("; ", $info_persos['permis']);
+$date = new DateTime($info_persos['date_de_naissance']);
+$date = $date->format("d-m-Y");
+$info_persos['date_de_naissance'] = $date;
 
 $prepare6 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_langue` WHERE id_user = %d", [$_SESSION['id']]);
 $langues = $wpdb->get_results($prepare6, ARRAY_A);
 $langues = $langues[0];
 $langues['langues'] = explode("; ", $langues["langues"]);
 
+$prepare7 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_competence` WHERE id_user = %d", [$_SESSION['id']]);
+$competences = $wpdb->get_results($prepare7, ARRAY_A);
+$competences = $competences[0];
+$competences['competences'] = explode("; ", $competences["competences"]);
 
-debug($cvs);
+
+//debug($cvs);
 // debug($formations);
-debug($exp_pros);
-debug($hobbies);
+//debug($exp_pros);
+//debug($hobbies);
 debug($info_persos);
-debug($langues);
-
+//debug($langues);
+//debug($competences);
 
 ?>
 <main id="profil_user">
 
     <div id="app"></div>
     <h1 class="profil_user_h1">Bonjour, <!-- PHP --> </h1>
+
     <section class="wrap_profil_user">
         <div class="menu_nav_profil_user">
             <button value="0" class="but_profil_user active_userProfil">Mes informations personelles</button>
@@ -76,15 +95,45 @@ debug($langues);
         </div>
 
         <div class="profil_user_block show_block_profil_user">
-            <div>
-                <p>Nom: <span class="info_perso_profil_user"><?= ucfirst($_SESSION['nom']) ?><i
-                                class="fa-solid fa-pen"></i> </span></p>
-                <p>Prénom: <?= ucfirst($_SESSION['prenom']) ?></p>
-                <p>Email: <?= ucfirst($_SESSION['email']) ?></p>
-                <p>Mot de passe: *******</p>
-            </div>
-            <div>
+            <div style="display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+">
+                <div>
+                    <h2>Mes infos personnel: </h2>
+                    <p>Nom: <span class="info_perso_profil_user"><?= ucfirst($_SESSION['nom']) ?><i
+                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
+                    <p>Prénom: <span class="info_perso_profil_user"><?= ucfirst($_SESSION['prenom']) ?><i
+                                    class="btn_edit_info_perso fa-solid fa-pen"></i></a></span></p>
+                    <p>Email: <span class="info_perso_profil_user"> <?= ucfirst($_SESSION['email']) ?><i
+                                    class="btn_edit_info_perso fa-solid fa-pen"></i></a></span></p>
+                    <p>Mot de passe: <span class="info_perso_profil_user">******* <i
+                                    class="btn_edit_info_perso fa-solid fa-pen"></i></a></span></p></p>
+                </div>
+                <div>
+                    <h2>Informations sur le CV: </h2>
+                    <p>Nom: <span class="info_perso_profil_user"><?= $info_persos['nom'] ?><i
+                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
+                    <p>Prénom: <span class="info_perso_profil_user"><?= $info_persos['prenom'] ?><i
+                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
+                    <p>Email: <span class="info_perso_profil_user"><?= $info_persos['email'] ?><i
+                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
+                    <p>Date de naissance: <span
+                                class="info_perso_profil_user"><?= $info_persos['date_de_naissance'] ?><i
+                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
+                    <p>Permis: <span id="more_permis">Voir les permis</span><span class="info_perso_profil_user"><i
+                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
 
+                    <div class="permis">
+                        <?php foreach ($info_persos['permis'] as $permis) : ?>
+                            <p> <?= $permis ?>,</p>
+                        <?php endforeach; ?>
+                    </div>
+                    <p>Téléphone: <span class="info_perso_profil_user"><?= $info_persos['telephone'] ?><i
+                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
+                    <p>Adresse: <span class="info_perso_profil_user"><?= $info_persos['addresse_postale'] ?><i
+                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
+                </div>
             </div>
         </div>
         <div class="profil_user_block none_block_profil_user">
@@ -114,10 +163,41 @@ debug($langues);
             <?php endforeach; ?>
         </div>
         <div class="profil_user_block none_block_profil_user">
-            block3
+            <?php foreach ($exp_pros as $exp_pro) : ?>
+                <div class="one_box_userProfil_forma">
+                    <div>
+                        <p>
+                            <i class="fa-solid fa-graduation-cap log_formation"></i>
+                            &nbsp; <?= $exp_pro['poste'] ?>
+                            | <?= $exp_pro['entreprise'] ?>, <?= ucfirst($exp_pro['lieu']) ?>
+                        </p>
+                        <p class="date_userProfil">
+                            <?= $exp_pro['date_debut'] . " > " . $exp_pro['date_fin'] ?>
+                        </p>
+                    </div>
+                    <div class="btn_userProfil">
+                        <a href="">
+                            <button class="one_btn_userProfil"><i style="font-size: 20px" class="fa-solid fa-pen"></i>
+                            </button>
+                        </a>
+                        <a href="">
+                            <button class="one_btn_userProfil"><i style="font-size: 20px" class="fa-solid fa-trash"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+
         </div>
         <div class="profil_user_block none_block_profil_user">
-            block4
+            <?php foreach ($competences['competences'] as $competence): ?>
+                <span class="one_competence_userprofil">
+                    <?= $competence ?>
+            </span>
+            <?php endforeach; ?>
+            <a style="color: black" href=""><span class="one_competence_userprofil add_competence"><i
+                            class="fa-solid fa-plus"></i></span></a>
+
         </div>
         <div class="profil_user_block none_block_profil_user">
             <table class="minimalistBlack">

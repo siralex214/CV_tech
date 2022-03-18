@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ramaraja&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 main {
     padding-bottom: 130px;
@@ -10,7 +9,7 @@ a {
 }
 
 #profil_user p, #profil_user button, #profil_user div, #profil_user span {
-    font-family: 'Ramaraja', serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .wrap_profil_user {
@@ -110,6 +109,7 @@ span.info_perso_profil_user {
     padding: 12px 17px;
     border-radius: 30px;
     border-color: black;
+    cursor: pointer;
 }
 
 .one_btn_userProfil:first-child {
@@ -118,6 +118,56 @@ span.info_perso_profil_user {
 
 .log_formation {
     font-size: 2rem;
+}
+
+.one_competence_userprofil {
+    border: solid black 1px;
+    padding: 7px 13px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.add_competence {
+    background-color: #41ff41;
+}
+
+.permis {
+    transition: all 1s;
+    height: 0px;
+    overflow: hidden;
+}
+
+.permis_show {
+    /*border: 1px solid black;*/
+    height: 100px;
+    transition: all 1s;
+    overflow: hidden;
+}
+
+.permis p:first-child {
+    margin-top: 0;
+}
+
+#more_permis {
+    cursor: pointer;
+    text-decoration: underline black;
+}
+
+#more_permis:hover {
+    text-decoration: underline blue;
+    color: blue;
+}
+
+.form_edit_userProfil {
+    display: inline;
+}
+
+.submit_edit_userProfil {
+    vertical-align: bottom;
+}
+
+.input_edit_userProfil {
+    width: 110px;
 }
 
 /* tableau des CVs*/

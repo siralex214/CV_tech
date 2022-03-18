@@ -49,18 +49,18 @@
   justify-content: center;
 }
 
-input[type="submit"]{
-  width: 150px;
-  padding: 10px 10px;
-  margin: 20px;
-  background-color: #FFCD00;
-  color: #fff;
-  border: none;
-}
-input[type="submit"]:hover{
-  cursor: pointer;
-  background-color: #fff;
-  color: #FFCD00;
-  border: 1px solid #FFCD00;
-}
+/*input[type="submit"]{*/
+/*  width: 150px;*/
+/*  padding: 10px 10px;*/
+/*  margin: 20px;*/
+/*  background-color: #FFCD00;*/
+/*  color: #fff;*/
+/*  border: none;*/
+/*}*/
+/*input[type="submit"]:hover{*/
+/*  cursor: pointer;*/
+/*  background-color: #fff;*/
+/*  color: #FFCD00;*/
+/*  border: 1px solid #FFCD00;*/
+/*}*/
 /* width:400px;height:150px;resize:none; */
