@@ -185,11 +185,14 @@ btn_connexion.addEventListener("click", () => {
 connexion.addEventListener("click", () => {
   formConnexion.style = "display: block";
   formInscription.style = "display: none";
-  connexion.style = "background-color: #f8d260";
+  connexion.style = "";
+  inscription.classList.remove("active_btn_log");
+  connexion.classList.add("active_btn_log");
 });
 
 inscription.addEventListener("click", () => {
   formInscription.style = "display: block";
   formConnexion.style = "display: none";
-  inscription.style = "background-color: #f8d260";
+  connexion.classList.remove("active_btn_log");
+  inscription.classList.add("active_btn_log");
 });

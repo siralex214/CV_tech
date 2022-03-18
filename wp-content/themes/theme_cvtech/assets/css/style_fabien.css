@@ -670,3 +670,10 @@ xsigin/signup popup
   height: 30px;
   text-transform: uppercase;
 }
+
+.active_btn_log {
+  background-color: #f8d260!important;
+}
+.btn_log {
+  background-color: #eeeeee;
+}

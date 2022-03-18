@@ -82,8 +82,8 @@ if (!empty($_POST)) {
 	<div id="popupInscription" class="modal">
 		<div class="popup">
 			<div>
-				<button id="btn_co">connexion</button>
-				<button id="btn_ins"> inscription</button>
+				<button id="btn_co" class=" btn_log active_btn_log">connexion</button>
+				<button id="btn_ins" class="btn_log"> inscription</button>
 			</div>
 			<p id="close_modal" class='close' href='#'>&times;</p>
 			<div class='content_connexion' id="inscriptionform">
