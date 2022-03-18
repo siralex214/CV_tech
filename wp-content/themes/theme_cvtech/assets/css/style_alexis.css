@@ -5,6 +5,10 @@ main {
     padding-bottom: 130px;
 }
 
+a {
+    cursor: pointer;
+}
+
 #profil_user p, #profil_user button, #profil_user div, #profil_user span {
     font-family: 'Ramaraja', serif;
 }
@@ -33,6 +37,13 @@ button.but_profil_user {
     font-size: 1rem;
 }
 
+.active_userProfil {
+    background-color: black;
+    color: white;
+    border: none;
+
+}
+
 button.but_profil_user:last-child {
     margin: 0;
 }
@@ -44,6 +55,7 @@ button.but_profil_user:last-child {
 .show_block_profil_user {
     display: block;
     border: 1px solid black;
+    border-top: none;
 }
 
 .none_block_profil_user {
@@ -61,6 +73,53 @@ span.info_perso_profil_user {
     display: flex;
 }
 
+.one_box_userProfil_forma {
+    padding: 1rem;
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.one_box_userProfil_forma p {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 16px;
+}
+
+.date_userProfil {
+    color: grey;
+}
+
+.one_box_userProfil_forma:last-child {
+    margin: 0;
+}
+
+.btn_userProfil {
+    display: flex;
+    align-items: center;
+}
+
+
+.one_btn_userProfil {
+    padding: 12px 17px;
+    border-radius: 30px;
+    border-color: black;
+}
+
+.one_btn_userProfil:first-child {
+    margin-right: 5px;
+}
+
+.log_formation {
+    font-size: 2rem;
+}
+
 /* tableau des CVs*/
 
 table.minimalistBlack {
@@ -68,12 +127,15 @@ table.minimalistBlack {
     text-align: left;
     border-collapse: collapse;
 }
+
 table.minimalistBlack td, table.minimalistBlack th {
     padding: 5px 4px;
 }
+
 table.minimalistBlack tbody td {
     font-size: 13px;
 }
+
 table.minimalistBlack thead {
     background: #CFCFCF;
     background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
@@ -81,23 +143,21 @@ table.minimalistBlack thead {
     background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
     border-bottom: 3px solid #000000;
 }
+
 table.minimalistBlack thead th {
-    font-size: 15px;
+    font-size: 25px;
     font-weight: 400;
     color: #000000;
     text-align: left;
 }
-table.minimalistBlack tfoot {
-    font-size: 14px;
-    font-weight: bold;
-    color: #000000;
-    border-top: 3px solid #000000;
-}
+
+
 table.minimalistBlack tfoot td {
     font-size: 14px;
 }
 
-table.minimalistBlack td p {
+table.minimalistBlack td p, table.minimalistBlack td a {
     margin-left: 1rem;
+    font-size: 25px;
     display: inline;
 }
