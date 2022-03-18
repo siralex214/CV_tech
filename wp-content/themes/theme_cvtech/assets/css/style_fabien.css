@@ -656,6 +656,15 @@ xsigin/signup popup
 
 #btn_connexion {
   cursor: pointer;
+  color: #040500;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  margin-top: -7px;
 }
 #inscriptionform {
   display: none;
@@ -672,7 +681,7 @@ xsigin/signup popup
 }
 
 .active_btn_log {
-  background-color: #f8d260!important;
+  background-color: #f8d260 !important;
 }
 .btn_log {
   background-color: #eeeeee;

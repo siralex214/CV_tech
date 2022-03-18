@@ -93,28 +93,30 @@ if (!empty($_POST)) {
 					</div>
 					<div class="input-box">
 						<label class="label">Nom</label>
-						<input class="input" type="text" name="nom" id="nom">
+						<input class="input" type="text" name="nom" id="nom" id="focus_nom_inscription">
+						<span class="error" id="erreur_nom_inscription">&nbsp;</span>
 					</div>
 					<div class="errors">
 						<span id="nomError">Entre 2 et 20 caractères</span>
 					</div>
 					<div class="input-box">
 						<label class="label">Prenom</label>
-						<input class="input" type="text" name="prenom" id="prenom">
+						<input class="input" id="prenom_inscription" class="effect-2" type="text" placeholder="Prénom">
+						<span class="focus-border" id="focus_prenom_inscription"></span>
 					</div>
 					<div class="errors">
 						<span id="prenomError">Entre 2 et 20 caractères</span>
 					</div>
 					<div class="input-box">
 						<label class="label">Email</label>
-						<input class="input" type="email" name="email_inscription" id="email">
+						<input class="input" type="email" name="email_inscription" id="email_inscription" id="focus_email_inscription">
 					</div>
 					<div class="errors">
 						<span id="emailError">Email valide</span>
 					</div>
 					<div class="input-box">
 						<label class="label">Mot de passe</label>
-						<input class="input" type="password" name="password_inscription" id="password">
+						<input class="input" type="password" name="password_inscription" id="password" id="focus_password_inscription">
 					</div>
 					<div class="errors">
 						<span id="passwordErrorMajuscule">1 majuscule</span>
@@ -133,7 +135,7 @@ if (!empty($_POST)) {
 						<span id="passwordVerifError">Mot de passe identique</span>
 					</div>
 					<div class="input-box">
-						<input class="button" type='submit' value="S'inscrire" id="boutton">
+						<button class="button" type="submit" value="S'inscrire" id="Connexion">S'inscrire</button>
 					</div>
 				</form>
 			</div>
@@ -144,11 +146,11 @@ if (!empty($_POST)) {
 					</div>
 					<div class="input-box">
 						<label class="label">Email</label>
-						<input class="input" type="email" name="email_connexion" placeholder="email">
+						<input class="input" type="email" name="email_connexion" placeholder="email" id="focus_connexion_email">
 					</div>
 					<div class="input-box">
 						<label class="label">Mot de passe</label>
-						<input class="input" type="password" name="password_connexion" placeholder="Mot de passe">
+						<input class="input" type="password" name="password_connexion" placeholder="Mot de passe" id="focus_connexion_password">
 					</div>
 
 					<div class="input-box">
