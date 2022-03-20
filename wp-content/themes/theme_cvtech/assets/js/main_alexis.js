@@ -1,7 +1,6 @@
 const profil_user = document.querySelector("#profil_user")
 const but_profil_user = document.querySelectorAll(".but_profil_user")
 const all_block = document.querySelectorAll(".profil_user_block")
-const profil_user_h1 = document.querySelector(".profil_user_h1")
 console.log(but_profil_user)
 console.log(all_block)
 
@@ -48,6 +47,10 @@ const info_perso_profil_user = document.querySelectorAll(".info_perso_profil_use
 
 // console.log(btn_edit_info_perso)
 // console.log(info_perso_profil_user)
+let donnee = ["perso_nom", "perso_prenom", "perso_email", "perso_password", "cv_nom", "cv_prenom", "cv_email", "cv_prenom_date_de_naissance", "cv_permis", "cv_telephone", "cv_adresse"];
+let a = 0
+console.log(donnee)
+
 btn_edit_info_perso.forEach(onebutton => {
     onebutton.addEventListener("click", (event) => {
         event.preventDefault()
@@ -57,6 +60,15 @@ btn_edit_info_perso.forEach(onebutton => {
             "<input type='text' name='' class='input_edit_userProfil' value='" + element.textContent + "'>" +
             "<input class='submit_edit_userProfil' type='submit' value='modifier'>" +
             "</form>"
+        const submit_edit_userProfil = document.querySelectorAll(".submit_edit_userProfil")
+        submit_edit_userProfil.forEach(element => {
+            element.addEventListener("click", (event) => {
+                event.preventDefault()
+                element.setAttribute("name", donnee[a])
+                a++
+            })
+        })
+        console.log(submit_edit_userProfil)
     })
 })
 

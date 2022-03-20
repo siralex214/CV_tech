@@ -103,6 +103,7 @@ function theme_cvtech_setup()
         )
     );
 }
+
 add_action('after_setup_theme', 'theme_cvtech_setup');
 
 /**
@@ -160,7 +161,7 @@ function theme_cvtech_scripts()
         wp_enqueue_script('comment-reply');
     }
     wp_register_script('jquery', "https://code.jquery.com/jquery-3.6.0.min.js", array(), '1.0.0', true);
-	wp_enqueue_script('jquery');
+    wp_enqueue_script('jquery');
     wp_register_script('type-writter', "https://unpkg.com/typewriter-effect@latest/dist/core.js", array(), '1.0.0', true);
     wp_enqueue_script('type-writter');
     wp_register_script('main_théo', get_template_directory_uri() . '/assets/js/main_theo.js', array(), '1.0.0', true);

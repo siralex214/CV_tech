@@ -13,7 +13,6 @@ if (empty($_SESSION)) {
     $_SESSION['email'] = "fab@gmail.com";
     $_SESSION['role'] = "role_USER";
 }
-
 debug($_SESSION);
 
 global $wpdb;
@@ -101,6 +100,7 @@ debug($info_persos);
 ">
                 <div>
                     <h2>Mes infos personnel: </h2>
+                    <button id="test_ajax">test ajax</button>
                     <p>Nom: <span class="info_perso_profil_user"><?= ucfirst($_SESSION['nom']) ?><i
                                     class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
                     <p>Prénom: <span class="info_perso_profil_user"><?= ucfirst($_SESSION['prenom']) ?><i
