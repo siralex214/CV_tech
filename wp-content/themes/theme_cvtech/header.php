@@ -138,7 +138,7 @@ if (!empty($_POST)) {
 						<span id="passwordVerifError">Mot de passe identique</span>
 					</div>
 					<div class="input-box">
-						<button class="button" type="submit" value="S'inscrire" id="Connexion">S'inscrire</button>
+						<button class="button" type="submit" value="S'inscrire" id="inscription">S'inscrire</button>
 					</div>
 				</form>
 			</div>
