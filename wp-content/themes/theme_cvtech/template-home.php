@@ -31,7 +31,12 @@ get_header();
             <div class="card-box">
                 <img class="card-img" src="<?= get_template_directory_uri() ?>/assets/img/logo_kazaden.png" alt="">
                 <h2>Kazaden</h2>
-                <p class="card-text"><i class="fa-solid fa-location-dot"></i> Lyon, Rhône-Alpes</p>
+                <p class="card-text"><i class="fa-solid fa-location-dot"></i> Lyon, Auvergne-Rhône-Alpes</p>
+            </div>
+            <div class="card-box">
+                <img class="card-img" src="<?= get_template_directory_uri() ?>/assets/img/logo_kazaden.png" alt="">
+                <h2>Kazaden</h2>
+                <p class="card-text"><i class="fa-solid fa-location-dot"></i> Lyon, Auvergne-Rhône-Alpes</p>
             </div>
         </div>
     </div>
