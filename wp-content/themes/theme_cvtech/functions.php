@@ -151,19 +151,18 @@ function theme_cvtech_scripts()
 	wp_enqueue_style('cvtech-custom-style_safia', get_stylesheet_directory_uri() . "/assets/css/style_safia.css", false, 1.1, 'all');
 	wp_enqueue_style('cvtech-custom-style_maxime', get_stylesheet_directory_uri() . "/assets/css/style_maxime.css", false, 1.1, 'all');
 	wp_enqueue_style('cvtech-custom-style_fabien', get_stylesheet_directory_uri() . "/assets/css/style_fabien.css", false, 1.1, 'all');
-	wp_enqueue_style('fontawesome', "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 
 	wp_enqueue_script('theme_cvtech-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+
+	wp_register_script('pdfjs', "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js", array(), '1.0.0', true);
+	wp_enqueue_script('pdfjs');
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
-	wp_register_script('jquery', "https://code.jquery.com/jquery-3.6.0.min.js", array(), '1.0.0', true);
-	wp_enqueue_script('jquery');
-	wp_register_script('type-writter', "https://unpkg.com/typewriter-effect@latest/dist/core.js", array(), '1.0.0', true);
-	wp_enqueue_script('type-writter');
-	wp_register_script('main_théo', get_template_directory_uri() . '/assets/js/main_theo.js', array(), '1.0.0', true);
-	wp_enqueue_script('main_théo');
+
+	wp_register_script('main_theo', get_template_directory_uri() . '/assets/js/main_theo.js', array(), '1.0.0', true);
+	wp_enqueue_script('main_theo');
 
 	wp_register_script('main_alexis', get_template_directory_uri() . '/assets/js/main_alexis.js', array(), '1.0.0', true);
 	wp_enqueue_script('main_alexis');
