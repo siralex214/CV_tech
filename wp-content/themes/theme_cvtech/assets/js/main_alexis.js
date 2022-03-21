@@ -2,8 +2,8 @@ const profil_user = document.querySelector("#profil_user")
 const but_profil_user = document.querySelectorAll(".but_profil_user")
 const all_block = document.querySelectorAll(".profil_user_block")
 const profil_user_h1 = document.querySelector(".profil_user_h1")
-console.log(but_profil_user)
-console.log(all_block)
+// console.log(but_profil_user)
+// console.log(all_block)
 
 if (profil_user != null) {
     // navigation entre les différentes rubriques
@@ -19,7 +19,7 @@ if (profil_user != null) {
                 }
                 i++
             }
-            console.log(oneButton.value)
+            // console.log(oneButton.value)
             all_block.forEach(block => {
                 block.classList.add("none_block_profil_user")
                 // block.classList.remove("show_block_profil_user")
@@ -42,21 +42,3 @@ more_permis.addEventListener("click", () => {
         permis.classList.remove("permis_show")
     }
 })
-
-const btn_edit_info_perso = document.querySelectorAll(".btn_edit_info_perso")
-const info_perso_profil_user = document.querySelectorAll(".info_perso_profil_user")
-
-// console.log(btn_edit_info_perso)
-// console.log(info_perso_profil_user)
-btn_edit_info_perso.forEach(onebutton => {
-    onebutton.addEventListener("click", (event) => {
-        event.preventDefault()
-        let element = onebutton.parentNode
-        console.log(element)
-        element.innerHTML = "<form class='form_edit_userProfil' method='post'>" +
-            "<input type='text' name='' class='input_edit_userProfil' value='" + element.textContent + "'>" +
-            "<input class='submit_edit_userProfil' type='submit' value='modifier'>" +
-            "</form>"
-    })
-})
-

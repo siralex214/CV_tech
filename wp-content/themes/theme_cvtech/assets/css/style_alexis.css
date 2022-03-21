@@ -170,6 +170,10 @@ span.info_perso_profil_user {
     width: 110px;
 }
 
+.none {
+    display: none;
+}
+
 /* tableau des CVs*/
 
 table.minimalistBlack {

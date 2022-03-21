@@ -101,38 +101,28 @@ debug($info_persos);
 ">
                 <div>
                     <h2>Mes infos personnel: </h2>
-                    <p>Nom: <span class="info_perso_profil_user"><?= ucfirst($_SESSION['nom']) ?><i
-                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
-                    <p>Prénom: <span class="info_perso_profil_user"><?= ucfirst($_SESSION['prenom']) ?><i
-                                    class="btn_edit_info_perso fa-solid fa-pen"></i></a></span></p>
-                    <p>Email: <span class="info_perso_profil_user"> <?= ucfirst($_SESSION['email']) ?><i
-                                    class="btn_edit_info_perso fa-solid fa-pen"></i></a></span></p>
-                    <p>Mot de passe: <span class="info_perso_profil_user">******* <i
-                                    class="btn_edit_info_perso fa-solid fa-pen"></i></a></span></p></p>
+                    <p>Nom: <span class="info_perso_profil_user"><?= ucfirst($_SESSION['nom']) ?></span></p>
+                    <p>Prénom: <span class="info_perso_profil_user"><?= ucfirst($_SESSION['prenom']) ?></a></span></p>
+                    <p>Email: <span class="info_perso_profil_user"> <?= ucfirst($_SESSION['email']) ?></a></span></p>
+                    <p>Mot de passe: <span class="info_perso_profil_user">******* </a></span></p></p>
                 </div>
                 <div>
                     <h2>Informations sur le CV: </h2>
-                    <p>Nom: <span class="info_perso_profil_user"><?= $info_persos['nom'] ?><i
-                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
-                    <p>Prénom: <span class="info_perso_profil_user"><?= $info_persos['prenom'] ?><i
-                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
-                    <p>Email: <span class="info_perso_profil_user"><?= $info_persos['email'] ?><i
-                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
+                    <p>Nom: <span class="info_perso_profil_user"><?= $info_persos['nom'] ?></span></p>
+                    <p>Prénom: <span class="info_perso_profil_user"><?= $info_persos['prenom'] ?></span></p>
+                    <p>Email: <span class="info_perso_profil_user"><?= $info_persos['email'] ?></span></p>
                     <p>Date de naissance: <span
-                                class="info_perso_profil_user"><?= $info_persos['date_de_naissance'] ?><i
-                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
-                    <p>Permis: <span id="more_permis">Voir les permis</span><span class="info_perso_profil_user"><i
-                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
+                                class="info_perso_profil_user"><?= $info_persos['date_de_naissance'] ?></span></p>
+                    <p>Permis: <span id="more_permis">Voir les permis</span><span class="info_perso_profil_user"></span>
+                    </p>
 
                     <div class="permis">
                         <?php foreach ($info_persos['permis'] as $permis) : ?>
                             <p> <?= $permis ?>,</p>
                         <?php endforeach; ?>
                     </div>
-                    <p>Téléphone: <span class="info_perso_profil_user"><?= $info_persos['telephone'] ?><i
-                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
-                    <p>Adresse: <span class="info_perso_profil_user"><?= $info_persos['addresse_postale'] ?><i
-                                    class="btn_edit_info_perso fa-solid fa-pen"></i></span></p>
+                    <p>Téléphone: <span class="info_perso_profil_user"><?= $info_persos['telephone'] ?></span></p>
+                    <p>Adresse: <span class="info_perso_profil_user"><?= $info_persos['addresse_postale'] ?></span></p>
                 </div>
             </div>
         </div>
