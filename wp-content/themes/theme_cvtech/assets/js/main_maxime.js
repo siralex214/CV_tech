@@ -1,29 +1,29 @@
-$(document).ready(function () {
+jQuery(document).ready(function () {
 
     // FORMULAIRE CV
 
-    $(document).on('click', '#add-permis', function () {
-        // $("#input-permis").html("");
-        $("#input-permis").append("<input class='input' name='permis[]' type='text' placeholder='Ex: Permis A'>");
+    jQuery(document).on('click', '#add-permis', function () {
+        // jQuery("#input-permis").html("");
+        jQuery("#input-permis").append("<input class='input' name='permis[]' type='text' placeholder='Ex: Permis A'>");
     })
 
-    $(document).on('click', '#add-competences', function () {
-        // $("#input-competences").html("");
-        $("#input-competences").append("<input class='input' name='competences[]' type='text' placeholder='Ex: HTML>");
+    jQuery(document).on('click', '#add-competences', function () {
+        // jQuery("#input-competences").html("");
+        jQuery("#input-competences").append("<input class='input' name='competences[]' type='text' placeholder='Ex: HTML'>");
     })
-    $(document).on('click', '#add-langues', function () {
-        // $("#input-langues").html("");
-        $("#input-langues").append("<input class='input' name='langues[]' type='text' placeholder='Ex: Français'>");
+    jQuery(document).on('click', '#add-langues', function () {
+        // jQuery("#input-langues").html("");
+        jQuery("#input-langues").append("<input class='input' name='langues[]' type='text' placeholder='Ex: Français'>");
     })
-    $(document).on('click', '#add-hobbies', function () {
-        // $("#input-hobbies").html("");
-        $("#input-hobbies").append("<input class='input' name='hobbies[]' type='text' placeholder='Ex: Cinéma'>");
+    jQuery(document).on('click', '#add-hobbies', function () {
+        // jQuery("#input-hobbies").html("");
+        jQuery("#input-hobbies").append("<input class='input' name='hobbies[]' type='text' placeholder='Ex: Cinéma'>");
     })
 
     let i = 1
-    $(document).on('click', '#add-experiences', function () {
-        // $("#input-experiences").html("");
-        $("#input-experiences").append("<div class=\"cv-subcontainer\">\n" +
+    jQuery(document).on('click', '#add-experiences', function () {
+        // jQuery("#input-experiences").html("");
+        jQuery("#input-experiences").append("<div class=\"cv-subcontainer\">\n" +
             "    <div class=\"input-box\">\n" +
             "        <label class=\"label\">Intitulé de poste</label>\n" +
             "        <input id=\"poste\" class=\"input\" name=\"experience[form" + i + "][poste]\" type=\"text\" placeholder=\"Intitulé de poste\">\n" +
@@ -53,9 +53,9 @@ $(document).ready(function () {
     })
 
     let n = 1
-    $(document).on('click', '#add-formations', function () {
-        // $("#input-formations").html("");
-        $("#input-formations").append("<div class=\"cv-subcontainer\">\n" +
+    jQuery(document).on('click', '#add-formations', function () {
+        // jQuery("#input-formations").html("");
+        jQuery("#input-formations").append("<div class=\"cv-subcontainer\">\n" +
             "   <div class=\"input-box\">\n" +
             "       <label class=\"label\">Intitulé de la formations</label>\n" +
             "       <input id=\"formation\" class=\"input\" name=\"formation[form" + n + "][intitule]\" type=\"text\" placeholder=\"Intitulé de la formation\">\n" +

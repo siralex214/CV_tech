@@ -2,45 +2,42 @@
 /* Template Name: Formulaire CV */
 
 if (!empty($_POST)) {
-
-    $id_user = $_SESSION['id'];
-
+    global $wpdb;
+    // $id_user = $_SESSION['id'];
+    $id_user = 2;
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $email = $_POST['email'];
     $date_naissance = $_POST['date'];
     $telephone = $_POST['telephone'];
-    $adresse = $_POST['adresse_1'] . $_POST['adresse_2'];
+    $adresse = $_POST['adresse_1'];
     $permis = implode("; ", $_POST['permis']);
     $competences = implode("; ", $_POST['competences']);
     $langues = implode("; ", $_POST['langues']);
     $hobbies = implode("; ", $_POST['hobbies']);
 
-    global $wpdb;
+
     $wpdb->insert("cv_wp_custom_info_perso", array(
         "id_user" => $id_user,
         "nom" => $nom,
         "prenom" => $prenom,
         "email" => $email,
-        "date_de_naissance" => "$date_naissance",
+        "date_de_naissance" => $date_naissance,
         "telephone" => $telephone,
-        "adresse_postale" => $adresse,
         "permis" => $permis,
+        "addresse_postale" => $adresse,
         "competences" => $competences,
         "langues" => $langues,
         "hobbies" => $hobbies,
     ));
 
     foreach ($_POST['experience'] as $one_exp) {
-        foreach ($one_exp as $value) {
-            $date_debut_exp = $_POST['date_debut'];
-            $date_fin_exp = $value['date_fin'];
-            $entreprise = $value['entreprise'];
-            $lieu = $value['lieu'];
-            $poste = $value['poste'];
-            $description = $value['description'];
-
-            global $wpdb;
+            $date_debut_exp = $one_exp['date_debut'];
+            $date_fin_exp = $one_exp['date_fin'];
+            $entreprise = $one_exp['entreprise'];
+            $lieu = $one_exp['lieu'];
+            $poste = $one_exp['poste'];
+            $description = $one_exp['description'];
             $wpdb->insert("cv_wp_custom_exp-pro", array(
                 "id_user" => $id_user,
                 "date_debut" => $date_debut_exp,
@@ -50,19 +47,17 @@ if (!empty($_POST)) {
                 "poste" => $poste,
                 "description" => $description,
             ));
-        }
     }
 
     foreach ($_POST['formation'] as $one_exp) {
-        foreach ($one_exp as $value) {
-            $date_debut_formation = $_POST['date_debut'];
-            $date_fin_formation = $value['date_fin'];
-            $etablissement = $value['etablissement'];
-            $lieu = $value['lieu'];
-            $diplome = $value['diplome'];
-            $titre = $value['titre'];
+            $date_debut_formation = $one_exp['date_debut'];
+            $date_fin_formation = $one_exp['date_fin'];
+            $etablissement = $one_exp['ecole'];
+            $lieu = $one_exp['lieu'];
+            $diplome = $one_exp['diplome'];
+            $titre = $one_exp['intitule'];
 
-            global $wpdb;
+
             $wpdb->insert("cv_wp_custom_formation", array(
                 "id_user" => $id_user,
                 "date_debut" => $date_debut_formation,
@@ -72,7 +67,7 @@ if (!empty($_POST)) {
                 "diplome" => $diplome,
                 "titre" => $titre,
             ));
-        }
+
     }
 }
 
