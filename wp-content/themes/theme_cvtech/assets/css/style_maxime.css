@@ -340,3 +340,69 @@ nav{
   padding-left: 50px;
   padding-bottom: 40px;
 }
+
+
+/* !!!! FORMULAIRE CV !!!! */
+
+#main-cv {
+  padding-top: 80px;
+  padding-bottom: 200px;
+}
+
+.cv-container{
+  max-width: 540px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border: 1px solid #e0dfdc;
+  border-radius: 5px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+
+.cv-subcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.input-box{
+  margin-bottom: 15px;
+}
+
+.label, .add-label{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.add-label:hover {
+color: #ffcd00;
+cursor: pointer;
+}
+
+.input {
+  font-size: 16px;
+  background: transparent;
+  border-radius: 6px;
+  border: 1px solid #5f6368;
+  color: #9aa0a6!important;
+  font-size: 14px !important;
+  height: 36px;
+  min-width: 200px;
+  padding: 0 0 0 12px;
+  margin: 5px;
+}
+
+.permis-list-container {
+  text-align: center;
+  padding: 8px 20px;
+  border-radius: 20px;
+  /* border: 1px solid #666666; */
+  background-color: #ebebeb;
+  color: #666666;
+  font-size: 0.5em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
