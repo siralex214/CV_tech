@@ -126,7 +126,7 @@ get_header();
                 Experiences
             </h2>
             <div id="input-experiences"></div>
-            <label id="add-experiences" class="add-label">+ ajouter une expérience</label>
+            <label id="add-experience" class="add-label">+ ajouter une expérience</label>
         </div>
 
         <div class="cv-container">
@@ -134,7 +134,7 @@ get_header();
                 Formations
             </h2>
             <div id="input-formations"></div>
-            <label id="add-formations" class="add-label">+ ajouter une formation</label>
+            <label id="add-formation" class="add-label">+ ajouter une formation</label>
         </div>
 
         <div class="cv-container">
@@ -143,7 +143,7 @@ get_header();
             </h2>
             <div class="cv-subcontainer">
                 <div id="input-competences"></div>
-                <label id="add-competences" class="add-label">+ ajouter une compétence</label>
+                <label id="add-competence" class="add-label">+ ajouter une compétence</label>
             </div>
         </div>
 
@@ -153,7 +153,7 @@ get_header();
             </h2>
             <div class="cv-subcontainer">
                 <div id="input-langues"></div>
-                <label id="add-langues" class="add-label">+ ajouter une langue</label>
+                <label id="add-langue" class="add-label">+ ajouter une langue</label>
             </div>
         </div>
 
@@ -163,7 +163,7 @@ get_header();
             </h2>
             <div class="cv-subcontainer">
                 <div id="input-hobbies"></div>
-                <label id="add-hobbies" class="add-label">+ ajouter un centre d'intérêt</label>
+                <label id="add-hobbie" class="add-label">+ ajouter un centre d'intérêt</label>
             </div>
         </div>
         <input type="submit" value="envoyer" name="submitted">
