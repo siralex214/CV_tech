@@ -33,12 +33,14 @@ if (profil_user != null) {
 const more_permis = document.querySelector("#more_permis")
 const permis = document.querySelector(".permis")
 let etat = false
-more_permis.addEventListener("click", () => {
-    if (etat == false) {
-        etat = true
-        permis.classList.add("permis_show")
-    } else {
-        etat = false
-        permis.classList.remove("permis_show")
-    }
-})
+if (more_permis != null) {
+    more_permis.addEventListener("click", () => {
+        if (etat == false) {
+            etat = true
+            permis.classList.add("permis_show")
+        } else {
+            etat = false
+            permis.classList.remove("permis_show")
+        }
+    })
+}
