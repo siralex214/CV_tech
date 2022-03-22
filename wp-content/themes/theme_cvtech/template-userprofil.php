@@ -7,14 +7,14 @@ get_header();
 ?>
 <br><br><br><br>
 <?php
-// if (empty($_SESSION)) {
-$_SESSION['id'] = 2;
-$_SESSION['nom'] = "Debureau";
-$_SESSION['prenom'] = "Fabien";
-$_SESSION['email'] = "fab@gmail.com";
-$_SESSION['role'] = "role_USER";
-$_SESSION['photo'] = "lien";
-// }
+if (empty($_SESSION)) {
+    $_SESSION['id'] = 2;
+    $_SESSION['nom'] = "Debureau";
+    $_SESSION['prenom'] = "Fabien";
+    $_SESSION['email'] = "fab@gmail.com";
+    $_SESSION['role'] = "role_USER";
+}
+debug($_SESSION);
 
 global $wpdb;
 
@@ -70,29 +70,22 @@ $competences = $wpdb->get_results($prepare7, ARRAY_A);
 $competences = $competences[0];
 $competences['competences'] = explode("; ", $competences["competences"]);
 
-// debug($info_persos);
-// debug($_SESSION);
-?>
 
+//debug($cvs);
+// debug($formations);
+//debug($exp_pros);
+//debug($hobbies);
+debug($info_persos);
+//debug($langues);
+//debug($competences);
+
+?>
 <main id="profil_user">
 
     <div id="app"></div>
-
-
-    <section>
-        <div class="candidat-card-profil-container">
-            <div class="candidat-card-profil-infos-img">
-                <img class="candidat-card-profil-img" src="<?= get_template_directory_uri() . "/" . $_SESSION['photo'] ?>">
-            </div>
-            <div class="candidat-card-profil-infos-text">
-                <span class="candidat-card-profil-name">Bonjour <?= ucfirst($_SESSION['prenom']) ?> <?= ucfirst($_SESSION['nom']) ?></span>
-                <span class="candidat-card-profil-title">Développeur Web</span>
-                <span class="candidat-card-profil-location"><i class="fa-solid fa-location-dot"></i>
-                    <?= $info_persos['addresse_postale'] ?></span>
-            </div>
-        </div>
-    </section>
-
+    <h1 class="profil_user_h1">Bonjour,
+        <!-- PHP -->
+    </h1>
 
     <section class="wrap_profil_user">
         <div class="menu_nav_profil_user">
@@ -104,7 +97,10 @@ $competences['competences'] = explode("; ", $competences["competences"]);
         </div>
 
         <div class="profil_user_block show_block_profil_user">
-            <div class="infos-personnel">
+            <div style="display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+">
                 <div>
                     <h2>Mes infos personnel: </h2>
                     <p>Nom: <span class="info_perso_profil_user"><?= ucfirst($_SESSION['nom']) ?></span></p>
@@ -112,7 +108,6 @@ $competences['competences'] = explode("; ", $competences["competences"]);
                     <p>Email: <span class="info_perso_profil_user"> <?= ucfirst($_SESSION['email']) ?></a></span></p>
                     <p>Mot de passe: <span class="info_perso_profil_user">******* </a></span></p>
                     </p>
-                    <p><a href="update-info-user">Modifier mes informations</a></p>
                 </div>
                 <div>
                     <h2>Informations sur le CV: </h2>
@@ -130,7 +125,6 @@ $competences['competences'] = explode("; ", $competences["competences"]);
                     </div>
                     <p>Téléphone: <span class="info_perso_profil_user"><?= $info_persos['telephone'] ?></span></p>
                     <p>Adresse: <span class="info_perso_profil_user"><?= $info_persos['addresse_postale'] ?></span></p>
-                    <p><a href="">Modifier mes informations</a></p>
                 </div>
             </div>
         </div>
@@ -149,11 +143,11 @@ $competences['competences'] = explode("; ", $competences["competences"]);
                     </div>
                     <div class="btn_userProfil">
                         <a href="">
-                            <button class="one_btn_userProfil"><i class="fa-solid fa-pen"></i>
+                            <button class="one_btn_userProfil"><i style="font-size: 20px" class="fa-solid fa-pen"></i>
                             </button>
                         </a>
                         <a href="">
-                            <button class="one_btn_userProfil"><i class="fa-solid fa-trash"></i>
+                            <button class="one_btn_userProfil"><i style="font-size: 20px" class="fa-solid fa-trash"></i>
                             </button>
                         </a>
                     </div>
