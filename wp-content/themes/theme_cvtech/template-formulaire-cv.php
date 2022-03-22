@@ -1,13 +1,13 @@
 <?php
 /* Template Name: Formulaire CV */
 
-// use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\SMTP;
-// use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 if (!empty($_POST['creationCV'])) {
     global $wpdb;
-    $id_user = intval($_SESSION['id']);
+    $id_user = $_SESSION['id'];
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $email = $_POST['email'];
@@ -35,82 +35,80 @@ if (!empty($_POST['creationCV'])) {
     ));
 
     foreach ($_POST['experience'] as $one_exp) {
-            $date_debut_exp = $one_exp['date_debut'];
-            $date_fin_exp = $one_exp['date_fin'];
-            $entreprise = $one_exp['entreprise'];
-            $lieu = $one_exp['lieu'];
-            $poste = $one_exp['poste'];
-            $description = $one_exp['description'];
-            $wpdb->insert("cv_wp_custom_exp-pro", array(
-                "id_user" => $id_user,
-                "date_debut" => $date_debut_exp,
-                "date_fin" => $date_fin_exp,
-                "entreprise" => $entreprise,
-                "lieu" => $lieu,
-                "poste" => $poste,
-                "description" => $description,
-            ));
+        $date_debut_exp = $one_exp['date_debut'];
+        $date_fin_exp = $one_exp['date_fin'];
+        $entreprise = $one_exp['entreprise'];
+        $lieu = $one_exp['lieu'];
+        $poste = $one_exp['poste'];
+        $description = $one_exp['description'];
+        $wpdb->insert("cv_wp_custom_exp-pro", array(
+            "id_user" => $id_user,
+            "date_debut" => $date_debut_exp,
+            "date_fin" => $date_fin_exp,
+            "entreprise" => $entreprise,
+            "lieu" => $lieu,
+            "poste" => $poste,
+            "description" => $description,
+        ));
     }
 
     foreach ($_POST['formation'] as $one_exp) {
-            $date_debut_formation = $one_exp['date_debut'];
-            $date_fin_formation = $one_exp['date_fin'];
-            $etablissement = $one_exp['ecole'];
-            $lieu = $one_exp['lieu'];
-            $diplome = $one_exp['diplome'];
-            $titre = $one_exp['intitule'];
+        $date_debut_formation = $one_exp['date_debut'];
+        $date_fin_formation = $one_exp['date_fin'];
+        $etablissement = $one_exp['ecole'];
+        $lieu = $one_exp['lieu'];
+        $diplome = $one_exp['diplome'];
+        $titre = $one_exp['intitule'];
 
 
-            $wpdb->insert("cv_wp_custom_formation", array(
-                "id_user" => $id_user,
-                "date_debut" => $date_debut_formation,
-                "date_fin" => $date_fin_formation,
-                "etablissement" => $etablissement,
-                "lieu" => $lieu,
-                "diplome" => $diplome,
-                "titre" => $titre,
-            ));
-
+        $wpdb->insert("cv_wp_custom_formation", array(
+            "id_user" => $id_user,
+            "date_debut" => $date_debut_formation,
+            "date_fin" => $date_fin_formation,
+            "etablissement" => $etablissement,
+            "lieu" => $lieu,
+            "diplome" => $diplome,
+            "titre" => $titre,
+        ));
     }
 
-// require './vendor/autoload.php';
+    require './vendor/autoload.php';
 
-// $mail = new PHPMailer(true);
+    $mail = new PHPMailer(true);
 
-// try {
+    try {
 
-//     // Configuration
-//     $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Infos de debug
+        // Configuration
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Infos de debug
 
-//     // Configuration SMTP
-//     $mail->isSMTP();
-//     $mail->Host = 'smtp.gmail.com';
-//     $mail->SMTPAuth = true;
-//     $mail->Username = "maxime.76.hebert@gmail.com";
-//     $mail->Password = "J3B%Dc@m3Tt7F";
-//     $mail->SMTPSecure = 'ssl';
+        // Configuration SMTP
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = "maxime.76.hebert@gmail.com";
+        $mail->Password = "J3B%Dc@m3Tt7F";
+        $mail->SMTPSecure = 'ssl';
 
-//     // Charset
-//     $mail->CharSet = "utf-8";
+        // Charset
+        $mail->CharSet = "utf-8";
 
-//     // Destinataire(s)
-//     $mail->addAddress($_SESSION["email"]);
+        // Destinataire(s)
+        $mail->addAddress($_SESSION["email"]);
 
-//     // Expéditeur
-//     $mail->setFrom("no-reply@bertolucci.fr");
+        // Expéditeur
+        $mail->setFrom("no-reply@bertolucci.fr");
 
-//     // Contenu
-//     $mail->subject = "Cabinet Bertolucci - CV";
-//     $mail->Body = "Bonjour Maxime, votre CV a bien été enregistré. 
-//     Vous pouvez le retrouver sur votre espace personnel si vous vous êtes inscrit.";
+        // Contenu
+        $mail->subject = "Cabinet Bertolucci - CV";
+        $mail->Body = "Bonjour Maxime, votre CV a bien été enregistré. 
+    Vous pouvez le retrouver sur votre espace personnel si vous vous êtes inscrit.";
 
-//     // Envoi
-//     $mail->send();
-//     echo "Message envoyé";
-
-// } catch(Exception $e) {
-//     echo "Message non envoyé. Erreur: {$mail->ErrorInfo}";
-// }
+        // Envoi
+        $mail->send();
+        echo "Message envoyé";
+    } catch (Exception $e) {
+        echo "Message non envoyé. Erreur: {$mail->ErrorInfo}";
+    }
 }
 
 get_header();
@@ -208,7 +206,7 @@ get_header();
                 <label id="add-hobbies" class="add-label">+ ajouter un centre d'intérêt</label>
             </div>
         </div>
-        <input type="submit" value="envoyer" name="'creationCV'">
+        <input type="submit" value="envoyer" name="creationCV">
         <form>
 
 </main>
