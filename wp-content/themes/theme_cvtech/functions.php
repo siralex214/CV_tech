@@ -173,7 +173,7 @@ function theme_cvtech_scripts()
     wp_register_script('main_fabien', get_template_directory_uri() . '/assets/js/main_fabien.js', array(), '1.0.0', true);
     wp_enqueue_script('main_fabien');
 
-    wp_register_script('main_maxime', get_template_directory_uri() . '/assets/js/main_maxime.js', array(), '1.0.0', true);
+	wp_register_script('main_maxime', get_template_directory_uri() . '/assets/js/main_maxime.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('main_maxime');
 
     wp_register_script('main_safia', get_template_directory_uri() . '/assets/js/main_safia.js', array(), '1.0.0', true);

@@ -78,7 +78,7 @@ if (!empty($_POST)) {
 	<?php wp_head(); ?>
 </head>
 
-<div class='modal'>
+<div class='affichage_modal modal'>
 	<div id="popupInscription" class="modal">
 		<div class="popup">
 			<div>
@@ -138,7 +138,7 @@ if (!empty($_POST)) {
 						<span id="passwordVerifError">Mot de passe identique</span>
 					</div>
 					<div class="input-box">
-						<button class="button" type="submit" value="S'inscrire" id="Connexion">S'inscrire</button>
+						<button class="inscription" type="submit" value="S'inscrire" id="inscription">S'inscrire</button>
 					</div>
 				</form>
 			</div>
@@ -149,7 +149,7 @@ if (!empty($_POST)) {
 					</div>
 					<div class="input-box">
 						<label class="label">Email</label>
-						<input class="input" type="email" name="email_connexion" placeholder="email" id="focus_connexion_email">
+						<input class="input" type="email" name="email_connexion" placeholder="email" id="focus_connexion_email" id="email_connection">
 					</div>
 					<p class="error" id="erreur_mail_co">&nbsp;</p>
 					<div class="input-box">
@@ -158,7 +158,8 @@ if (!empty($_POST)) {
 					</div>
 					<p class="error" id="erreur_password_co">&nbsp;</p>
 					<div class="input-box">
-						<button class="button" type="submit" value="Connexion" id="Connexion">Se connecter</button>
+						<button class="connection" type="submit" value="Connexion" id="Connexion" id="submit_connexion">Se connecter</button>
+						<span id="error_connexion" class="error">
 					</div>
 				</form>
 			</div>
