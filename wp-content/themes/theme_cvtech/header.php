@@ -57,6 +57,7 @@ if (!empty($_POST['connexion'])) {
 			$connected = true;
 			$_SESSION["connected"] = true;
 			$_SESSION["id"] = $user["id"];
+			$_SESSION["email"] = $user["email"];
 			$_SESSION["nom"] = $user["nom"];
 			$_SESSION["prenom"] = $user["prenom"];
 			$_SESSION["role"] = $user["role"];
@@ -86,11 +87,11 @@ if (!empty($_POST['connexion'])) {
 	<div id="popupInscription" class="modal">
 		<div class="popup">
 			<div>
-				<button id="btn_co" class=" btn_log active_btn_log">connexion</button>
+				<button id="btn_co" class="btn_log active_btn_log">connexion</button>
 				<button id="btn_ins" class="btn_log"> inscription</button>
 			</div>
 			<p id="close_modal" class='close' href='#'>&times;</p>
-			<div class='content_connexion' id="inscriptionform">
+			<div class='content' id="inscriptionform">
 				<form method="post" action="" enctype="multipart/form-data">
 					<div class="input-box">
 						<label class="label">Nom</label>
@@ -134,7 +135,7 @@ if (!empty($_POST['connexion'])) {
 						<span id="passwordVerifError">Mot de passe identique</span>
 					</div>
 					<div class="input-box">
-						<button name="inscription" class="inscription" type="submit" value="S'inscrire" id="inscription">S'inscrire</button>
+						<button name="inscription" class="popup_submit" type="submit" value="S'inscrire" id="inscription">S'inscrire</button>
 					</div>
 				</form>
 			</div>
@@ -150,7 +151,7 @@ if (!empty($_POST['connexion'])) {
 					</div>
 					<?= "<div id='messageError'>" . $messageError . "</div>" ?>
 					<div class=" input-box">
-						<button name='connexion' class="connection" type="submit" value="Connexion">Se connecter</button>
+						<button name='connexion' class="popup_submit" type="submit" value="Connexion">Se connecter</button>
 					</div>
 				</form>
 			</div>

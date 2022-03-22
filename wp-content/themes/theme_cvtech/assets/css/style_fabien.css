@@ -516,7 +516,7 @@ xsigin/signup popup
   opacity: 1;
 }
 
-.popup {
+/* .popup {
   text-align: center;
   margin: 66px auto;
   padding: 20px 30px;
@@ -527,22 +527,21 @@ xsigin/signup popup
   border-radius: 5px;
   width: 30%;
   position: relative;
-}
+} */
 
 .label {
-  color: #535b7c !important;
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-.title_popup {
+/* .title_popup {
   color: #535b7c;
   text-transform: uppercase;
   font-weight: 900;
   font-style: italic;
   margin-top: 10px;
-}
+} */
 
 .input-box {
   margin-bottom: 15px;
@@ -564,10 +563,9 @@ xsigin/signup popup
   margin-top: -15px;
   margin-bottom: 15px;
   font-size: 14px;
-  color: #959baf;
 }
 
-.button {
+/* .button {
   border-width: 0px !important;
   border-radius: 4px;
   letter-spacing: 1px;
@@ -578,7 +576,7 @@ xsigin/signup popup
   text-transform: uppercase;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 
 .button-1 {
   border-width: 0px !important;
@@ -664,7 +662,7 @@ xsigin/signup popup
   display: none;
 }
 
-#btn_ins,
+/* #btn_ins,
 #btn_co {
   border-width: 0px !important;
   border-radius: 4px;
@@ -679,7 +677,7 @@ xsigin/signup popup
 }
 .btn_log {
   background-color: #eeeeee;
-}
+} */
 
 .inscription {
   border-width: 0px !important;

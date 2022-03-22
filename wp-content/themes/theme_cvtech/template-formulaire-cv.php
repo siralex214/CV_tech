@@ -1,10 +1,13 @@
 <?php
 /* Template Name: Formulaire CV */
 
-if (!empty($_POST)) {
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\Exception;
+
+if (!empty($_POST['creationCV'])) {
     global $wpdb;
-    // $id_user = $_SESSION['id'];
-    $id_user = 2;
+    $id_user = intval($_SESSION['id']);
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $email = $_POST['email'];
@@ -69,6 +72,45 @@ if (!empty($_POST)) {
             ));
 
     }
+
+// require './vendor/autoload.php';
+
+// $mail = new PHPMailer(true);
+
+// try {
+
+//     // Configuration
+//     $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Infos de debug
+
+//     // Configuration SMTP
+//     $mail->isSMTP();
+//     $mail->Host = 'smtp.gmail.com';
+//     $mail->SMTPAuth = true;
+//     $mail->Username = "maxime.76.hebert@gmail.com";
+//     $mail->Password = "J3B%Dc@m3Tt7F";
+//     $mail->SMTPSecure = 'ssl';
+
+//     // Charset
+//     $mail->CharSet = "utf-8";
+
+//     // Destinataire(s)
+//     $mail->addAddress($_SESSION["email"]);
+
+//     // Expéditeur
+//     $mail->setFrom("no-reply@bertolucci.fr");
+
+//     // Contenu
+//     $mail->subject = "Cabinet Bertolucci - CV";
+//     $mail->Body = "Bonjour Maxime, votre CV a bien été enregistré. 
+//     Vous pouvez le retrouver sur votre espace personnel si vous vous êtes inscrit.";
+
+//     // Envoi
+//     $mail->send();
+//     echo "Message envoyé";
+
+// } catch(Exception $e) {
+//     echo "Message non envoyé. Erreur: {$mail->ErrorInfo}";
+// }
 }
 
 get_header();
@@ -166,7 +208,7 @@ get_header();
                 <label id="add-hobbies" class="add-label">+ ajouter un centre d'intérêt</label>
             </div>
         </div>
-        <input type="submit" value="envoyer" name="submitted">
+        <input type="submit" value="envoyer" name="'creationCV'">
         <form>
 
 </main>

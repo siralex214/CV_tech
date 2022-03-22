@@ -208,6 +208,59 @@ input[type="checkbox"] {
 }
 
 
+/* !!!! POPUP !!!! */
+
+.content {
+    margin-top: 20px;
+}
+
+.popup {
+    text-align: center;
+    margin: 66px auto;
+    padding: 20px 30px;
+    background: #fff;
+    box-shadow: 0 2px 30px rgb(0 0 0 / 50%);
+    border: 1px solid #e0dfdc;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+}
+
+#btn_ins, #btn_co {
+    cursor: pointer;
+    border-width: 0px !important;
+    border-radius: 4px;
+    background-color: #e0dfdc;
+    font-size: 13px;
+    font-weight: bold;
+    height: 30px;
+    text-transform: uppercase;
+}
+
+.active_btn_log {
+    background-color: #ffcd00 !important;
+}
+
+.popup_submit {
+    border-width: 0px!important;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    background-color: black;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px;
+    width: 140px;
+    text-transform: uppercase;
+}
+
+.popup_submit:hover {
+    cursor: pointer;
+    transition: all 300ms;
+    transform: scale(1.1);
+}
+
+
 /* !!!! PAGE D'ACCUEIL !!!! */
 
 #main-home {
@@ -288,7 +341,7 @@ input[type="checkbox"] {
 .card-box {
     display: flex;
     width: 236px;
-    height: 336px;
+    /* height: 336px; */
     background-color: #f3f2ef;
     box-shadow: 0 2px 30px rgb(0 0 0 / 50%);
     border-radius: 6px;
