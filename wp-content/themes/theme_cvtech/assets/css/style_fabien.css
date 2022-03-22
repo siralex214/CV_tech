@@ -719,34 +719,66 @@ xsigin/signup popup
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-  top: 84%;
+  top: 110%;
+}
+
+.cv-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "left-column right-column right-column";
+  width: 100%;
+  box-shadow: 2px 2px 20px 2px #000000;
+}
+.left-column {
+  grid-area: left-column;
+  padding: 50px;
+  background-color: #ffcd00;
+  color: white;
+  height: 100%;
+}
+.right-column {
+  grid-area: right-column;
+}
+.right-column {
+  grid-area: right-column;
+  display: grid;
+  grid-template-rows: 250px 1fr;
+  grid-template-areas:
+    "header"
+    "content";
+}
+.header {
+  grid-area: header;
+  padding: 50px;
+  background-color: #cbc8c8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header {
+  grid-area: header;
+
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.content {
+  grid-area: content;
+  padding: 50px;
+  background-color: rgb(238, 235, 235);
+  height: 100%;
 }
 .card {
-  text-align: center;
-  background-color: rgb(192, 184, 184);
-  height: 800px;
-  width: 70%;
-  margin-top: 80px;
+  height: 1000px;
+  width: 800px;
+  background-color: rgb(238, 235, 235);
   margin-left: auto;
   margin-right: auto;
 }
-.title_pdf {
-  color: red;
-}
-.carreun {
-  background-color: #43443d;
-  height: 250px;
-  width: 60%;
-  float: right;
-}
-.carredeux {
-  background-color: #d2d8d8;
-  height: 100%;
-  width: 40%;
-  float: left;
-}
 .bodypdf {
-  background-color: transparent;
-  height: 1000px;
-  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 800px;
 }
