@@ -1,8 +1,7 @@
-
 <?php
 /**
  * Fonction qui sert à afficher plus simplement une variable de type array
- * @param  array $tableau
+ * @param array $tableau
  * @return void
  */
 function debug($tableau)
@@ -12,12 +11,7 @@ function debug($tableau)
     echo '</pre>';
 }
 
-/**
- * la fonction xss permet de contrer les failles XSS
- *
- * @param  mixed $value
- * @return void
- */
+
 function xss($value)
 {
     return trim(strip_tags($value));
@@ -26,8 +20,8 @@ function xss($value)
 /**
  * Permet d'afficher les erreurs
  *
- * @param  array $errors
- * @param  mixed $key
+ * @param array $errors
+ * @param mixed $key
  * @return void
  */
 function viewError($errors, $key)
@@ -70,6 +64,7 @@ function validText($errors, $value, $key, $min, $max)
     }
     return $errors;
 }
+
 function validSport($errors, $value, $key, $min, $max)
 {
     if (empty($value)) {
@@ -121,4 +116,10 @@ function verif_type($key, $type, $errors)
         }
     }
     return $errors;
+}
+
+function valideDate($date, $format = 'Y-m-d H:i:s')
+{
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) == $date;
 }

@@ -96,7 +96,7 @@ $competences['competences'] = explode("; ", $competences["competences"]);
                     <p>Prénom: <span class="info_perso_profil_user"><?= ucfirst($_SESSION['prenom']) ?></a></span></p>
                     <p>Email: <span class="info_perso_profil_user"> <?= ucfirst($_SESSION['email']) ?></a></span></p>
                     <p>Mot de passe: <span class="info_perso_profil_user">******* </a></span></p></p>
-                    <p><a href="update-info-user">Modifier mes informations</a></p>
+                    <p><a href="update-info-user?update=modif_user">Modifier mes informations</a></p>
                 </div>
                 <div>
                     <h2>Informations sur le CV: </h2>
@@ -115,7 +115,7 @@ $competences['competences'] = explode("; ", $competences["competences"]);
                     </div>
                     <p>Téléphone: <span class="info_perso_profil_user"><?= $info_persos['telephone'] ?></span></p>
                     <p>Adresse: <span class="info_perso_profil_user"><?= $info_persos['addresse_postale'] ?></span></p>
-                    <p><a href="">Modifier mes informations</a></p>
+                    <p><a href="update-info-user?update=modif_cv">Modifier mes informations</a></p>
                 </div>
             </div>
         </div>

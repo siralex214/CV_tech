@@ -13,16 +13,16 @@ function debug($tableau)
     echo '</pre>';
 }
 
-/**
- * la fonction xss permet de contrer les failles XSS
- *
- * @param mixed $value
- * @return void
- */
-function xss($value)
-{
-    return trim(strip_tags($value));
-}
+///**
+// * la fonction xss permet de contrer les failles XSS
+// *
+// * @param mixed $value
+// * @return void
+// */
+//function xss($value)
+//{
+//    return trim(strip_tags($value));
+//}
 
 /**
  * Permet d'afficher les erreurs
