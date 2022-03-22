@@ -13,7 +13,6 @@ if (empty($_SESSION)) {
     $_SESSION['email'] = "fab@gmail.com";
     $_SESSION['role'] = "role_USER";
 }
-debug($_SESSION);
 
 global $wpdb;
 
@@ -70,13 +69,6 @@ $competences = $competences[0];
 $competences['competences'] = explode("; ", $competences["competences"]);
 
 
-//debug($cvs);
-// debug($formations);
-//debug($exp_pros);
-//debug($hobbies);
-debug($info_persos);
-//debug($langues);
-//debug($competences);
 
 ?>
 <main id="profil_user">
@@ -104,6 +96,7 @@ debug($info_persos);
                     <p>Prénom: <span class="info_perso_profil_user"><?= ucfirst($_SESSION['prenom']) ?></a></span></p>
                     <p>Email: <span class="info_perso_profil_user"> <?= ucfirst($_SESSION['email']) ?></a></span></p>
                     <p>Mot de passe: <span class="info_perso_profil_user">******* </a></span></p></p>
+                    <p><a href="update-info-user">Modifier mes informations</a></p>
                 </div>
                 <div>
                     <h2>Informations sur le CV: </h2>
@@ -122,6 +115,7 @@ debug($info_persos);
                     </div>
                     <p>Téléphone: <span class="info_perso_profil_user"><?= $info_persos['telephone'] ?></span></p>
                     <p>Adresse: <span class="info_perso_profil_user"><?= $info_persos['addresse_postale'] ?></span></p>
+                    <p><a href="">Modifier mes informations</a></p>
                 </div>
             </div>
         </div>
