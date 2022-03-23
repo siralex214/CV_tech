@@ -764,8 +764,8 @@ xsigin/signup popup
 }
 .content {
   grid-area: content;
-  padding: 50px;
-  background-color: rgb(238, 235, 235);
+  /* padding: 50px; */
+  /* background-color: rgb(238, 235, 235); */
   height: 100%;
 }
 .card {

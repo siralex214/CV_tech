@@ -1,6 +1,8 @@
 <?php
 /* Template Name: Formulaire CV */
 
+require './vendor/autoload.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -41,6 +43,7 @@ if (!empty($_POST['creationCV'])) {
         $lieu = $one_exp['lieu'];
         $poste = $one_exp['poste'];
         $description = $one_exp['description'];
+
         $wpdb->insert("cv_wp_custom_exp-pro", array(
             "id_user" => $id_user,
             "date_debut" => $date_debut_exp,
@@ -60,7 +63,6 @@ if (!empty($_POST['creationCV'])) {
         $diplome = $one_exp['diplome'];
         $titre = $one_exp['intitule'];
 
-
         $wpdb->insert("cv_wp_custom_formation", array(
             "id_user" => $id_user,
             "date_debut" => $date_debut_formation,
@@ -72,7 +74,12 @@ if (!empty($_POST['creationCV'])) {
         ));
     }
 
-    require './vendor/autoload.php';
+    $wpdb->insert("cv_wp_custom_cv", array(
+        "id_user" => $id_user,
+        "nom" => $nom,
+        "date" => date('Y-m-d'),
+        "verif" => "pas_vu"
+    ));
 
     $mail = new PHPMailer(true);
 
@@ -88,6 +95,8 @@ if (!empty($_POST['creationCV'])) {
         $mail->Username = "maxime.76.hebert@gmail.com";
         $mail->Password = "J3B%Dc@m3Tt7F";
         $mail->SMTPSecure = 'ssl';
+        
+        $mail ->Port = 465;
 
         // Charset
         $mail->CharSet = "utf-8";
@@ -96,12 +105,12 @@ if (!empty($_POST['creationCV'])) {
         $mail->addAddress($_SESSION["email"]);
 
         // Expéditeur
-        $mail->setFrom("no-reply@bertolucci.fr");
+        $mail->setFrom("gaggio880@gmail.com");
 
         // Contenu
         $mail->subject = "Cabinet Bertolucci - CV";
-        $mail->Body = "Bonjour Maxime, votre CV a bien été enregistré. 
-    Vous pouvez le retrouver sur votre espace personnel si vous vous êtes inscrit.";
+        $mail->Body = "Bonjour" . $_SESSION['prenom'] . ", votre CV a bien été enregistré. 
+        Vous pouvez le retrouver sur votre espace personnel si vous vous êtes inscrit.";
 
         // Envoi
         $mail->send();
