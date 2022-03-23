@@ -707,25 +707,18 @@ xsigin/signup popup
 /* pdf */
 .btn-primary {
   border-width: 0px !important;
-  border-radius: 4px;
+  border-radius: 10px;
   letter-spacing: 1px;
-  color: rgb(80, 158, 50);
-  font-size: 12px;
+  color: rgb(173, 34, 24);
+  font-size: 13px;
   font-weight: bold;
   height: 30px;
   text-transform: uppercase;
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-  top: 110%;
-}
-
-.cv-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "left-column right-column right-column";
-  width: 100%;
-  box-shadow: 2px 2px 20px 2px #000000;
+  top: 80%;
+  left: 40%;
 }
 .left-column {
   grid-area: left-column;
@@ -752,31 +745,45 @@ xsigin/signup popup
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 285px;
 }
 
-.header {
-  grid-area: header;
-
-  background-color: #f2f2f2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 .content {
   grid-area: content;
   padding: 50px;
   background-color: rgb(238, 235, 235);
-  height: 100%;
 }
 .card {
-  height: 1000px;
-  width: 800px;
-  background-color: rgb(238, 235, 235);
-  margin-left: auto;
-  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "left-column right-column right-column";
+  width: 100%;
+  box-shadow: 2px 2px 20px 2px #000000;
 }
 .bodypdf {
   margin-left: auto;
   margin-right: auto;
   height: 800px;
+}
+.cv-box {
+  height: 1000px;
+  width: 800px;
+  background-color: #fafafa;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pagecv {
+  height: 250vh;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+}
+.sidebar {
+  box-sizing: border-box;
+  float: left;
+  width: 25%;
+  height: 250vh;
+  margin-top: 160px;
+  padding: 1.5em;
+  background-color: #f8ca00;
 }

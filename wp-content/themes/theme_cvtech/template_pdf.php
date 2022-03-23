@@ -47,118 +47,116 @@ $info_persos['permis'] = explode("; ", $info_persos['permis']);
 </head>
 
 <body>
-    <div>
-        <div>
-            <div>
-                <div class="bodypdf">
-                    <div class="card" id="invoice">
-                        <div class="cv-container2">
-                            <div class="left-column">
-                                <div>
-                                    <label for="nom">Nom:</label>
-                                    <input type="nom" name="nom" value="<?= $info_persos['prenom'] ?>">
-                                </div>
-                                <br>
-                                <div>
-                                    <label for="prenom">Prénom:</label>
-                                    <input type="prenom" name="prenom" value="<?= $info_persos['nom'] ?>">
-                                </div>
-                                <br>
-                                <div> <label for="email">Adresse E-mail:</label>
-                                    <input type="email" name="email" value="<?= $info_persos['email'] ?>">
-                                </div>
-                                <br>
-                                <div> <label for="date">date de naissance:</label>
-                                    <input type="date" name="date" value="<?= $info_persos['date_de_naissance'] ?>">
-                                </div>
-                                <br>
-                                <div> <label for="num"> numéro de telephone:</label>
-                                    <input type="num" name="num" value="<?= $info_persos['telephone'] ?>">
-                                </div>
-                                <br>
-                                <div> <label for="adresse">adresse postale:</label>
-                                    <input type="adresse" name="adresse" value="<?= $info_persos['addresse_postale'] ?>">
-                                </div>
-                                <br>
-                                <div> <label for="permis"> permis:</label>
-                                    <?php foreach ($info_persos['permis'] as $permis) : ?>
-                                        <p> <?= $permis ?>,</p>
-                                    <?php endforeach; ?>
-                                </div>
-                                <div>
-                                    <div>
-                                        <label for="competence">les competences:</label>
-                                        <input type="competence" name="competence" value="<?= $info_persos['competences'] ?>">
-                                    </div>
-                                    <br>
-                                    <br>
-                                    <div>
-                                        <label for="langues">les langues:</label>
-                                        <input type="langues" name="langues" value="<?= $info_persos['langues'] ?>">
-                                    </div>
-                                    <br>
-                                    <br>
-                                    <div>
-                                        <label for="hobbies">les hobbies:</label>
-                                        <input type="hobbies" name="hobbies" value="<?= $info_persos['hobbies'] ?>">
-                                    </div>
-                                </div>
+    <div class="pagecv">
+        <!-- <div class="sidebar">
+            sidebar
+        </div> -->
+        <div class="bodypdf">
+            <div class="cv-box">
+                <div class="card" id="invoice">
+                    <div class="left-column">
+                        <div>
+                            <label for="nom">Nom:</label>
+                            <input type="nom" name="nom" value="<?= $info_persos['prenom'] ?>">
+                        </div>
+                        <br>
+                        <div>
+                            <label for="prenom">Prénom:</label>
+                            <input type="prenom" name="prenom" value="<?= $info_persos['nom'] ?>">
+                        </div>
+                        <br>
+                        <div> <label for="email">Adresse E-mail:</label>
+                            <input type="email" name="email" value="<?= $info_persos['email'] ?>">
+                        </div>
+                        <br>
+                        <div> <label for="date">date de naissance:</label>
+                            <input type="date" name="date" value="<?= $info_persos['date_de_naissance'] ?>">
+                        </div>
+                        <br>
+                        <div> <label for="num"> numéro de telephone:</label>
+                            <input type="num" name="num" value="<?= $info_persos['telephone'] ?>">
+                        </div>
+                        <br>
+                        <div> <label for="adresse">adresse postale:</label>
+                            <input type="adresse" name="adresse" value="<?= $info_persos['addresse_postale'] ?>">
+                        </div>
+                        <br>
+                        <div> <label for="permis"> permis:</label>
+                            <?php foreach ($info_persos['permis'] as $permis) : ?>
+                                <p> <?= $permis ?>,</p>
+                            <?php endforeach; ?>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="competence">les competences:</label>
+                                <input type="competence" name="competence" value="<?= $info_persos['competences'] ?>">
                             </div>
-                            <div class="right-column">
-                                <div class="header">
-                                    <div>
-                                        <label for="entreprise">l'entreprise:</label>
-                                        <input type="entreprise" name="entreprise" value="<?= $exp_pros['entreprise'] ?>">
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <label for="lieu">lieu:</label>
-                                        <input type="lieu" name="lieu" value="<?= $exp_pros['lieu'] ?>">
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <label for="poste">Poste:</label>
-                                        <input type="poste" name="poste" value="<?= $exp_pros['poste'] ?>">
-                                    </div>
-                                    <br>
-                                    <div>
-
-                                        <label for="description">description:</label>
-                                        <?php foreach ($exp_pros['description'] as $description) : ?>
-                                            <p> <?= $description ?>,</p>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
-                                <div class=" content">
-                                    <div>
-                                        <label for="etablissement">etablissement:</label>
-                                        <input type="etablissement" name="etablissement" value="<?= $formations['etablissement'] ?>">
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <label for="diplome">diplome:</label>
-                                        <input type="diplome" name="diplome" value="<?= $formations['diplome'] ?>">
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <label for="lieu">lieu:</label>
-                                        <input type="lieu" name="lieu" value="<?= $formations['lieu'] ?>">
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <label for="poste">titre:</label>
-                                        <input type="titre" name="titre" value="<?= $formations['titre'] ?>">
-                                    </div>
-                                </div>
+                            <br>
+                            <br>
+                            <div>
+                                <label for="langues">les langues:</label>
+                                <input type="langues" name="langues" value="<?= $info_persos['langues'] ?>">
+                            </div>
+                            <br>
+                            <br>
+                            <div>
+                                <label for="hobbies">les hobbies:</label>
+                                <input type="hobbies" name="hobbies" value="<?= $info_persos['hobbies'] ?>">
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <button class="btn btn-primary" id="download"> télécharger en pdf</button>
+                    <div class="right-column">
+                        <div class="header">
+                            <div>
+                                <label for="entreprise">l'entreprise:</label>
+                                <input type="entreprise" name="entreprise" value="<?= $exp_pros['entreprise'] ?>">
+                            </div>
+                            <br>
+                            <div>
+                                <label for="lieu">lieu:</label>
+                                <input type="lieu" name="lieu" value="<?= $exp_pros['lieu'] ?>">
+                            </div>
+                            <br>
+                            <div>
+                                <label for="poste">Poste:</label>
+                                <input type="poste" name="poste" value="<?= $exp_pros['poste'] ?>">
+                            </div>
+                            <br>
+                            <div>
+
+                                <label for="description">description:</label>
+                                <?php foreach ($exp_pros['description'] as $description) : ?>
+                                    <p> <?= $description ?>,</p>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <div class=" content">
+                            <div>
+                                <label for="etablissement">etablissement:</label>
+                                <input type="etablissement" name="etablissement" value="<?= $formations['etablissement'] ?>">
+                            </div>
+                            <br>
+                            <div>
+                                <label for="diplome">diplome:</label>
+                                <input type="diplome" name="diplome" value="<?= $formations['diplome'] ?>">
+                            </div>
+                            <br>
+                            <div>
+                                <label for="lieu">lieu:</label>
+                                <input type="lieu" name="lieu" value="<?= $formations['lieu'] ?>">
+                            </div>
+                            <br>
+                            <div>
+                                <label for="poste">titre:</label>
+                                <input type="titre" name="titre" value="<?= $formations['titre'] ?>">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div>
+                <button class="btn btn-primary" id="download"> télécharger en pdf</button>
+            </div>
         </div>
-    </div>
     </div>
 </body>
