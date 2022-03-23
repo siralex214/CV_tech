@@ -4,7 +4,6 @@
  * Template Name: update info
  */
 get_header();
-debug($_SESSION);
 global $wpdb;
 $errors_modifCv = [];
 // requêtes

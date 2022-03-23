@@ -178,19 +178,19 @@ if (!empty($_POST['connexion'])) {
 
 </div>
 <header>
-    <nav>
-        <div class="logo">
-            <a class="nav_title" href="#">Bertolucci</a>
-        </div>
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-            <i class="fas fa-bars"></i>
-        </label>
-        <ul>
-            <li><a href="#aboutContainer">Accueil</a></li>
-            <li><a href="#skillsContainer">Contact</a></li>
-            <li id="btn_connexion">Connexion</li>
-        </ul>
+	<nav>
+		<div class="logo">
+			<a class="nav_title" href="<?php the_permalink()?>home">Bertolucci</a>
+		</div>
+		<input type="checkbox" id="click">
+		<label for="click" class="menu-btn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<ul>
+			<li><a href="<?php the_permalink()?>home">Accueil</a></li>
+			<li><a href="<?php the_permalink()?>contact">Contact</a></li>
+			<li id="btn_connexion" href="<?php the_permalink()?>connexion">Connexion</li>
+		</ul>
 
         <!-- <div id="nav-menu">
 

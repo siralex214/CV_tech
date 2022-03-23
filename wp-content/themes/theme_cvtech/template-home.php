@@ -9,7 +9,7 @@ get_header();
             <h1 class="wrapper-title">Créateur d'affinités professionnelles</h1>
             <p class="wrapper-text">spécialiste du numérique</p>
             <a class="button" href="#">Candidature spontanée</a>
-            <a class="button" href="#">S'inscrire</a>
+            <a class="button" href="<?php the_permalink()?>home">S'inscrire</a>
         </div>
         <div id="wrapper-right">
             <img id="wrapper-img" src="<?= get_template_directory_uri() ?>/assets/img/business-3d-flying-black-businessman.png" alt="">
@@ -64,7 +64,7 @@ get_header();
     <div id="contact">
         <h1 id="contact-title">Vous avez une question ?</h1>
         <p id="contact-text">Nous avons la réponse !</p>
-        <a class="button" href="#">Nous contacter</a>
+        <a class="button" href="<?php the_permalink()?>contact">Nous contacter</a>
     </div>
 </main>
 

@@ -70,7 +70,7 @@ if (!empty($competences)) {
     <section>
         <div class="candidat-card-profil-container">
             <div class="candidat-card-profil-infos-img">
-                <img class="candidat-card-profil-img" src="<?= get_template_directory_uri() . "/" . $_SESSION['photo'] ?>">
+                <img class="candidat-card-profil-img" src="<?= wp_get_upload_dir()['baseurl'] . $_SESSION['photo'] ?>">
             </div>
             <div class="candidat-card-profil-infos-text">
                 <span class="candidat-card-profil-name">Bonjour <?= ucfirst($_SESSION['prenom']) ?> <?= ucfirst($_SESSION['nom']) ?></span>

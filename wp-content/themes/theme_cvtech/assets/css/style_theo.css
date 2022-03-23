@@ -1,84 +1,151 @@
 .mention-text {
-    margin: 10px 67px 20px;
+  margin: 10px 67px 20px;
 }
 
 .mention-h3 {
-    text-decoration: underline;
-    margin: 10px 67px 20px;
+  text-decoration: underline;
+  margin: 10px 67px 20px;
 }
 
 .mention-a {
-    color: #1614b4;
+  color: #1614b4;
 }
 
 .mention-h1 {
-    text-align: center;
-    text-decoration: underline;
+  text-align: center;
+  text-decoration: underline;
 }
 
 .mention-all {
-    -webkit-font-smoothing: antialiased;
-    font-weight: bold;
-    line-height: 140%;
-    font-family: helvetica, sans-serif;
-    box-sizing: border-box;
-    color: #44475d;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  line-height: 140%;
+  font-family: helvetica, sans-serif;
+  box-sizing: border-box;
+  color: #44475d;
 }
 
 .mention-mention {
-    line-height: 2em;
+  line-height: 2em;
 }
 
 .mention-ruban {
-    text-align: center;
-    background: #F3F2EF;
-    padding: 10px 50px 20px;
-    border-radius: 30px;
-    opacity: 0.5;
+  text-align: center;
+  background: #f3f2ef;
+  padding: 10px 50px 20px;
+  border-radius: 30px;
+  opacity: 0.5;
 }
 
 .mention-ol {
-    list-style: none;
+  list-style: none;
 }
 
 .recruteur-bordure {
-    border: 1px solid black;
-    margin: 50px;
-    /* padding: 5% 10%; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  border: 1px solid black;
+  margin: 50px;
+  /* padding: 5% 10%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .changement-color {
-    background: linear-gradient(70deg, #F3F2EF, #FFCD00);
+  background: linear-gradient(70deg, #f3f2ef, #ffcd00);
 }
 
 .recruteur-main {
-    padding: 130px;
+  padding: 130px;
 }
 
 .recruteur-button {
-    border: 1px solid black;
-    padding: 20px;
-    padding: 5% 10%;
-    text-align: center;
+  border: 1px solid black;
+  padding: 20px;
+  padding: 5% 10%;
+  text-align: center;
 }
 
 .recruteur-right {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    padding: 20px;
-    padding: 5% 10%;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid e0dfdc;
+  padding: 20px;
+  padding: 5% 10%;
+  text-align: center;
 }
 
 .recruteur-milieu {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    padding: 20px;
-    padding: 5% 10%;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 20px;
+  padding: 5% 10%;
+  text-align: center;
+}
+.contact-all {
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  line-height: 140%;
+  font-family: helvetica, sans-serif;
+  background-color: #f3f2ef;
+  text-align: center;
+  padding: 100px 50px 20px;
+  background-color: #f3f2ef;
+}
+
+.contact-textarea {
+  margin-left: 150px;
+  text-align: center;
+  font-size: 1.1em;
+  width: 60%;
+  height: 100px;
+  border-radius: 5px;
+  max-width: 100%;
+  text-align: left;
+  background: transparent;
+  resize: none;
+}
+
+.contact-input {
+  width: 60%;
+  max-width: 100%;
+  text-align: left;
+  background: transparent;
+  padding: 5px;
+  border: 1px solid #bbbab9;
+  border-radius: 5px;
+}
+
+.contact-button1 {
+  display: inline-block;
+  background-color: green;
+  border: none;
+  border-radius: 10px;
+  color: #eeeeee;
+  text-align: center;
+  padding: 8px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.contact-button2 {
+  display: inline-block;
+  background-color: red;
+  border: none;
+  border-radius: 10px;
+  color: #eeeeee;
+  text-align: center;
+  padding: 8px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.contact-name{
+    margin-left: 10px;
 }
