@@ -180,20 +180,6 @@ function theme_cvtech_scripts()
     wp_enqueue_script('main_safia');
 }
 
-function capitaine_assets()
-{
-
-    // …
-
-    // Charger notre script
-    wp_enqueue_script('capitaine', get_template_directory_uri() . '/assets/js/ajax.js', array(), '1.0', true);
-
-    // Envoyer une variable de PHP à JS proprement
-    wp_localize_script('capitaine', 'capitaine', ["ajaxurl" => admin_url('admin-ajax.php')]);
-
-}
-
-add_action('wp_enqueue_scripts', 'capitaine_assets');
 add_action('wp_enqueue_scripts', 'theme_cvtech_scripts');
 
 /**
@@ -233,4 +219,3 @@ function cv_tech_session_start()
 
 
 add_action('init', 'cv_tech_session_start', 1);
-

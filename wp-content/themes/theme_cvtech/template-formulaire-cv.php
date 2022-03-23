@@ -1,7 +1,8 @@
 <?php
 /* Template Name: Formulaire CV */
 
-if (!empty($_POST)) {
+if (!empty($_POST['add_cv'])) {
+
     global $wpdb;
     // $id_user = $_SESSION['id'];
     $id_user = 2;
@@ -166,7 +167,7 @@ get_header();
                 <label id="add-hobbies" class="add-label">+ ajouter un centre d'intérêt</label>
             </div>
         </div>
-        <input type="submit" value="envoyer" name="submitted">
+        <input type="submit" value="envoyer" name="add_cv">
         <form>
 
 </main>

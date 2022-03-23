@@ -42,3 +42,28 @@ more_permis.addEventListener("click", () => {
         permis.classList.remove("permis_show")
     }
 })
+
+const more_langue = document.querySelector("#more_langues")
+const langues = document.querySelector(".langues")
+let etatlangue = false
+more_langue.addEventListener("click", () => {
+    if (etatlangue == false) {
+        etatlangue = true
+        langues.classList.add("permis_show")
+    } else {
+        etatlangue = false
+        langues.classList.remove("permis_show")
+    }
+})
+const more_hobbies = document.querySelector("#more_hobbies")
+const hobbies = document.querySelector(".hobbies")
+let etathobbies = false
+more_hobbies.addEventListener("click", () => {
+    if (etathobbies == false) {
+        etathobbies = true
+        hobbies.classList.add("permis_show")
+    } else {
+        etathobbies = false
+        hobbies.classList.remove("permis_show")
+    }
+})
