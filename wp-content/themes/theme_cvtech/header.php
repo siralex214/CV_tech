@@ -11,6 +11,7 @@ if (!empty($_POST['inscription'])) {
 	$nom = $_POST['nom_inscription'];
 	$email = $_POST['email_inscription'];
 	$mdp = $_POST['password_inscription'];
+	$profil_picture = $_FILES['profil_picture'];
 
 	$mdp_hash = password_hash($mdp, PASSWORD_DEFAULT);
 
@@ -27,9 +28,32 @@ if (!empty($_POST['inscription'])) {
 		$error["email_inscription"] = 'veuillez entrer un email correct';
 	}
 
+	// if ($_FILES['profil_picture']['size'] === 0 && $FILES['profil_picture']['error'] > 0) {
+	// 	$error['miniature'] = "problème de chargement image";
+	// } else {
+	// 	$photoArray = explode("/", $_FILES['profil_picture']['type']);
+	// 	if ($photoArray[0] !== "image") {
+	// 		$error['profil_picture'] = "Veuillez vérifier le format de l'image";
+	// 	} else {
+	// 		if ($photoArray[1] !== "jpg" && $photoArray[1] !== "jpeg" && $photoArray[1] !== "png") {
+	// 			$error['profil_picture'] = "Le fichier n\'est pas de type jpg, jpeg ou png";
+	// 		}
+	// 	}
+	// }
+
+	// if ($_FILES['profil_picture']['size'] >= 4000000) {
+	// 	$error['profil_picture'] = "Le fichier fait plus de 4Mo";
+	// }
+
+	// $nom_image = basename($_FILES['profil_picture']['name']);
+	// $chemin_destination = '../wp-content/uploads/profil_pic' . $nom_image;
+	
+	// $link = move_uploaded_file($_FILES['profil_picture']['tmp_name'], $chemin_destination);
+
 	var_dump($error);
 	if (count($error) == 0) {
-		$result = $wpdb->get_results("INSERT INTO `cv_wp_custom_users`(`nom`, `prenom`, `email`, `password`, `role`) VALUES ('$nom','$prenom','$email','$mdp_hash','$role')");
+        $profil_picture = "";
+		$result = $wpdb->get_results("INSERT INTO `cv_wp_custom_users`(`nom`, `prenom`, `email`, `password`, `photo`, `role`) VALUES ('$nom','$prenom','$email','$mdp_hash','$profil_picture','$role')");
 		var_dump($result);
 	}
 	header('location:index.php');
@@ -127,12 +151,14 @@ if (!empty($_POST['connexion'])) {
 					</div>
 					<div class="input-box">
 						<label class="label">Vérification de mot de passe</label>
-					</div>
-					<div class="input-box">
 						<input class="input" type="password" name="password_check" id="password_check">
 					</div>
 					<div class="errors">
 						<span id="passwordVerifError">Mot de passe identique</span>
+					</div>
+					<div class="input-box">
+						<label class="label">Ajouter une photo de profil</label>
+						<input class="input_file" type="file" name="profil_picture">
 					</div>
 					<div class="input-box">
 						<button name="inscription" class="popup_submit" type="submit" value="S'inscrire" id="inscription">S'inscrire</button>
