@@ -1,5 +1,27 @@
 jQuery(document).ready(function () {
 
+    // VERIFICATION FORMULAIRE INSCRIPTION
+
+    jQuery(document).on('input', '#nom_inscription', function () {
+        nomChange();
+    })
+
+    jQuery(document).on('input', '#prenom_inscription', function () {
+        prenomChange();
+    })
+
+    jQuery(document).on('input', '#email_inscription', function () {
+        emailChange();
+    })
+
+    jQuery(document).on('input', '#password_inscription', function () {
+        passwordChange();
+    })
+
+    jQuery(document).on('input', '#password_check', function () {
+        passwordVerifChange();
+    })
+
     // FORMULAIRE CV
 
     jQuery(document).on('click', '#add-permis', function () {
@@ -94,3 +116,109 @@ jQuery(document).ready(function () {
     })
 
 })
+
+function colorValide(str) {
+    console.log('green')
+    str.css('color', 'green');
+}
+
+function colorError(str) {
+    console.log('red')
+    str.css('color', 'red');
+}
+
+function nomChange() {
+
+    if (jQuery('#nom_inscription').val().length >= 2 && jQuery('#nom_inscription').val().length <= 20) {
+        colorValide(jQuery('#nomError'));
+    } else {
+        colorError(jQuery('#nomError'));
+    }
+}
+
+function prenomChange() {
+
+    if (jQuery('#prenom_inscription').val().length >= 2 && jQuery('#prenom_inscription').val().length <= 20) {
+        colorValide(jQuery('#prenomError'));
+    } else {
+        colorError(jQuery('#prenomError'));
+    }
+}
+
+function emailChange() {
+    if (hasEmailValid(jQuery('#email_inscription').val())) {
+        colorValide(jQuery('#emailError'));
+    } else {
+        colorError(jQuery('#emailError'));
+    }
+}
+
+function passwordChange() {
+    passwordVerifChange();
+    //Vérification Taille >=8
+    if (jQuery('#password_inscription').val().length >= 8) {
+        colorValide(jQuery('#passwordErrorSize'));
+    } else {
+        colorError(jQuery('#passwordErrorSize'));
+    }
+
+    //Vérification présence d'une minuscule
+    if (hasLowerCase(jQuery('#password_inscription').val()) == true) {
+        colorValide(jQuery('#passwordErrorMinuscule'));
+    } else {
+        colorError(jQuery('#passwordErrorMinuscule'));
+    }
+
+    //Vérification présence d'une majuscule
+    if (hasUpperCase(jQuery('#password_inscription').val())) {
+        colorValide(jQuery('#passwordErrorMajuscule'));
+    } else {
+        colorError(jQuery('#passwordErrorMajuscule'));
+    }
+
+    //Vérification présence d'un nombre
+    if (hasNumber(jQuery('#password_inscription').val())) {
+        colorValide(jQuery('#passwordErrorNombre'));
+    } else {
+        colorError(jQuery('#passwordErrorNombre'));
+    }
+
+    //Vérification présence d'un char special
+    if (hasSpecial(jQuery('#password_inscription').val())) {
+        colorValide(jQuery('#passwordErrorSpecial'));
+    } else {
+        colorError(jQuery('#passwordErrorSpecial'));
+    }
+}
+
+function passwordVerifChange() {
+    if (jQuery('#password_inscription').val().length > 0) {
+        if (jQuery('#password_inscription').val() == jQuery('#password_check').val()) {
+            colorValide(jQuery('#passwordVerifError'));
+        } else {
+            colorError(jQuery('#passwordVerifError'));
+        }
+    }
+}
+
+// REGEX
+
+function hasEmailValid(str) {
+    return (/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(str));
+}
+
+function hasLowerCase(str) {
+    return (/[a-z]/.test(str));
+}
+
+function hasUpperCase(str) {
+    return (/[A-Z]/.test(str));
+}
+
+function hasNumber(str) {
+    return (/[0-9]/.test(str));
+}
+
+function hasSpecial(str) {
+    return (/[!-/]|[:-@]|[[-`]|[{-~]/.test(str));
+}

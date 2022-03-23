@@ -7,7 +7,7 @@ get_header();
 ?>
 <br><br><br><br>
 <?php
-
+$_SESSION['id'] = 2;
 global $wpdb;
 
 $prepare = $wpdb->prepare("SELECT * FROM cv_wp_custom_cv WHERE id_user = %d", [$_SESSION['id']]);
