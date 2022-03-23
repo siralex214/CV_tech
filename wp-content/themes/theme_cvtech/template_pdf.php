@@ -52,7 +52,7 @@ $info_persos['permis'] = explode("; ", $info_persos['permis']);
             <div>
                 <div class="bodypdf">
                     <div class="card" id="invoice">
-                        <div class="cv-container">
+                        <div class="cv-container2">
                             <div class="left-column">
                                 <div>
                                     <label for="nom">Nom:</label>
