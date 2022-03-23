@@ -8,8 +8,7 @@ get_header();
         <div id="wrapper-left">
             <h1 class="wrapper-title">Créateur d'affinités professionnelles</h1>
             <p class="wrapper-text">spécialiste du numérique</p>
-            <a class="button" href="#">Candidature spontanée</a>
-            <a class="button" href="#">S'inscrire</a>
+            <a class="button" id="btn_inscription" href="#">Candidater</a>
         </div>
         <div id="wrapper-right">
             <img id="wrapper-img" src="<?= get_template_directory_uri() ?>/assets/img/business-3d-flying-black-businessman.png" alt="">
@@ -34,9 +33,9 @@ get_header();
                 <p class="card-text"><i class="fa-solid fa-location-dot"></i> Lyon, Auvergne-Rhône-Alpes</p>
             </div>
             <div class="card-box">
-                <img class="card-img" src="<?= get_template_directory_uri() ?>/assets/img/logo_kazaden.png" alt="">
-                <h2>Kazaden</h2>
-                <p class="card-text"><i class="fa-solid fa-location-dot"></i> Lyon, Auvergne-Rhône-Alpes</p>
+                <img class="card-img" src="<?= get_template_directory_uri() ?>/assets/img/qwant_logo.png" alt="">
+                <h2>Qwant</h2>
+                <p class="card-text"><i class="fa-solid fa-location-dot"></i> Rouen, Normandie</p>
             </div>
         </div>
     </div>
