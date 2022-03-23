@@ -6,13 +6,7 @@ get_header();
 ?>
 <br><br><br><br>
 <?php
-if (empty($_SESSION)) {
-    $_SESSION['id'] = 2;
-    $_SESSION['nom'] = "Debureau";
-    $_SESSION['prenom'] = "Fabien";
-    $_SESSION['email'] = "fab@gmail.com";
-    $_SESSION['role'] = "role_USER";
-}
+
 
 global $wpdb;
 
@@ -45,29 +39,25 @@ while ($i < count($exp_pros)) {
     $i++;
 }
 
-$prepare4 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_hobbies` WHERE id_user = %d", [$_SESSION['id']]);
-$hobbies = $wpdb->get_results($prepare4, ARRAY_A);
-$hobbies = $hobbies[0];
-$hobbies['hobbies'] = explode("; ", $hobbies["hobbies"]);
-
 $prepare5 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_info_perso` WHERE id_user = %d", [$_SESSION['id']]);
 $info_persos = $wpdb->get_results($prepare5, ARRAY_A);
-$info_persos = $info_persos[0];
-$info_persos['permis'] = explode("; ", $info_persos['permis']);
-$date = new DateTime($info_persos['date_de_naissance']);
-$date = $date->format("d-m-Y");
-$info_persos['date_de_naissance'] = $date;
+if (!empty($info_persos)) {
+    $info_persos = $info_persos[0];
+    $info_persos['permis'] = explode("; ", $info_persos['permis']);
+    $date = new DateTime($info_persos['date_de_naissance']);
+    $date = $date->format("d-m-Y");
+    $info_persos['date_de_naissance'] = $date;
+    $info_persos['langues'] = explode("; ", $info_persos['langues']);
+    $info_persos['hobbies'] = explode("; ", $info_persos["hobbies"]);
+}
 
-$prepare6 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_langue` WHERE id_user = %d", [$_SESSION['id']]);
-$langues = $wpdb->get_results($prepare6, ARRAY_A);
-$langues = $langues[0];
-$langues['langues'] = explode("; ", $langues["langues"]);
 
 $prepare7 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_competence` WHERE id_user = %d", [$_SESSION['id']]);
 $competences = $wpdb->get_results($prepare7, ARRAY_A);
-$competences = $competences[0];
-$competences['competences'] = explode("; ", $competences["competences"]);
-
+if (!empty($competences)) {
+    $competences = $competences[0];
+    $competences['competences'] = explode("; ", $competences["competences"]);
+}
 
 
 ?>
@@ -100,26 +90,45 @@ $competences['competences'] = explode("; ", $competences["competences"]);
                 </div>
                 <div>
                     <h2>Informations sur le CV: </h2>
-                    <p>Nom: <span class="info_perso_profil_user"><?= $info_persos['nom'] ?></span></p>
-                    <p>Prénom: <span class="info_perso_profil_user"><?= $info_persos['prenom'] ?></span></p>
-                    <p>Email: <span class="info_perso_profil_user"><?= $info_persos['email'] ?></span></p>
-                    <p>Date de naissance: <span
-                                class="info_perso_profil_user"><?= $info_persos['date_de_naissance'] ?></span></p>
-                    <p>Permis: <span id="more_permis">Voir les permis</span><span class="info_perso_profil_user"></span>
-                    </p>
+                    <?php if (empty($info_persos) || empty($competences)) { ?>
+                        <a href="formulaire-cv">Créer mon CV</a>
+                    <?php } else { ?>
+                        <p>Nom: <span class="info_perso_profil_user"><?= $info_persos['nom'] ?></span></p>
+                        <p>Prénom: <span class="info_perso_profil_user"><?= $info_persos['prenom'] ?></span></p>
+                        <p>Email: <span class="info_perso_profil_user"><?= $info_persos['email'] ?></span></p>
+                        <p>Date de naissance: <span
+                                    class="info_perso_profil_user"><?= $info_persos['date_de_naissance'] ?></span></p>
+                        <p>Permis: <span class="more_user_profil" id="more_permis">Voir les permis</span><span
+                                    class="info_perso_profil_user"></span></p>
+                        <div class="permis">
+                            <?php foreach ($info_persos['permis'] as $permis) : ?>
+                                <p> <?= $permis ?>,</p>
+                            <?php endforeach; ?>
+                        </div>
+                        <p>Langues: <span class="more_user_profil" id="more_langues">Voir les langues</span></p>
+                        <div class="langues">
+                            <?php foreach ($info_persos['langues'] as $langue) : ?>
+                                <p> <?= $langue ?>,</p>
+                            <?php endforeach; ?>
+                        </div>
+                        <p>Hobbies: <span class="more_user_profil" id="more_hobbies">Voir les hobbies</span></p>
+                        <div class="hobbies">
+                            <?php foreach ($info_persos['hobbies'] as $hobby) : ?>
+                                <p> <?= $hobby ?>,</p>
+                            <?php endforeach; ?>
+                        </div>
+                        <p>Téléphone: <span class="info_perso_profil_user"><?= $info_persos['telephone'] ?></span></p>
+                        <p>Adresse: <span class="info_perso_profil_user"><?= $info_persos['addresse_postale'] ?></span>
+                        </p>
 
-                    <div class="permis">
-                        <?php foreach ($info_persos['permis'] as $permis) : ?>
-                            <p> <?= $permis ?>,</p>
-                        <?php endforeach; ?>
-                    </div>
-                    <p>Téléphone: <span class="info_perso_profil_user"><?= $info_persos['telephone'] ?></span></p>
-                    <p>Adresse: <span class="info_perso_profil_user"><?= $info_persos['addresse_postale'] ?></span></p>
-                    <p><a href="update-info-user?update=modif_cv">Modifier mes informations</a></p>
+
+                        <p><a href="update-info-user?update=modif_cv">Modifier mes informations</a></p>
+                    <?php } ?>
                 </div>
             </div>
         </div>
         <div class="profil_user_block none_block_profil_user">
+            <p>coucou</p>
             <?php foreach ($formations as $formation) : ?>
                 <div class="one_box_userProfil_forma">
                     <div>
@@ -173,11 +182,14 @@ $competences['competences'] = explode("; ", $competences["competences"]);
 
         </div>
         <div class="profil_user_block none_block_profil_user">
-            <?php foreach ($competences['competences'] as $competence): ?>
-                <span class="one_competence_userprofil">
+            <?php
+            if (!empty($competences)) {
+                foreach ($competences['competences'] as $competence): ?>
+                    <span class="one_competence_userprofil">
                     <?= $competence ?>
             </span>
-            <?php endforeach; ?>
+                <?php endforeach;
+            } ?>
             <a style="color: black" href=""><span class="one_competence_userprofil add_competence"><i
                             class="fa-solid fa-plus"></i></span></a>
 
