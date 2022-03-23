@@ -28,30 +28,31 @@ if (!empty($_POST['inscription'])) {
 		$error["email_inscription"] = 'veuillez entrer un email correct';
 	}
 
-	if ($_FILES['profil_picture']['size'] === 0 && $FILES['profil_picture']['error'] > 0) {
-		$error['miniature'] = "problème de chargement image";
-	} else {
-		$photoArray = explode("/", $_FILES['profil_picture']['type']);
-		if ($photoArray[0] !== "image") {
-			$error['profil_picture'] = "Veuillez vérifier le format de l'image";
-		} else {
-			if ($photoArray[1] !== "jpg" && $photoArray[1] !== "jpeg" && $photoArray[1] !== "png") {
-				$error['profil_picture'] = "Le fichier n\'est pas de type jpg, jpeg ou png";
-			}
-		}
-	}
+	// if ($_FILES['profil_picture']['size'] === 0 && $FILES['profil_picture']['error'] > 0) {
+	// 	$error['miniature'] = "problème de chargement image";
+	// } else {
+	// 	$photoArray = explode("/", $_FILES['profil_picture']['type']);
+	// 	if ($photoArray[0] !== "image") {
+	// 		$error['profil_picture'] = "Veuillez vérifier le format de l'image";
+	// 	} else {
+	// 		if ($photoArray[1] !== "jpg" && $photoArray[1] !== "jpeg" && $photoArray[1] !== "png") {
+	// 			$error['profil_picture'] = "Le fichier n\'est pas de type jpg, jpeg ou png";
+	// 		}
+	// 	}
+	// }
 
-	if ($_FILES['profil_picture']['size'] >= 4000000) {
-		$error['profil_picture'] = "Le fichier fait plus de 4Mo";
-	}
+	// if ($_FILES['profil_picture']['size'] >= 4000000) {
+	// 	$error['profil_picture'] = "Le fichier fait plus de 4Mo";
+	// }
 
 	// $nom_image = basename($_FILES['profil_picture']['name']);
 	// $chemin_destination = '../wp-content/uploads/profil_pic' . $nom_image;
 	
-	$link = move_uploaded_file($_FILES['profil_picture']['tmp_name'], $chemin_destination);
+	// $link = move_uploaded_file($_FILES['profil_picture']['tmp_name'], $chemin_destination);
 
 	var_dump($error);
 	if (count($error) == 0) {
+        $profil_picture = "";
 		$result = $wpdb->get_results("INSERT INTO `cv_wp_custom_users`(`nom`, `prenom`, `email`, `password`, `photo`, `role`) VALUES ('$nom','$prenom','$email','$mdp_hash','$profil_picture','$role')");
 		var_dump($result);
 	}
