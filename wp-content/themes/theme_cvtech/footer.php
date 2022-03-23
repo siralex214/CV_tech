@@ -17,23 +17,23 @@
 		<div class="footer-container">
 			<div id="footer-title">Bertolucci</div>
 			<div id="social_network">
-				<a href="#" target="_blank" class="social_logo">
+				<a href="https://www.facebook.com/" target="_blank" class="social_logo">
 					<i class="fa-brands fa-facebook-square fa-2x"></i>
 				</a>
-				<a href="#" target="_blank" class="social_logo">
+				<a href="https://twitter.com/" target="_blank" class="social_logo">
 					<i class="fa-brands fa-twitter-square fa-2x"></i>
 				</a>
-				<a href="#" target="_blank" class="social_logo">
+				<a href="https://fr.linkedin.com/" target="_blank" class="social_logo">
 					<i class="fa-brands fa-linkedin fa-2x"></i></i>
 				</a>
 			</div>
 		</div>
 		<div class="footer-container">
-			<a href="#" id="legals" class="footer-links">Mentions légales</a>
+			<a  id="legals" class="footer-links" href="<?php the_permalink()?>mention"> Mentions légales</a>
 			<div id="right">© 2022, Bertolucci, All rights reserved.</div>
 		</div>
 		<div class="footer-container">
-			<a href="#" class="footer-links">Nous contacter</a>
+			<a href="<?php the_permalink()?>contact" class="footer-links" >Nous contacter</a>
 		</div>
 	</section>
 </footer>

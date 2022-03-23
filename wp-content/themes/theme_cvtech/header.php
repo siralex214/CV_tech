@@ -138,7 +138,7 @@ if (!empty($_POST)) {
 						<span id="passwordVerifError">Mot de passe identique</span>
 					</div>
 					<div class="input-box">
-						<button class="inscription" type="submit" value="S'inscrire" id="inscription">S'inscrire</button>
+						<button class="inscription" type="submit" value="S'inscrire" id="inscription" href="<?php the_permalink()?>profil user">S'inscrire</button>
 					</div>
 				</form>
 			</div>
@@ -158,7 +158,7 @@ if (!empty($_POST)) {
 					</div>
 					<p class="error" id="erreur_password_co">&nbsp;</p>
 					<div class="input-box">
-						<button class="connection" type="submit" value="Connexion" id="Connexion" id="submit_connexion">Se connecter</button>
+						<button class="connection" type="submit" value="Connexion" id="Connexion" id="submit_connexion" href="<?php the_permalink()?>profil user">Se connecter</button>
 						<span id="error_connexion" class="error">
 					</div>
 				</form>
@@ -176,16 +176,16 @@ if (!empty($_POST)) {
 <header>
 	<nav>
 		<div class="logo">
-			<a class="nav_title" href="#">Bertolucci</a>
+			<a class="nav_title" href="<?php the_permalink()?>home">Bertolucci</a>
 		</div>
 		<input type="checkbox" id="click">
 		<label for="click" class="menu-btn">
 			<i class="fas fa-bars"></i>
 		</label>
 		<ul>
-			<li><a href="#aboutContainer">Accueil</a></li>
-			<li><a href="#skillsContainer">Contact</a></li>
-			<li id="btn_connexion">Connexion</li>
+			<li><a href="<?php the_permalink()?>home">Accueil</a></li>
+			<li><a href="<?php the_permalink()?>contact">Contact</a></li>
+			<li id="btn_connexion" href="<?php the_permalink()?>connexion">Connexion</li>
 		</ul>
 
 		<!-- <div id="nav-menu">
