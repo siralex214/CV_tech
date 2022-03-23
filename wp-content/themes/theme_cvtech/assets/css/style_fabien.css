@@ -717,7 +717,7 @@ xsigin/signup popup
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-  top: 80%;
+  top: 850px;
   left: 40%;
 }
 .left-column {
@@ -733,7 +733,7 @@ xsigin/signup popup
 .right-column {
   grid-area: right-column;
   display: grid;
-  grid-template-rows: 250px 1fr;
+  grid-template-rows: 350px 1fr;
   grid-template-areas:
     "header"
     "content";
@@ -745,10 +745,10 @@ xsigin/signup popup
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 285px;
+  height: 370px;
 }
 
-.content {
+.contentpdf {
   grid-area: content;
   padding: 50px;
   background-color: rgb(238, 235, 235);
@@ -757,28 +757,20 @@ xsigin/signup popup
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "left-column right-column right-column";
-  width: 100%;
+  width: 80%;
   box-shadow: 2px 2px 20px 2px #000000;
+  margin: 0 auto;
 }
-.bodypdf {
-  margin-left: auto;
-  margin-right: auto;
-  height: 800px;
-}
+
 .cv-box {
-  height: 1000px;
-  width: 800px;
   background-color: #fafafa;
-  margin-left: auto;
-  margin-right: auto;
 }
 .pagecv {
-  height: 250vh;
   background: #fafafa;
   display: flex;
   align-items: center;
 }
-.sidebar {
+/* .sidebar {
   box-sizing: border-box;
   float: left;
   width: 25%;
@@ -786,4 +778,4 @@ xsigin/signup popup
   margin-top: 160px;
   padding: 1.5em;
   background-color: #f8ca00;
-}
+} */
