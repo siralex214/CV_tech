@@ -86,7 +86,6 @@ if (!empty($_POST['inscription'])) {
             header('location: formulaire-cv');
         } else {
             header('location: recruteur');
-
         }
     }
 }
@@ -128,7 +127,6 @@ if (!empty($_POST['connexion'])) {
             }
         }
     }
-
 }
 
 ?>
@@ -158,30 +156,27 @@ if (!empty($_POST['connexion'])) {
                 <form method="post" action="" enctype="multipart/form-data">
                     <div class="input-box">
                         <label class="label">Nom</label>
-                        <input class="input" type="text" name="nom_inscription" id="nom_inscription"
-                               value="<?php if (!empty($_POST['nom_inscription'])) {
-                                   echo $_POST['nom_inscription'];
-                               } ?>">
+                        <input class="input" type="text" name="nom_inscription" id="nom_inscription" value="<?php if (!empty($_POST['nom_inscription'])) {
+                                                                                                                echo $_POST['nom_inscription'];
+                                                                                                            } ?>">
                     </div>
                     <div class="errors">
                         <span id="nomError">Entre 2 et 20 caractères</span>
                     </div>
                     <div class="input-box">
                         <label class="label">Prénom</label>
-                        <input class="input" type="text" name="prenom_inscription" id="prenom_inscription"
-                               value="<?php if (!empty($_POST['prenom_inscription'])) {
-                                   echo $_POST['prenom_inscription'];
-                               } ?>">
+                        <input class="input" type="text" name="prenom_inscription" id="prenom_inscription" value="<?php if (!empty($_POST['prenom_inscription'])) {
+                                                                                                                        echo $_POST['prenom_inscription'];
+                                                                                                                    } ?>">
                     </div>
                     <div class="errors">
                         <span id="prenomError">Entre 2 et 20 caractères</span>
                     </div>
                     <div class="input-box">
                         <label class="label">Email</label>
-                        <input class="input" type="text" name="email_inscription" id="email_inscription"
-                               value="<?php if (!empty($_POST['email_inscription'])) {
-                                   echo $_POST['email_inscription'];
-                               } ?>">
+                        <input class="input" type="text" name="email_inscription" id="email_inscription" value="<?php if (!empty($_POST['email_inscription'])) {
+                                                                                                                    echo $_POST['email_inscription'];
+                                                                                                                } ?>">
                     </div>
                     <div class="errors">
                         <span id="emailError">Email valide</span>
@@ -209,8 +204,7 @@ if (!empty($_POST['connexion'])) {
                         <input class="input_file" type="file" name="profil_picture">
                     </div>
                     <div class="input-box">
-                        <button name="inscription" class="popup_submit" type="submit" value="S'inscrire"
-                                id="inscription">S'inscrire
+                        <button name="inscription" class="popup_submit" type="submit" value="S'inscrire" id="inscription">S'inscrire
                         </button>
                     </div>
                 </form>
@@ -219,8 +213,7 @@ if (!empty($_POST['connexion'])) {
                 <form class="form-login" action="" method="post">
                     <div class="input-box">
                         <label class="label">Email</label>
-                        <input class="input" type="text" name="email_connexion" placeholder="email"
-                               id="email_connection">
+                        <input class="input" type="text" name="email_connexion" placeholder="email" id="email_connection">
                     </div>
                     <div class="input-box">
                         <label class="label">Mot de passe</label>
@@ -248,15 +241,21 @@ if (!empty($_POST['connexion'])) {
             <i class="fas fa-bars"></i>
         </label>
         <ul>
-            <li><a href="<?php the_permalink() ?>home">Accueil</a></li>
-            <li><a href="<?php the_permalink() ?>contact">Contact</a></li>
+            <a class="nav-button" href="<?php the_permalink() ?>home">Accueil</a></li>
+            <a class="nav-button" href="<?php the_permalink() ?>contact">Contact</a></li>
             <?php if (!empty($_SESSION['connected'])) {
-                if ($_SESSION['connected'] == "true") { ?>
-                    <a id="btn_deconnexion" href="<?php the_permalink() ?>deconnexion">Déconnexion</a>
+                if ($_SESSION['connected'] == "true") {
+                    if ($_SESSION['role'] == "role_USER") { ?>
+                        <a  class="nav-button" id="btn_deconnexion" href="<?php the_permalink() ?>mon-profil-utilisateur">Mon compte</a>
+                    <?php } elseif ($_SESSION['role'] == "role_ADMIN") { ?>
+                        <a  class="nav-button" id="btn_deconnexion" href="<?php the_permalink() ?>recruteur">Candidats</a>
+                    <?php }
+                    ?>
+                    <a  class="nav-button" id="btn_deconnexion" href="<?php the_permalink() ?>deconnexion">Déconnexion</a>
 
                 <?php }
             } else { ?>
-                <li id="btn_connexion" href="<?php the_permalink() ?>connexion">Connexion</li>
+                <li  class="nav-button" id="btn_connexion">Connexion</li>
             <?php }
 
             ?>
