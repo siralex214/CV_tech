@@ -241,15 +241,15 @@ if (!empty($_POST['connexion'])) {
             <i class="fas fa-bars"></i>
         </label>
         <ul>
-            <li><a href="<?php the_permalink() ?>home">Accueil</a></li>
-            <li><a href="<?php the_permalink() ?>contact">Contact</a></li>
+            <li class="nav-button"><a href="<?php the_permalink() ?>home">Accueil</a></li>
+            <li class="nav-button"><a href="<?php the_permalink() ?>contact">Contact</a></li>
             <?php if (!empty($_SESSION['connected'])) {
                 if ($_SESSION['connected'] == "true") { ?>
-                    <a id="btn_deconnexion" href="<?php the_permalink() ?>deconnexion">Déconnexion</a>
+                    <a  class="nav-button"id="btn_deconnexion" href="<?php the_permalink() ?>deconnexion">Déconnexion</a>
 
                 <?php }
             } else { ?>
-                <li><a id="btn_connexion" href="<?php the_permalink() ?>connexion">Connexion</a></li>
+                <li class="nav-button" id="btn_connexion" href="<?php the_permalink() ?>connexion">Connexion</li>
             <?php }
 
             ?>
