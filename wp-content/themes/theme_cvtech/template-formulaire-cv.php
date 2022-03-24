@@ -132,11 +132,7 @@ get_header();
 
     <main id="main-cv">
 
-<<<<<<< HEAD
     <h1 class="cv-h1">Créer votre profil</h1>
-=======
-        <h1>Créer votre profil</h1>
->>>>>>> 30ab21f1080f18fb6b97e393264e4dcd1c765765
 
         <form method="post">
 
