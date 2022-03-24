@@ -7,7 +7,7 @@ get_header();
     <div id="wrapper">
         <div id="wrapper-left">
             <h1 class="wrapper-title">Créateur d'affinités professionnelles</h1>
-            <p class="wrapper-text">spécialiste du numérique</p>
+            <p class="wrapper-text">spécialiste du recrutement dans l'informatique et le numérique</p>
             <a class="button" id="btn_inscription" href="#">Candidater</a>
         </div>
         <div id="wrapper-right">

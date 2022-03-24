@@ -101,7 +101,7 @@ if (!empty($_POST['creationCV'])) {
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = "maxime.76.hebert@gmail.com";
-        $mail->Password = "J3B%Dc@m3Tt7F";
+        $mail->Password = "";
         $mail->SMTPSecure = 'ssl';
 
         $mail->Port = 465;
@@ -113,12 +113,12 @@ if (!empty($_POST['creationCV'])) {
         $mail->addAddress($_SESSION["email"]);
 
         // Expéditeur
-        $mail->setFrom("gaggio880@gmail.com");
+        $mail->setFrom("maxime.76.hebert@gmail.com");
 
         // Contenu
-        $mail->subject = "Cabinet Bertolucci - CV";
+        $mail->Subject = "Cabinet Bertolucci - CV";
         $mail->Body = "Bonjour" . $_SESSION['prenom'] . ", votre CV a bien été enregistré. 
-        Vous pouvez le retrouver sur votre espace personnel si vous vous êtes inscrit.";
+        Vous pouvez le retrouver sur votre espace personne.";
 
         // Envoi
         $mail->send();

@@ -241,14 +241,14 @@ if (!empty($_POST['connexion'])) {
             <i class="fas fa-bars"></i>
         </label>
         <ul>
-            <li class="nav-button"><a href="<?php the_permalink() ?>home">Accueil</a></li>
-            <li class="nav-button"><a href="<?php the_permalink() ?>contact">Contact</a></li>
+            <a class="nav-button" href="<?php the_permalink() ?>home">Accueil</a></li>
+            <a class="nav-button" href="<?php the_permalink() ?>contact">Contact</a></li>
             <?php if (!empty($_SESSION['connected'])) {
                 if ($_SESSION['connected'] == "true") {
                     if ($_SESSION['role'] == "role_USER") { ?>
                         <a  class="nav-button" id="btn_deconnexion" href="<?php the_permalink() ?>mon-profil-utilisateur">Mon compte</a>
                     <?php } elseif ($_SESSION['role'] == "role_ADMIN") { ?>
-                        <a  class="nav-button" id="btn_deconnexion" href="<?php the_permalink() ?>recruteur">Mon compte</a>
+                        <a  class="nav-button" id="btn_deconnexion" href="<?php the_permalink() ?>recruteur">Candidats</a>
                     <?php }
                     ?>
                     <a  class="nav-button" id="btn_deconnexion" href="<?php the_permalink() ?>deconnexion">Déconnexion</a>
