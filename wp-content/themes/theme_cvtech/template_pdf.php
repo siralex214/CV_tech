@@ -54,49 +54,44 @@ $info_persos['permis'] = explode("; ", $info_persos['permis']);
             <div class="cv-box">
                 <div class="card" id="invoice">
                     <div class="left-column">
+                        <h2>Informations Personnel</h2>
                         <div>
                             <p type="nom" name="nom"><?= $info_persos['prenom'] ?></p>
                         </div>
-                        <br>
                         <div>
                             <p type="prenom" name="prenom"><?= $info_persos['nom'] ?></p>
                         </div>
-                        <br>
                         <div>
                             <p type="email" name="email"><?= $info_persos['email'] ?></p>
                         </div>
-                        <br>
                         <div>
                             <p type="date" name="date"><?= $info_persos['date_de_naissance'] ?></p>
                         </div>
-                        <br>
                         <div>
                             <p type="num" name="num"><?= $info_persos['telephone'] ?></p>
                         </div>
-                        <br>
                         <div>
                             <p type="adresse" name="adresse"><?= $info_persos['addresse_postale'] ?></p>
                         </div>
-                        <br>
                         <div> <label for="permis"> permis:</label>
                             <?php foreach ($info_persos['permis'] as $permis) : ?>
                                 <p> <?= $permis ?>,</p>
                             <?php endforeach; ?>
                         </div>
                         <div>
+                            <h2>Mes Competences</h2>
                             <div>
+                                <h5>Competences maitrisées</h5>
                                 <p type="competence" name="competence"><?= $info_persos['competences'] ?></p>
                             </div>
                             <br>
-                            <br>
                             <div>
-
+                                <h5>Languages maitrisés</h5>
                                 <p type="langues" name="langues"><?= $info_persos['langues'] ?></p>
                             </div>
                             <br>
-                            <br>
                             <div>
-                                <label for="hobbies">les hobbies:</label>
+                                <h5>Mes Activités</h5>
                                 <p type="hobbies" name="hobbies"><?= $info_persos['hobbies'] ?></p>
                             </div>
                         </div>
@@ -104,23 +99,11 @@ $info_persos['permis'] = explode("; ", $info_persos['permis']);
                     <div class="right-column">
                         <div class="header">
                             <div>
-                                <label for="entreprise">l'entreprise:</label>
-                                <p type="entreprise" name="entreprise"><?= $exp_pros['entreprise'] ?></p>
-                            </div>
-                            <br>
-                            <div>
-                                <label for="lieu">lieu:</label>
-                                <p type="lieu" name="lieu"><?= $exp_pros['lieu'] ?></p>
-                            </div>
-                            <br>
-                            <div>
-                                <label for="poste">Poste:</label>
-                                <p type="poste" name="poste"><?= $exp_pros['poste'] ?></p>
-                            </div>
-                            <br>
-                            <div>
+                                <H2>Mes Experiences Profesionnels</H2>
 
-                                <label for="description">description:</label>
+                                j'ai travailler dans <?= $exp_pros['entreprise'] ?> pendant 3 ans à <?= $exp_pros['lieu'] ?> en tant que <?= $exp_pros['poste'] ?>
+                                <br>
+                                Mon travail dans cette entreprise etait de m'occuper de la:
                                 <?php foreach ($exp_pros['description'] as $description) : ?>
                                     <p> <?= $description ?>,</p>
                                 <?php endforeach; ?>
@@ -128,31 +111,19 @@ $info_persos['permis'] = explode("; ", $info_persos['permis']);
                         </div>
                         <div class=" contentpdf">
                             <div>
-                                <label for="etablissement">etablissement:</label>
-                                <p type="etablissement" name="etablissement"><?= $formations['etablissement'] ?></p>
-                            </div>
-                            <br>
-                            <div>
-                                <label for="diplome">diplome:</label>
-                                <p type="diplome" name="diplome"><?= $formations['diplome'] ?></p>
-                            </div>
-                            <br>
-                            <div>
-                                <label for="lieu">lieu:</label>
-                                <p type="lieu" name="lieu"><?= $formations['lieu'] ?></p>
-                            </div>
-                            <br>
-                            <div>
-                                <label for="poste">titre:</label>
-                                <p type="titre" name="titre"><?= $formations['titre'] ?></p>
+                                <H2>Mon Parcours Scolaire</H2>
+                                J'ai passer mon <?= $formations['diplome'] ?>
+                                dans l'école <?= $formations['etablissement'] ?>
+                                qui ce situe à <?= $formations['lieu'] ?>
+                                ce qui va me permettre de venir <?= $formations['titre'] ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <button class="btn btn-primary" id="download"> télécharger en pdf</button>
-            </div>
+        </div>
+        <div>
+            <button class="btn btn-primary" id="download"> télécharger en pdf</button>
         </div>
     </div>
 </body>
