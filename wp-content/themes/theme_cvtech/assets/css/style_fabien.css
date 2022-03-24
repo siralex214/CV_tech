@@ -516,32 +516,11 @@ xsigin/signup popup
   opacity: 1;
 }
 
-/* .popup {
-  text-align: center;
-  margin: 66px auto;
-  padding: 20px 30px;
-  background: #fff;
-  border-top: 10px solid #ffcd00;
-  border-bottom: 10px solid #ffcd00;
-  box-shadow: 0 2px 30px rgb(0 0 0 / 50%);
-  border-radius: 5px;
-  width: 30%;
-  position: relative;
-} */
-
 .label {
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
 }
-
-/* .title_popup {
-  color: #535b7c;
-  text-transform: uppercase;
-  font-weight: 900;
-  font-style: italic;
-  margin-top: 10px;
-} */
 
 .input-box {
   margin-bottom: 15px;
@@ -646,38 +625,9 @@ xsigin/signup popup
   }
 }
 
-#btn_connexion, #btn_deconnexion {
-  cursor: pointer;
-  color: #040500;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 8px 15px;
-  border-radius: 5px;
-  letter-spacing: 1px;
-  transition: all 0.3s;
-  margin-top: -7px;
-}
 #inscriptionform {
   display: none;
 }
-
-/* #btn_ins,
-#btn_co {
-  border-width: 0px !important;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: bold;
-  height: 30px;
-  text-transform: uppercase;
-}
-
-.active_btn_log {
-  background-color: #f8d260 !important;
-}
-.btn_log {
-  background-color: #eeeeee;
-} */
 
 .inscription {
   border-width: 0px !important;
@@ -717,14 +667,13 @@ xsigin/signup popup
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-  top: 80%;
+  top: 170%;
   left: 40%;
 }
 .left-column {
   grid-area: left-column;
   padding: 50px;
   background-color: #ffcd00;
-  color: white;
   height: 100%;
 }
 .right-column {
@@ -733,7 +682,7 @@ xsigin/signup popup
 .right-column {
   grid-area: right-column;
   display: grid;
-  grid-template-rows: 250px 1fr;
+  grid-template-rows: 350px 1fr;
   grid-template-areas:
     "header"
     "content";
@@ -745,46 +694,30 @@ xsigin/signup popup
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 285px;
+  height: 370px;
 }
 
-.content {
+.contentpdf {
   grid-area: content;
-  /* padding: 50px; */
-  /* background-color: rgb(238, 235, 235); */
+  padding: 50px;
+  background-color: rgb(238, 235, 235);
   height: 100%;
 }
 .card {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "left-column right-column right-column";
-  width: 100%;
+  width: 80%;
   box-shadow: 2px 2px 20px 2px #000000;
+  margin: 0 auto;
 }
-.bodypdf {
-  margin-left: auto;
-  margin-right: auto;
-  height: 800px;
-}
+
 .cv-box {
-  height: 1000px;
-  width: 800px;
   background-color: #fafafa;
-  margin-left: auto;
-  margin-right: auto;
 }
 .pagecv {
-  height: 250vh;
   background: #fafafa;
   display: flex;
   align-items: center;
-}
-.sidebar {
-  box-sizing: border-box;
-  float: left;
-  width: 25%;
-  height: 250vh;
-  margin-top: 160px;
-  padding: 1.5em;
-  background-color: #f8ca00;
+  background-color: red;
 }
