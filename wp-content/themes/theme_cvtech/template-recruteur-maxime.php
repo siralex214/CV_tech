@@ -47,7 +47,7 @@ if (empty($_SESSION)) {
                     </ul>
                 </div>
                 <div class='candidat-profil-links'>
-                    <a href='<?php the_permalink() ?>pdf?id=<?= $info_cv['id'] ?>'><button class='button-recruteur'>Voir le CV</button>
+                    <a href='<?php the_permalink() ?>pdf?id=<?= $info_cv['id_user'] ?>'><button class='button-recruteur'>Voir le CV</button>
                         <a href='mailto:<?= $info_cv['email'] ?>"'><button class='button-recruteur button-contact'>Contacter</button></a>
                 </div>
             </div>
