@@ -11,10 +11,13 @@ if (!empty($_POST['inscription'])) {
     $nom = $_POST['nom_inscription'];
     $email = $_POST['email_inscription'];
     $mdp = $_POST['password_inscription'];
-    $profil_picture = $_FILES['profil_picture'];
 
-    $mdp_hash = password_hash($mdp, PASSWORD_DEFAULT);
-
+    $error = validText($error, $prenom, "prenom", 2, 20);
+    $error = validText($error, $nom, "nom", 2, 20);
+    $double_mail = $wpdb->get_results("SELECT * FROM cv_wp_custom_users WHERE email = '$email'", ARRAY_A);
+    if (!empty($double_mail)) {
+        $error['double_mail'] = "Cette email est déjà utilisé";
+    }
 
     if (empty($_POST['password_inscription'])) {
         $error["mdp"] = "champs vide";
@@ -28,32 +31,49 @@ if (!empty($_POST['inscription'])) {
         $error["email_inscription"] = 'veuillez entrer un email correct';
     }
 
-    // if ($_FILES['profil_picture']['size'] === 0 && $FILES['profil_picture']['error'] > 0) {
-    // 	$error['miniature'] = "problème de chargement image";
-    // } else {
-    // 	$photoArray = explode("/", $_FILES['profil_picture']['type']);
-    // 	if ($photoArray[0] !== "image") {
-    // 		$error['profil_picture'] = "Veuillez vérifier le format de l'image";
-    // 	} else {
-    // 		if ($photoArray[1] !== "jpg" && $photoArray[1] !== "jpeg" && $photoArray[1] !== "png") {
-    // 			$error['profil_picture'] = "Le fichier n\'est pas de type jpg, jpeg ou png";
-    // 		}
-    // 	}
-    // }
+    if ($_FILES['profil_picture']['size'] === 0 && $_FILES['profil_picture']['error'] > 0) {
+        $error['profil_picture'] = "problème de chargement image";
+    } else {
+        $photoArray = explode("/", $_FILES['profil_picture']['type']);
+        if ($photoArray[0] !== "image") {
+            $error['profil_picture'] = "Veuillez vérifier le format de l'image";
+        } else {
+            if ($photoArray[1] !== "jpg" && $photoArray[1] !== "jpeg" && $photoArray[1] !== "png") {
+                $error['profil_picture'] = "Le fichier n\'est pas de type jpg, jpeg ou png";
+            }
+        }
+    }
 
-    // if ($_FILES['profil_picture']['size'] >= 4000000) {
-    // 	$error['profil_picture'] = "Le fichier fait plus de 4Mo";
-    // }
+    if ($_FILES['profil_picture']['size'] >= 4000000) {
+        $error['profil_picture'] = "Le fichier fait plus de 4Mo";
+    }
 
-    // $nom_image = basename($_FILES['profil_picture']['name']);
-    // $chemin_destination = '../wp-content/uploads/profil_pic' . $nom_image;
+    $nom_image = basename($_FILES['profil_picture']['name']);
+
+    $chemin_destination = '../wp-content/uploads/profil_pic' . $nom_image;
 
     // $link = move_uploaded_file($_FILES['profil_picture']['tmp_name'], $chemin_destination);
-
-    var_dump($error);
     if (count($error) == 0) {
+        $mdp_hash = password_hash($mdp, PASSWORD_ARGON2I);
+
+        if (!file_exists("wp-content/uploads/profil_pic")) {
+            mkdir("wp-content/uploads/profil_pic", 0777, true);
+        }
+
+
         $profil_picture = "";
-        $result = $wpdb->get_results("INSERT INTO `cv_wp_custom_users`(`nom`, `prenom`, `email`, `password`, `photo`, `role`) VALUES ('$nom','$prenom','$email','$mdp_hash','$profil_picture','$role')");
+        $result = $wpdb->get_results("INSERT INTO `cv_wp_custom_users`(`nom`, `prenom`, `email`, `password`, `role`) VALUES('$nom','$prenom','$email','$mdp_hash','$role')");
+        $id = $wpdb->insert_id;
+        $link = "/profil_pic/avatar_" . $id . "." . $photoArray[1];
+
+        $wpdb->update("cv_wp_custom_users", array(
+            "photo" => $link
+        ), array(
+            "id" => $id
+        ));
+        move_uploaded_file($_FILES['profil_picture']['tmp_name'], wp_get_upload_dir()["basedir"] . $link);
+        $user = $wpdb->get_results("SELECT * FROM cv_wp_custom_users WHERE id = $id", ARRAY_A);
+        $user = $user[0];
         $connected = "true";
         $_SESSION["connected"] = "true";
         $_SESSION["id"] = $user["id"];
@@ -62,9 +82,13 @@ if (!empty($_POST['inscription'])) {
         $_SESSION["prenom"] = $user["prenom"];
         $_SESSION["role"] = $user["role"];
         $_SESSION["photo"] = $user["photo"];
-        var_dump($result);
+        if ($_SESSION['role'] == "role_USER") {
+            header('location: mon-profil-utilisateur');
+        } else {
+            header('location: recruteur');
+
+        }
     }
-    header('location:index.php');
 }
 ?>
 <?php
@@ -78,32 +102,32 @@ if (!empty($_POST['connexion'])) {
     }
 
     if (!is_email($_POST['email_connexion'])) {
-        $error["email_inscription"] = 'veuillez entrer un email correct';
+        $error["email_connexion"] = 'veuillez entrer un email correct';
     }
     $requestCheck = $wpdb->get_results("SELECT * FROM cv_wp_custom_users WHERE email = '$email'", ARRAY_A);
     $user = $requestCheck[0];
-    if (!empty($user)) {
-        if (password_verify($mdp, $user["password"])) {
-            $connected = true;
-            $_SESSION["connected"] = "true";
-            $_SESSION["id"] = $user["id"];
-            $_SESSION["email"] = $user["email"];
-            $_SESSION["nom"] = $user["nom"];
-            $_SESSION["prenom"] = $user["prenom"];
-            $_SESSION["role"] = $user["role"];
-            $_SESSION["photo"] = $user["photo"];
-            if ($_SESSION['role'] == "role_USER") {
-                header('location: mon-profil-utilisateur');
-            } else {
-                header('location: recruteur');
 
+    if (count($error) === 0) {
+        if (!empty($user)) {
+            if (password_verify($mdp, $user["password"])) {
+                $_SESSION["connected"] = "true";
+                $_SESSION["id"] = $user["id"];
+                $_SESSION["email"] = $user["email"];
+                $_SESSION["nom"] = $user["nom"];
+                $_SESSION["prenom"] = $user["prenom"];
+                $_SESSION["role"] = $user["role"];
+                $_SESSION["photo"] = $user["photo"];
+                if ($_SESSION['role'] == "role_USER") {
+                    header('location: mon-profil-utilisateur');
+                } else {
+                    header('location: recruteur');
+                }
+            } else {
+                $messageError = "mauvaise combinaison email / mot de passe";
             }
-            $connexionError = false;
-        } else {
-            $connexionError = false;
-            $messageError = "mauvaise combinaison email / mot de passe";
         }
     }
+
 }
 
 ?>
@@ -125,26 +149,38 @@ if (!empty($_POST['connexion'])) {
                 <button id="btn_co" class="btn_log active_btn_log">connexion</button>
                 <button id="btn_ins" class="btn_log"> inscription</button>
             </div>
+            <div>
+                <p style="color: red"><?php viewError($error, "double_mail"); ?></p>
+            </div>
             <p id="close_modal" class='close' href='#'>&times;</p>
             <div class='content' id="inscriptionform">
                 <form method="post" action="" enctype="multipart/form-data">
                     <div class="input-box">
                         <label class="label">Nom</label>
-                        <input class="input" type="text" name="nom_inscription" id="nom_inscription">
+                        <input class="input" type="text" name="nom_inscription" id="nom_inscription"
+                               value="<?php if (!empty($_POST['nom_inscription'])) {
+                                   echo $_POST['nom_inscription'];
+                               } ?>">
                     </div>
                     <div class="errors">
                         <span id="nomError">Entre 2 et 20 caractères</span>
                     </div>
                     <div class="input-box">
                         <label class="label">Prénom</label>
-                        <input class="input" type="text" name="prenom_inscription" id="prenom_inscription">
+                        <input class="input" type="text" name="prenom_inscription" id="prenom_inscription"
+                               value="<?php if (!empty($_POST['prenom_inscription'])) {
+                                   echo $_POST['prenom_inscription'];
+                               } ?>">
                     </div>
                     <div class="errors">
                         <span id="prenomError">Entre 2 et 20 caractères</span>
                     </div>
                     <div class="input-box">
                         <label class="label">Email</label>
-                        <input class="input" type="email" name="email_inscription" id="email_inscription">
+                        <input class="input" type="text" name="email_inscription" id="email_inscription"
+                               value="<?php if (!empty($_POST['email_inscription'])) {
+                                   echo $_POST['email_inscription'];
+                               } ?>">
                     </div>
                     <div class="errors">
                         <span id="emailError">Email valide</span>
@@ -182,7 +218,7 @@ if (!empty($_POST['connexion'])) {
                 <form class="form-login" action="" method="post">
                     <div class="input-box">
                         <label class="label">Email</label>
-                        <input class="input" type="email" name="email_connexion" placeholder="email"
+                        <input class="input" type="text" name="email_connexion" placeholder="email"
                                id="email_connection">
                     </div>
                     <div class="input-box">
