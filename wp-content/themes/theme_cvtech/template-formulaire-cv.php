@@ -33,42 +33,41 @@ if (!empty($_POST['add_cv'])) {
     ));
 
     foreach ($_POST['experience'] as $one_exp) {
-            $date_debut_exp = $one_exp['date_debut'];
-            $date_fin_exp = $one_exp['date_fin'];
-            $entreprise = $one_exp['entreprise'];
-            $lieu = $one_exp['lieu'];
-            $poste = $one_exp['poste'];
-            $description = $one_exp['description'];
-            $wpdb->insert("cv_wp_custom_exp-pro", array(
-                "id_user" => $id_user,
-                "date_debut" => $date_debut_exp,
-                "date_fin" => $date_fin_exp,
-                "entreprise" => $entreprise,
-                "lieu" => $lieu,
-                "poste" => $poste,
-                "description" => $description,
-            ));
+        $date_debut_exp = $one_exp['date_debut'];
+        $date_fin_exp = $one_exp['date_fin'];
+        $entreprise = $one_exp['entreprise'];
+        $lieu = $one_exp['lieu'];
+        $poste = $one_exp['poste'];
+        $description = $one_exp['description'];
+        $wpdb->insert("cv_wp_custom_exp-pro", array(
+            "id_user" => $id_user,
+            "date_debut" => $date_debut_exp,
+            "date_fin" => $date_fin_exp,
+            "entreprise" => $entreprise,
+            "lieu" => $lieu,
+            "poste" => $poste,
+            "description" => $description,
+        ));
     }
 
     foreach ($_POST['formation'] as $one_exp) {
-            $date_debut_formation = $one_exp['date_debut'];
-            $date_fin_formation = $one_exp['date_fin'];
-            $etablissement = $one_exp['ecole'];
-            $lieu = $one_exp['lieu'];
-            $diplome = $one_exp['diplome'];
-            $titre = $one_exp['intitule'];
+        $date_debut_formation = $one_exp['date_debut'];
+        $date_fin_formation = $one_exp['date_fin'];
+        $etablissement = $one_exp['ecole'];
+        $lieu = $one_exp['lieu'];
+        $diplome = $one_exp['diplome'];
+        $titre = $one_exp['intitule'];
 
 
-            $wpdb->insert("cv_wp_custom_formation", array(
-                "id_user" => $id_user,
-                "date_debut" => $date_debut_formation,
-                "date_fin" => $date_fin_formation,
-                "etablissement" => $etablissement,
-                "lieu" => $lieu,
-                "diplome" => $diplome,
-                "titre" => $titre,
-            ));
-
+        $wpdb->insert("cv_wp_custom_formation", array(
+            "id_user" => $id_user,
+            "date_debut" => $date_debut_formation,
+            "date_fin" => $date_fin_formation,
+            "etablissement" => $etablissement,
+            "lieu" => $lieu,
+            "diplome" => $diplome,
+            "titre" => $titre,
+        ));
     }
 }
 
@@ -77,7 +76,7 @@ get_header();
 
 <main id="main-cv">
 
-    <h1>Créer votre profil</h1>
+    <h1 class="cv-h1">Créer votre profil</h1>
 
     <form method="post">
 
@@ -167,7 +166,9 @@ get_header();
                 <label id="add-hobbies" class="add-label">+ ajouter un centre d'intérêt</label>
             </div>
         </div>
-        <input type="submit" value="envoyer" name="add_cv">
+        <div class="submit_input-center">
+            <input class="popup_submit" type="submit" value="envoyer" name="add_cv">
+        </div>
         <form>
 
 </main>

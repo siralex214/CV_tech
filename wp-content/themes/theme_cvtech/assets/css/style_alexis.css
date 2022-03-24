@@ -221,6 +221,7 @@ button.but_profil_user:last-child {
     height: 100px;
     transition: all 1s;
     overflow: hidden;
+    height:auto;
 }
 
 .permis p:first-child {

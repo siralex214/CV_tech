@@ -149,3 +149,29 @@
 .contact-name{
     margin-left: 10px;
 }
+.popup_submit {
+  border-width: 0px!important;
+  border-radius: 6px;
+  letter-spacing: 1px;
+  background-color: black;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  height: 30px;
+  width: 140px;
+  text-transform: uppercase;
+}
+
+.popup_submit:hover {
+  cursor: pointer;
+  transition: all 300ms;
+  transform: scale(1.1);
+}
+
+.submit_input-center{
+  display: flex;
+  justify-content: center;
+}
+.cv-h1{
+  text-align: center;
+}

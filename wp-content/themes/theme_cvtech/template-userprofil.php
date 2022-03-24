@@ -140,7 +140,6 @@ if (!empty($competences)) {
             </div>
         </div>
         <div class="profil_user_block none_block_profil_user">
-            <p>coucou</p>
             <?php foreach ($formations as $formation) : ?>
                 <div class="one_box_userProfil_forma">
                     <div>
