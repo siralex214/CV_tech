@@ -5,11 +5,11 @@
 global $wpdb;
 
 
-$prepare2 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_formation` WHERE id_user = %d", [$_GET['id']]);
+$prepare2 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_formation` WHERE id_user = %d LIMIT 3", [$_GET['id']]);
 $formations = $wpdb->get_results($prepare2, ARRAY_A);
 debug($formations);
 
-$prepare3 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_exp-pro` WHERE id_user = %d", [$_GET['id']]);
+$prepare3 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_exp-pro` WHERE id_user = %d LIMIT 2", [$_GET['id']]);
 $exp_pros = $wpdb->get_results($prepare3, ARRAY_A);
 
 
@@ -89,43 +89,44 @@ $info_persos['permis'] = explode("; ", $info_persos['permis']);
                     <div class="right-column">
                         <div class="header">
                             <div>
-                                <H2>Mes Experiences Profesionnels</H2>
+                                <div class="titlecv">
+                                    <H4>Mon Parcours Scolaire</H4>
+                                </div>
                                 <?php
-                                foreach ($exp_pros as $exp_pro) : ?>
-                                    <div class="one_exp">
-
-                                        <p> <?= $exp_pro['entreprise'] ?>,</p>
-
-                                        j'ai travailler dans <?= $exp_pro['entreprise'] ?> pendant 3 ans à <?= $exp_pro['lieu'] ?>
-                                        en tant que <?= $exp_pro['poste'] ?>
-                                        <br>
-                                        Mon travail dans cette entreprise etait de m'occuper de la:
-                                        <?= $exp_pro['description'] ?>
-
+                                foreach ($formations as $formation) : ?>
+                                    <div class="one_formation">
+                                        j'ai etudier à <?= $formation['etablissement'] ?>
+                                        et j'y ai obtenu mon <?= $formation['diplome'] ?>
+                                        dans cette ecole j'etais <?= $formation['lieu'] ?>
+                                        grace a cette formation je vais obtenir mon titre de <?= $formation['titre'] ?>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
                         </div>
                         <div class=" contentpdf">
                             <div>
-                                <H2>Mon Parcours Scolaire</H2>
-                                <?php
-                                foreach ($formations as $formation) : ?>
-                                    <div class="one_formation">
-                                       j'ai etudier à <?= $formation['etablissement'] ?>
-                                        j'ai obtenu mon <?= $formation['diplome'] ?>
-                                       à <?= $formation['lieu'] ?>
-                                        <?= $formation['titre'] ?>
-                                    </div>
-                                <?php endforeach; ?>
+                                <div class="titlecv">
+                                    <H4>Mon Parcours Scolaire</H4>
+                                    <?php
+                                    foreach ($exp_pros as $exp_pro) : ?>
+                                        <div class="text_cote">
+                                            <p> <?= $exp_pro['entreprise'] ?>,</p>
+                                        </div>
+                                        <div class="one_exp">
+                                            j'ai travailler dans <?= $exp_pro['entreprise'] ?> pendant 3 ans à <?= $exp_pro['lieu'] ?>
+                                            en tant que <?= $exp_pro['poste'] ?>
+                                            Mon travail dans cette entreprise etait de m'occuper de la:
+                                            <?= $exp_pro['description'] ?>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div>
+                <button class="btn btn-primary" id="download"> télécharger en pdf</button>
+            </div>
         </div>
-        <div>
-            <button class="btn btn-primary" id="download"> télécharger en pdf</button>
-        </div>
-    </div>
 </body>
