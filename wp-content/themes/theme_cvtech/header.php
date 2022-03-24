@@ -83,7 +83,7 @@ if (!empty($_POST['inscription'])) {
         $_SESSION["role"] = $user["role"];
         $_SESSION["photo"] = $user["photo"];
         if ($_SESSION['role'] == "role_USER") {
-            header('location: mon-profil-utilisateur');
+            header('location: formulaire-cv');
         } else {
             header('location: recruteur');
 

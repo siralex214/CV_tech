@@ -132,11 +132,7 @@ get_header();
 
     <main id="main-cv">
 
-<<<<<<< HEAD
-    <h1 class="cv-h1">Créer votre profil</h1>
-=======
-        <h1>Créer votre profil</h1>
->>>>>>> 30ab21f1080f18fb6b97e393264e4dcd1c765765
+        <h1 class="cv-h1">Créer votre profil</h1>
 
         <form method="post">
 
@@ -219,14 +215,8 @@ get_header();
                     <label id="add-langues" class="add-label">+ ajouter une langue</label>
                 </div>
             </div>
-<<<<<<< HEAD
-        </div>
-        <div class="submit_input-center">
-            <input class="popup_submit" type="submit" value="envoyer" name="add_cv">
-        </div>
-        <form>
-=======
->>>>>>> 30ab21f1080f18fb6b97e393264e4dcd1c765765
+            </div>
+
 
             <div class="cv-container">
                 <h2 class="cv-container-title">
@@ -237,9 +227,10 @@ get_header();
                     <label id="add-hobbies" class="add-label">+ ajouter un centre d'intérêt</label>
                 </div>
             </div>
-            <input type="submit" value="envoyer" name="creationCV">
-            <form>
-
+            <div class="submit_input-center">
+                <input class="popup_submit" type="submit" value="envoyer" name="creationCV">
+            </div>
+        </form>
     </main>
 
 <?php get_footer(); ?>
