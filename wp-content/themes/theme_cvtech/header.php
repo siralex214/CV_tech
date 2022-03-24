@@ -105,8 +105,9 @@ if (!empty($_POST['connexion'])) {
         $error["email_connexion"] = 'veuillez entrer un email correct';
     }
     $requestCheck = $wpdb->get_results("SELECT * FROM cv_wp_custom_users WHERE email = '$email'", ARRAY_A);
-    $user = $requestCheck[0];
-
+    if (!empty($requestCheck)) {
+        $user = $requestCheck[0];
+    }
     if (count($error) === 0) {
         if (!empty($user)) {
             if (password_verify($mdp, $user["password"])) {
