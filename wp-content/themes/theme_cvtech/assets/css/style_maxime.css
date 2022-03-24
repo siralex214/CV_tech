@@ -491,7 +491,7 @@ input[type="checkbox"] {
 }
 
 .button-contact {
-    border: 1px solid #7451eb;
+    border: 1px solid hwb(254 32% 8%);
     background-color: #fff;
     color: #7451eb;
 }

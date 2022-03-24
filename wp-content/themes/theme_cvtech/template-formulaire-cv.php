@@ -51,7 +51,6 @@ if (!empty($_POST['creationCV'])) {
         $lieu = $one_exp['lieu'];
         $poste = $one_exp['poste'];
         $description = $one_exp['description'];
-
         $wpdb->insert("cv_wp_custom_exp-pro", array(
             "id_user" => $id_user,
             "date_debut" => $date_debut_exp,
@@ -133,7 +132,11 @@ get_header();
 
     <main id="main-cv">
 
+<<<<<<< HEAD
+    <h1 class="cv-h1">Créer votre profil</h1>
+=======
         <h1>Créer votre profil</h1>
+>>>>>>> 30ab21f1080f18fb6b97e393264e4dcd1c765765
 
         <form method="post">
 
@@ -216,6 +219,14 @@ get_header();
                     <label id="add-langues" class="add-label">+ ajouter une langue</label>
                 </div>
             </div>
+<<<<<<< HEAD
+        </div>
+        <div class="submit_input-center">
+            <input class="popup_submit" type="submit" value="envoyer" name="add_cv">
+        </div>
+        <form>
+=======
+>>>>>>> 30ab21f1080f18fb6b97e393264e4dcd1c765765
 
             <div class="cv-container">
                 <h2 class="cv-container-title">
