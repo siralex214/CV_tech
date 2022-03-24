@@ -1,6 +1,14 @@
 <?php
 /* Template Name: Formulaire CV */
 
+if (empty($_SESSION)) {
+    echo "<script> window.location.href = 'home' </script>";
+    die();
+} elseif (empty($_SESSION['connected'])) {
+    echo "<script> window.location.href = 'home' </script>";
+    die();
+}
+
 require './vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -95,8 +103,8 @@ if (!empty($_POST['creationCV'])) {
         $mail->Username = "maxime.76.hebert@gmail.com";
         $mail->Password = "J3B%Dc@m3Tt7F";
         $mail->SMTPSecure = 'ssl';
-        
-        $mail ->Port = 465;
+
+        $mail->Port = 465;
 
         // Charset
         $mail->CharSet = "utf-8";
@@ -123,101 +131,104 @@ if (!empty($_POST['creationCV'])) {
 get_header();
 ?>
 
-<main id="main-cv">
+    <main id="main-cv">
 
-    <h1>Créer votre profil</h1>
+        <h1>Créer votre profil</h1>
 
-    <form method="post">
+        <form method="post">
 
-        <div class="cv-container">
-            <h2 class="cv-container-title">
-                Vos informations personnelles
-            </h2>
-            <div class="cv-subcontainer">
-                <div class="input-box">
-                    <label class="label">Nom</label>
-                    <input id="nom" class="input" name="nom" type="text" placeholder="Entrez votre nom">
+            <div class="cv-container">
+                <h2 class="cv-container-title">
+                    Vos informations personnelles
+                </h2>
+                <div class="cv-subcontainer">
+                    <div class="input-box">
+                        <label class="label">Nom</label>
+                        <input id="nom" class="input" name="nom" type="text" placeholder="Entrez votre nom">
+                    </div>
+                    <div class="input-box">
+                        <label class="label">Prénom</label>
+                        <input id="prenom" class="input" name="prenom" type="text" placeholder="Entrez votre Prénom">
+                    </div>
+                    <div class="input-box">
+                        <label class="label">Email</label>
+                        <input id="email" class="input" name="email" type="email" placeholder="Entrez votre Email">
+                    </div>
+                    <div class="input-box">
+                        <label class="label">Date de Naissance</label>
+                        <input class="input" name="date" type="date" placeholder="Entrez votre Date de Naissance">
+                    </div>
+                    <div class="input-box">
+                        <label class="label">Téléphone</label>
+                        <input id="telephone" class="input" name="telephone" type="tel"
+                               placeholder="Entrez votre Téléphone">
+                    </div>
+                    <div class="input-box">
+                        <label class="label">Adresse 1</label>
+                        <input id="adresse_1" class="input" name="adresse_1" type="text"
+                               placeholder="n°, rue, résidence, bâtiment">
+                    </div>
+                    <div class="input-box">
+                        <label class="label">Adresse 2</label>
+                        <input id="adresse_2" class="input" name="adresse_2" type="text"
+                               placeholder="code postal, ville">
+                    </div>
                 </div>
-                <div class="input-box">
-                    <label class="label">Prénom</label>
-                    <input id="prenom" class="input" name="prenom" type="text" placeholder="Entrez votre Prénom">
-                </div>
-                <div class="input-box">
-                    <label class="label">Email</label>
-                    <input id="email" class="input" name="email" type="email" placeholder="Entrez votre Email">
-                </div>
-                <div class="input-box">
-                    <label class="label">Date de Naissance</label>
-                    <input class="input" name="date" type="date" placeholder="Entrez votre Date de Naissance">
-                </div>
-                <div class="input-box">
-                    <label class="label">Téléphone</label>
-                    <input id="telephone" class="input" name="telephone" type="tel" placeholder="Entrez votre Téléphone">
-                </div>
-                <div class="input-box">
-                    <label class="label">Adresse 1</label>
-                    <input id="adresse_1" class="input" name="adresse_1" type="text" placeholder="n°, rue, résidence, bâtiment">
-                </div>
-                <div class="input-box">
-                    <label class="label">Adresse 2</label>
-                    <input id="adresse_2" class="input" name="adresse_2" type="text" placeholder="code postal, ville">
+                <div id="permis">
+                    <label class="label">Permis</label>
+                    <div id="input-permis"></div>
+                    <label id="add-permis" class="add-label">+ ajouter un permis</label>
                 </div>
             </div>
-            <div id="permis">
-                <label class="label">Permis</label>
-                <div id="input-permis"></div>
-                <label id="add-permis" class="add-label">+ ajouter un permis</label>
+
+            <div class="cv-container">
+                <h2 class="cv-container-title">
+                    Experiences
+                </h2>
+                <div id="input-experiences"></div>
+                <label id="add-experiences" class="add-label">+ ajouter une expérience</label>
             </div>
-        </div>
 
-        <div class="cv-container">
-            <h2 class="cv-container-title">
-                Experiences
-            </h2>
-            <div id="input-experiences"></div>
-            <label id="add-experiences" class="add-label">+ ajouter une expérience</label>
-        </div>
-
-        <div class="cv-container">
-            <h2 class="cv-container-title">
-                Formations
-            </h2>
-            <div id="input-formations"></div>
-            <label id="add-formations" class="add-label">+ ajouter une formation</label>
-        </div>
-
-        <div class="cv-container">
-            <h2 class="cv-container-title">
-                Compétences
-            </h2>
-            <div class="cv-subcontainer">
-                <div id="input-competences"></div>
-                <label id="add-competences" class="add-label">+ ajouter une compétence</label>
+            <div class="cv-container">
+                <h2 class="cv-container-title">
+                    Formations
+                </h2>
+                <div id="input-formations"></div>
+                <label id="add-formations" class="add-label">+ ajouter une formation</label>
             </div>
-        </div>
 
-        <div class="cv-container">
-            <h2 class="cv-container-title">
-                Langues
-            </h2>
-            <div class="cv-subcontainer">
-                <div id="input-langues"></div>
-                <label id="add-langues" class="add-label">+ ajouter une langue</label>
+            <div class="cv-container">
+                <h2 class="cv-container-title">
+                    Compétences
+                </h2>
+                <div class="cv-subcontainer">
+                    <div id="input-competences"></div>
+                    <label id="add-competences" class="add-label">+ ajouter une compétence</label>
+                </div>
             </div>
-        </div>
 
-        <div class="cv-container">
-            <h2 class="cv-container-title">
-                Centres d'intérêts
-            </h2>
-            <div class="cv-subcontainer">
-                <div id="input-hobbies"></div>
-                <label id="add-hobbies" class="add-label">+ ajouter un centre d'intérêt</label>
+            <div class="cv-container">
+                <h2 class="cv-container-title">
+                    Langues
+                </h2>
+                <div class="cv-subcontainer">
+                    <div id="input-langues"></div>
+                    <label id="add-langues" class="add-label">+ ajouter une langue</label>
+                </div>
             </div>
-        </div>
-        <input type="submit" value="envoyer" name="creationCV">
-        <form>
 
-</main>
+            <div class="cv-container">
+                <h2 class="cv-container-title">
+                    Centres d'intérêts
+                </h2>
+                <div class="cv-subcontainer">
+                    <div id="input-hobbies"></div>
+                    <label id="add-hobbies" class="add-label">+ ajouter un centre d'intérêt</label>
+                </div>
+            </div>
+            <input type="submit" value="envoyer" name="creationCV">
+            <form>
+
+    </main>
 
 <?php get_footer(); ?>

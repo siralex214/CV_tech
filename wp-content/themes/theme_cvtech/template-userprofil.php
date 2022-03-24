@@ -3,6 +3,15 @@
 /**
  * Template Name: profil user
  */
+
+if (empty($_SESSION)) {
+    echo "<script> window.location.href = 'home' </script>";
+    die();
+} elseif (empty($_SESSION['connected'])) {
+    echo "<script> window.location.href = 'home' </script>";
+    die();
+}
+
 get_header();
 ?>
 <br><br><br><br>

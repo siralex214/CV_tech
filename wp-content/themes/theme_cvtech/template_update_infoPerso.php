@@ -3,6 +3,14 @@
 /**
  * Template Name: update info
  */
+if (empty($_SESSION)) {
+    echo "<script> window.location.href = 'home' </script>";
+    die();
+} elseif (empty($_SESSION['connected'])) {
+    echo "<script> window.location.href = 'home' </script>";
+    die();
+}
+
 get_header();
 global $wpdb;
 $errors_modifCv = [];

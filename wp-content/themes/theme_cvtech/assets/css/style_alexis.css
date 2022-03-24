@@ -218,7 +218,7 @@ button.but_profil_user:last-child {
 
 .permis_show {
     /*border: 1px solid black;*/
-    height: 100px;
+    height: auto;
     transition: all 1s;
     overflow: hidden;
 }
