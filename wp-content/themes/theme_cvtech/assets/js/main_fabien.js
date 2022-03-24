@@ -1,4 +1,5 @@
 const close_modal = document.querySelector("#close_modal");
+const btn_inscription = document.querySelector("#btn_inscription");
 const btn_connexion = document.querySelector("#btn_connexion");
 const inscription = document.querySelector("#btn_ins");
 const connexion = document.querySelector("#btn_co");
@@ -12,6 +13,17 @@ close_modal.addEventListener("click", () => {
   if (etatmodal == false) {
     modal.style = "display:none";
     etatmodal = true;
+  }
+});
+
+btn_inscription.addEventListener("click", () => {
+  if (etatmodal == true) {
+    modal.style = "display: block";
+    etatmodal = false;
+    formInscription.style = "display: block";
+    formConnexion.style = "display: none";
+    connexion.classList.remove("active_btn_log");
+    inscription.classList.add("active_btn_log");
   }
 });
 
