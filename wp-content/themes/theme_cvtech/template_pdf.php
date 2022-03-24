@@ -3,7 +3,6 @@
 
 ?>
 <?php
-$_SESSION['id'] = 2;
 $_SESSION['photo'] = "lien";
 // }
 
