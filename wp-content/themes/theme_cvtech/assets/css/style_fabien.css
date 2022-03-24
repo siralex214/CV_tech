@@ -516,7 +516,7 @@ xsigin/signup popup
   opacity: 1;
 }
 
-.popup {
+/* .popup {
   text-align: center;
   margin: 66px auto;
   padding: 20px 30px;
@@ -527,22 +527,21 @@ xsigin/signup popup
   border-radius: 5px;
   width: 30%;
   position: relative;
-}
+} */
 
 .label {
-  color: #535b7c !important;
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-.title_popup {
+/* .title_popup {
   color: #535b7c;
   text-transform: uppercase;
   font-weight: 900;
   font-style: italic;
   margin-top: 10px;
-}
+} */
 
 .input-box {
   margin-bottom: 15px;
@@ -564,10 +563,9 @@ xsigin/signup popup
   margin-top: -15px;
   margin-bottom: 15px;
   font-size: 14px;
-  color: #959baf;
 }
 
-.button {
+/* .button {
   border-width: 0px !important;
   border-radius: 4px;
   letter-spacing: 1px;
@@ -578,7 +576,7 @@ xsigin/signup popup
   text-transform: uppercase;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 
 .button-1 {
   border-width: 0px !important;
@@ -648,7 +646,7 @@ xsigin/signup popup
   }
 }
 
-#btn_connexion {
+#btn_connexion, #btn_deconnexion {
   cursor: pointer;
   color: #040500;
   text-decoration: none;
@@ -664,7 +662,7 @@ xsigin/signup popup
   display: none;
 }
 
-#btn_ins,
+/* #btn_ins,
 #btn_co {
   border-width: 0px !important;
   border-radius: 4px;
@@ -679,7 +677,7 @@ xsigin/signup popup
 }
 .btn_log {
   background-color: #eeeeee;
-}
+} */
 
 .inscription {
   border-width: 0px !important;
@@ -709,44 +707,84 @@ xsigin/signup popup
 /* pdf */
 .btn-primary {
   border-width: 0px !important;
-  border-radius: 4px;
+  border-radius: 10px;
   letter-spacing: 1px;
-  color: rgb(80, 158, 50);
-  font-size: 12px;
+  color: rgb(173, 34, 24);
+  font-size: 13px;
   font-weight: bold;
   height: 30px;
   text-transform: uppercase;
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-  top: 84%;
+  top: 80%;
+  left: 40%;
+}
+.left-column {
+  grid-area: left-column;
+  padding: 50px;
+  background-color: #ffcd00;
+  color: white;
+  height: 100%;
+}
+.right-column {
+  grid-area: right-column;
+}
+.right-column {
+  grid-area: right-column;
+  display: grid;
+  grid-template-rows: 250px 1fr;
+  grid-template-areas:
+    "header"
+    "content";
+}
+.header {
+  grid-area: header;
+  padding: 50px;
+  background-color: #cbc8c8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 285px;
+}
+
+.content {
+  grid-area: content;
+  /* padding: 50px; */
+  /* background-color: rgb(238, 235, 235); */
+  height: 100%;
 }
 .card {
-  text-align: center;
-  background-color: rgb(192, 184, 184);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "left-column right-column right-column";
+  width: 100%;
+  box-shadow: 2px 2px 20px 2px #000000;
+}
+.bodypdf {
+  margin-left: auto;
+  margin-right: auto;
   height: 800px;
-  width: 70%;
-  margin-top: 80px;
+}
+.cv-box {
+  height: 1000px;
+  width: 800px;
+  background-color: #fafafa;
   margin-left: auto;
   margin-right: auto;
 }
-.title_pdf {
-  color: red;
+.pagecv {
+  height: 250vh;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
 }
-.carreun {
-  background-color: #43443d;
-  height: 250px;
-  width: 60%;
-  float: right;
-}
-.carredeux {
-  background-color: #d2d8d8;
-  height: 100%;
-  width: 40%;
+.sidebar {
+  box-sizing: border-box;
   float: left;
-}
-.bodypdf {
-  background-color: transparent;
-  height: 1000px;
-  width: 100%;
+  width: 25%;
+  height: 250vh;
+  margin-top: 160px;
+  padding: 1.5em;
+  background-color: #f8ca00;
 }

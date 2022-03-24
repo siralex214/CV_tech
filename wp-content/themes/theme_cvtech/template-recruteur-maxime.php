@@ -1,9 +1,16 @@
 <?php
-/*Template Name: Recruteur-Maxime*/
+/*Template Name: Page Recruteur*/
 get_header();
+if (empty($_SESSION)) {
+    echo "<script> window.location.href = 'home' </script>";
+    die();
+} elseif ($_SESSION['role'] == "role_USER") {
+    echo "<script> window.location.href = 'home' </script>";
+    die();
+}
 ?>
 
-<body>
+    <body>
 
     <main id="main-recruteur">
 
@@ -105,7 +112,7 @@ get_header();
 
     </main>
 
-</body>
+    </body>
 
 <?php
 get_footer();

@@ -17,15 +17,15 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = "";
-    $mail->Password = "";
+    $mail->Username = "maxime.76.hebert@gmail.com";
+    $mail->Password = "J3B%Dc@m3Tt7F";
     $mail->SMTPSecure = 'ssl';
 
     // Charset
     $mail->CharSet = "utf-8";
 
     // Destinataire(s)
-    $mail->addAddress("");
+    $mail->addAddress($_SESSION["email"]);
 
     // Expéditeur
     $mail->setFrom("no-reply@bertolucci.fr");

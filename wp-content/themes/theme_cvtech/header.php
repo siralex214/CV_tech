@@ -4,18 +4,22 @@ $prenom = "";
 $nom = "";
 $email = "";
 $mdp = "";
+$messageError = "";
 $role = "role_USER";
 if (!empty($_POST['inscription'])) {
-    $prenom = $_POST['prenom'];
-    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom_inscription'];
+    $nom = $_POST['nom_inscription'];
     $email = $_POST['email_inscription'];
     $mdp = $_POST['password_inscription'];
+    $profil_picture = $_FILES['profil_picture'];
+
+    $mdp_hash = password_hash($mdp, PASSWORD_DEFAULT);
 
 
     if (empty($_POST['password_inscription'])) {
         $error["mdp"] = "champs vide";
     } else {
-        if ($_POST['password_inscription'] != $_POST['password2']) {
+        if ($_POST['password_inscription'] != $_POST['password_check']) {
             $error["mdp"] = 'mauvais mot de passe';
         }
     }
@@ -24,9 +28,40 @@ if (!empty($_POST['inscription'])) {
         $error["email_inscription"] = 'veuillez entrer un email correct';
     }
 
+    // if ($_FILES['profil_picture']['size'] === 0 && $FILES['profil_picture']['error'] > 0) {
+    // 	$error['miniature'] = "problème de chargement image";
+    // } else {
+    // 	$photoArray = explode("/", $_FILES['profil_picture']['type']);
+    // 	if ($photoArray[0] !== "image") {
+    // 		$error['profil_picture'] = "Veuillez vérifier le format de l'image";
+    // 	} else {
+    // 		if ($photoArray[1] !== "jpg" && $photoArray[1] !== "jpeg" && $photoArray[1] !== "png") {
+    // 			$error['profil_picture'] = "Le fichier n\'est pas de type jpg, jpeg ou png";
+    // 		}
+    // 	}
+    // }
+
+    // if ($_FILES['profil_picture']['size'] >= 4000000) {
+    // 	$error['profil_picture'] = "Le fichier fait plus de 4Mo";
+    // }
+
+    // $nom_image = basename($_FILES['profil_picture']['name']);
+    // $chemin_destination = '../wp-content/uploads/profil_pic' . $nom_image;
+
+    // $link = move_uploaded_file($_FILES['profil_picture']['tmp_name'], $chemin_destination);
+
     var_dump($error);
     if (count($error) == 0) {
-        $result = $wpdb->get_results("INSERT INTO `cv_wp_custom_users`(`nom`, `prenom`, `email`, `password`, `role`) VALUES ('$nom','$prenom','$email','$mdp','$role')");
+        $profil_picture = "";
+        $result = $wpdb->get_results("INSERT INTO `cv_wp_custom_users`(`nom`, `prenom`, `email`, `password`, `photo`, `role`) VALUES ('$nom','$prenom','$email','$mdp_hash','$profil_picture','$role')");
+        $connected = "true";
+        $_SESSION["connected"] = "true";
+        $_SESSION["id"] = $user["id"];
+        $_SESSION["email"] = $user["email"];
+        $_SESSION["nom"] = $user["nom"];
+        $_SESSION["prenom"] = $user["prenom"];
+        $_SESSION["role"] = $user["role"];
+        $_SESSION["photo"] = $user["photo"];
         var_dump($result);
     }
     header('location:index.php');
@@ -45,29 +80,34 @@ if (!empty($_POST['connexion'])) {
     if (!is_email($_POST['email_connexion'])) {
         $error["email_inscription"] = 'veuillez entrer un email correct';
     }
+    $requestCheck = $wpdb->get_results("SELECT * FROM cv_wp_custom_users WHERE email = '$email'", ARRAY_A);
+    $user = $requestCheck[0];
+    if (!empty($user)) {
+        if (password_verify($mdp, $user["password"])) {
+            $connected = true;
+            $_SESSION["connected"] = "true";
+            $_SESSION["id"] = $user["id"];
+            $_SESSION["email"] = $user["email"];
+            $_SESSION["nom"] = $user["nom"];
+            $_SESSION["prenom"] = $user["prenom"];
+            $_SESSION["role"] = $user["role"];
+            $_SESSION["photo"] = $user["photo"];
+            if ($_SESSION['role'] == "role_USER") {
+                header('location: mon-profil-utilisateur');
+            } else {
+                header('location: recruteur');
 
-    var_dump($error);
-    if (count($error) == 0) {
-        $result = $wpdb->get_results("SELECT * FROM cv_wp_custom_users WHERE user_email = '$email' AND user_pass = '$mdp'");
-        var_dump($result);
+            }
+            $connexionError = false;
+        } else {
+            $connexionError = false;
+            $messageError = "mauvaise combinaison email / mot de passe";
+        }
     }
-//	header('location:index.php');
 }
-?>
-
-<?php
-
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package theme_cvtech
- */
 
 ?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 
@@ -82,45 +122,36 @@ if (!empty($_POST['connexion'])) {
     <div id="popupInscription" class="modal">
         <div class="popup">
             <div>
-                <button id="btn_co" class=" btn_log active_btn_log">connexion</button>
+                <button id="btn_co" class="btn_log active_btn_log">connexion</button>
                 <button id="btn_ins" class="btn_log"> inscription</button>
             </div>
             <p id="close_modal" class='close' href='#'>&times;</p>
-            <div class='content_connexion' id="inscriptionform">
-                <form method="post">
-                    <div class="input-box">
-                        <label class="label title_popup"></label>
-                    </div>
+            <div class='content' id="inscriptionform">
+                <form method="post" action="" enctype="multipart/form-data">
                     <div class="input-box">
                         <label class="label">Nom</label>
-                        <input class="input" type="text" name="nom" id="nom" id="focus_nom_inscription">
+                        <input class="input" type="text" name="nom_inscription" id="nom_inscription">
                     </div>
                     <div class="errors">
                         <span id="nomError">Entre 2 et 20 caractères</span>
-                        <span class="error" id="erreur_nom_inscription">&nbsp;</span>
                     </div>
                     <div class="input-box">
-                        <label class="label">Prenom</label>
-                        <input class="input" id="prenom_inscription" class="effect-2" type="text" placeholder="Prénom">
-                        <span class="focus-border" id="focus_prenom_inscription"></span>
+                        <label class="label">Prénom</label>
+                        <input class="input" type="text" name="prenom_inscription" id="prenom_inscription">
                     </div>
                     <div class="errors">
                         <span id="prenomError">Entre 2 et 20 caractères</span>
-                        <span class="error" id="erreur_prenom_inscription">&nbsp;</span>
                     </div>
                     <div class="input-box">
                         <label class="label">Email</label>
-                        <input class="input" type="email" name="email_inscription" id="email_inscription"
-                               id="focus_email_inscription">
+                        <input class="input" type="email" name="email_inscription" id="email_inscription">
                     </div>
                     <div class="errors">
                         <span id="emailError">Email valide</span>
-                        <span class="error" id="erreur_mail_inscription">&nbsp;</span>
                     </div>
                     <div class="input-box">
                         <label class="label">Mot de passe</label>
-                        <input class="input" type="password" name="password_inscription" id="password"
-                               id="focus_password_inscription">
+                        <input class="input" type="password" name="password_inscription" id="password_inscription">
                     </div>
                     <div class="errors">
                         <span id="passwordErrorMajuscule">1 majuscule</span>
@@ -128,19 +159,21 @@ if (!empty($_POST['connexion'])) {
                         <span id="passwordErrorNombre">1 chiffre</span>
                         <span id="passwordErrorSpecial">1 caractère special</span>
                         <span id="passwordErrorSize">8 caractères minimum</span>
-                        <span class="error" id="erreur_password_inscription">&nbsp;</span>
                     </div>
                     <div class="input-box">
                         <label class="label">Vérification de mot de passe</label>
-                    </div>
-                    <div class="input-box">
-                        <input class="input" type="password" name="password2" id="passwordVerif">
+                        <input class="input" type="password" name="password_check" id="password_check">
                     </div>
                     <div class="errors">
                         <span id="passwordVerifError">Mot de passe identique</span>
                     </div>
                     <div class="input-box">
-                        <button class="inscription" type="submit" value="S'inscrire" id="inscription">S'inscrire
+                        <label class="label">Ajouter une photo de profil</label>
+                        <input class="input_file" type="file" name="profil_picture">
+                    </div>
+                    <div class="input-box">
+                        <button name="inscription" class="popup_submit" type="submit" value="S'inscrire"
+                                id="inscription">S'inscrire
                         </button>
                     </div>
                 </form>
@@ -148,58 +181,49 @@ if (!empty($_POST['connexion'])) {
             <div class='content' id="connexionform">
                 <form class="form-login" action="" method="post">
                     <div class="input-box">
-                        <label class="label title_popup"></label>
-                    </div>
-                    <div class="input-box">
                         <label class="label">Email</label>
                         <input class="input" type="email" name="email_connexion" placeholder="email"
                                id="email_connection">
                     </div>
-                    <p class="error" id="erreur_mail_co">&nbsp;</p>
                     <div class="input-box">
                         <label class="label">Mot de passe</label>
-                        <input class="input" type="password" name="password_connexion" placeholder="Mot de passe"
-                               id="focus_connexion_password">
+                        <input class="input" type="password" name="password_connexion" placeholder="Mot de passe"">
                     </div>
-                    <p class="error" id="erreur_password_co">&nbsp;</p>
-                    <div class="input-box">
-                        <button class="connection" type="submit" value="Connexion" name="" id="Connexion">Se connecter
+                    <?= "<div id='messageError'>" . $messageError . "</div>" ?>
+                    <div class=" input-box">
+                        <button name='connexion' class="popup_submit" type="submit" value="Connexion">Se connecter
                         </button>
-                        <span id="error_connexion" class="error">
                     </div>
                 </form>
             </div>
 
         </div>
     </div>
-
-    <!-- formulaire popup de connexion -->
-
-
 </div>
+
 <header>
-	<nav>
-		<div class="logo">
-			<a class="nav_title" href="<?php the_permalink()?>home">Bertolucci</a>
-		</div>
-		<input type="checkbox" id="click">
-		<label for="click" class="menu-btn">
-			<i class="fas fa-bars"></i>
-		</label>
-		<ul>
-			<li><a href="<?php the_permalink()?>home">Accueil</a></li>
-			<li><a href="<?php the_permalink()?>contact">Contact</a></li>
-			<li id="btn_connexion" href="<?php the_permalink()?>connexion">Connexion</li>
-		</ul>
+    <nav>
+        <div class="logo">
+            <a class="nav_title" href="<?php the_permalink() ?>home">Bertolucci</a>
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <li><a href="<?php the_permalink() ?>home">Accueil</a></li>
+            <li><a href="<?php the_permalink() ?>contact">Contact</a></li>
+            <?php if (!empty($_SESSION['connected'])) {
+                if ($_SESSION['connected'] == "true") { ?>
+                    <a id="btn_deconnexion" href="<?php the_permalink() ?>deconnexion">Déconnexion</a>
 
-        <!-- <div id="nav-menu">
+                <?php }
+            } else { ?>
+                <li id="btn_connexion" href="<?php the_permalink() ?>connexion">Connexion</li>
+            <?php }
 
-			<?php
-        wp_nav_menu(array(
-            'theme_location' => 'my-custom-menu',
-            'container_class' => 'custom-menu-class'
-        ));
-        ?>
-		</div> -->
+            ?>
+        </ul>
+
     </nav>
 </header>
