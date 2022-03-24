@@ -100,7 +100,7 @@ if (!empty($_POST['creationCV'])) {
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = "maxime.76.hebert@gmail.com";
-        $mail->Password = "J3B%Dc@m3Tt7F";
+        $mail->Password = "";
         $mail->SMTPSecure = 'ssl';
 
         $mail->Port = 465;
