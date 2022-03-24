@@ -516,32 +516,11 @@ xsigin/signup popup
   opacity: 1;
 }
 
-/* .popup {
-  text-align: center;
-  margin: 66px auto;
-  padding: 20px 30px;
-  background: #fff;
-  border-top: 10px solid #ffcd00;
-  border-bottom: 10px solid #ffcd00;
-  box-shadow: 0 2px 30px rgb(0 0 0 / 50%);
-  border-radius: 5px;
-  width: 30%;
-  position: relative;
-} */
-
 .label {
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
 }
-
-/* .title_popup {
-  color: #535b7c;
-  text-transform: uppercase;
-  font-weight: 900;
-  font-style: italic;
-  margin-top: 10px;
-} */
 
 .input-box {
   margin-bottom: 15px;
@@ -646,38 +625,9 @@ xsigin/signup popup
   }
 }
 
-#btn_connexion, #btn_deconnexion {
-  cursor: pointer;
-  color: #040500;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 8px 15px;
-  border-radius: 5px;
-  letter-spacing: 1px;
-  transition: all 0.3s;
-  margin-top: -7px;
-}
 #inscriptionform {
   display: none;
 }
-
-/* #btn_ins,
-#btn_co {
-  border-width: 0px !important;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: bold;
-  height: 30px;
-  text-transform: uppercase;
-}
-
-.active_btn_log {
-  background-color: #f8d260 !important;
-}
-.btn_log {
-  background-color: #eeeeee;
-} */
 
 .inscription {
   border-width: 0px !important;
