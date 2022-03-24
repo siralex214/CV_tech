@@ -93,7 +93,8 @@ if (!empty($_POST['creationCV'])) {
     try {
 
         // Configuration
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Infos de debug
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER; 
+        // Infos de debug
 
         // Configuration SMTP
         $mail->isSMTP();
@@ -121,9 +122,9 @@ if (!empty($_POST['creationCV'])) {
 
         // Envoi
         $mail->send();
-        echo "Message envoyé";
+        // echo "Message envoyé";
     } catch (Exception $e) {
-        echo "Message non envoyé. Erreur: {$mail->ErrorInfo}";
+        // echo "Message non envoyé. Erreur: {$mail->ErrorInfo}";
     }
 }
 
@@ -233,4 +234,5 @@ get_header();
         </form>
     </main>
 
-<?php get_footer(); ?>
+<?php 
+get_footer();
