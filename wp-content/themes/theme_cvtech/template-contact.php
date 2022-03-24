@@ -6,7 +6,7 @@ get_header();
 <main class=contact-all>
 
     <br>
-    <h1>veuillez nous contacter ici</h1>
+    <h1>Veuillez nous contacter ici</h1>
     <form>
         <label for="email">Entrez votre email:</label>
         <input type="email" name="email" class="contact-input contact-email">
