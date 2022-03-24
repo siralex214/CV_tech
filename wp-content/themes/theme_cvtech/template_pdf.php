@@ -7,13 +7,11 @@ global $wpdb;
 
 $prepare2 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_formation` WHERE id_user = %d", [$_GET['id']]);
 $formations = $wpdb->get_results($prepare2, ARRAY_A);
-$formations = $formations[0];
-
+debug($formations);
 
 $prepare3 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_exp-pro` WHERE id_user = %d", [$_GET['id']]);
 $exp_pros = $wpdb->get_results($prepare3, ARRAY_A);
-debug($exp_pros);
-$exp_pros['description'] = explode("; ", $exp_pros['description']);
+
 
 
 $prepare5 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_info_perso` WHERE id_user = %d", [$_GET['id']]);
@@ -38,88 +36,96 @@ $info_persos['permis'] = explode("; ", $info_persos['permis']);
 </head>
 
 <body>
-<div class="pagecv">
-    <!-- <div class="sidebar">
+    <div class="pagecv">
+        <!-- <div class="sidebar">
         sidebar
     </div> -->
-    <div class="bodypdf">
-        <div class="cv-box">
-            <div class="card" id="invoice">
-                <div class="left-column">
-                    <h2>Informations Personnel</h2>
-                    <div>
-                        <p type="nom" name="nom"><?= $info_persos['prenom'] ?></p>
-                    </div>
-                    <div>
-                        <p type="prenom" name="prenom"><?= $info_persos['nom'] ?></p>
-                    </div>
-                    <div>
-                        <p type="email" name="email"><?= $info_persos['email'] ?></p>
-                    </div>
-                    <div>
-                        <p type="date" name="date"><?= $info_persos['date_de_naissance'] ?></p>
-                    </div>
-                    <div>
-                        <p type="num" name="num"><?= $info_persos['telephone'] ?></p>
-                    </div>
-                    <div>
-                        <p type="adresse" name="adresse"><?= $info_persos['addresse_postale'] ?></p>
-                    </div>
-                    <div><label for="permis"> permis:</label>
-                        <?php foreach ($info_persos['permis'] as $permis) : ?>
-                            <p> <?= $permis ?>,</p>
-                        <?php endforeach; ?>
-                    </div>
-                    <div>
-                        <h2>Mes Competences</h2>
+        <div class="bodypdf">
+            <div class="cv-box">
+                <div class="card" id="invoice">
+                    <div class="left-column">
+                        <h2>Informations Personnel</h2>
                         <div>
-                            <h5>Competences maitrisées</h5>
-                            <p type="competence" name="competence"><?= $info_persos['competences'] ?></p>
+                            <p type="nom" name="nom"><?= $info_persos['prenom'] ?></p>
                         </div>
-                        <br>
                         <div>
-                            <h5>Languages maitrisés</h5>
-                            <p type="langues" name="langues"><?= $info_persos['langues'] ?></p>
+                            <p type="prenom" name="prenom"><?= $info_persos['nom'] ?></p>
                         </div>
-                        <br>
                         <div>
-                            <h5>Mes Activités</h5>
-                            <p type="hobbies" name="hobbies"><?= $info_persos['hobbies'] ?></p>
+                            <p type="email" name="email"><?= $info_persos['email'] ?></p>
                         </div>
-                    </div>
-                </div>
-                <div class="right-column">
-                    <div class="header">
                         <div>
-                            <H2>Mes Experiences Profesionnels</H2>
-                            <?php
-                            // foreach (){
-                            // <div class"one_exp">
-                            ?>
-                            j'ai travailler dans <?= $exp_pros['entreprise'] ?> pendant 3 ans à <?= $exp_pros['lieu'] ?>
-                            en tant que <?= $exp_pros['poste'] ?>
-                            <br>
-                            Mon travail dans cette entreprise etait de m'occuper de la:
-                            <?php foreach ($exp_pros['description'] as $description) : ?>
-                                <p> <?= $description ?>,</p>
+                            <p type="date" name="date"><?= $info_persos['date_de_naissance'] ?></p>
+                        </div>
+                        <div>
+                            <p type="num" name="num"><?= $info_persos['telephone'] ?></p>
+                        </div>
+                        <div>
+                            <p type="adresse" name="adresse"><?= $info_persos['addresse_postale'] ?></p>
+                        </div>
+                        <div><label for="permis"> permis:</label>
+                            <?php foreach ($info_persos['permis'] as $permis) : ?>
+                                <p> <?= $permis ?>,</p>
                             <?php endforeach; ?>
                         </div>
-                    </div>
-                    <div class=" contentpdf">
                         <div>
-                            <H2>Mon Parcours Scolaire</H2>
-                            J'ai passer mon <?= $formations['diplome'] ?>
-                            dans l'école <?= $formations['etablissement'] ?>
-                            qui ce situe à <?= $formations['lieu'] ?>
-                            ce qui va me permettre de venir <?= $formations['titre'] ?>
+                            <h2>Mes Competences</h2>
+                            <div>
+                                <h5>Competences maitrisées</h5>
+                                <p type="competence" name="competence"><?= $info_persos['competences'] ?></p>
+                            </div>
+                            <br>
+                            <div>
+                                <h5>Languages maitrisés</h5>
+                                <p type="langues" name="langues"><?= $info_persos['langues'] ?></p>
+                            </div>
+                            <br>
+                            <div>
+                                <h5>Mes Activités</h5>
+                                <p type="hobbies" name="hobbies"><?= $info_persos['hobbies'] ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-column">
+                        <div class="header">
+                            <div>
+                                <H2>Mes Experiences Profesionnels</H2>
+                                <?php
+                                foreach ($exp_pros as $exp_pro) : ?>
+                                    <div class="one_exp">
+
+                                        <p> <?= $exp_pro['entreprise'] ?>,</p>
+
+                                        j'ai travailler dans <?= $exp_pro['entreprise'] ?> pendant 3 ans à <?= $exp_pro['lieu'] ?>
+                                        en tant que <?= $exp_pro['poste'] ?>
+                                        <br>
+                                        Mon travail dans cette entreprise etait de m'occuper de la:
+                                        <?= $exp_pro['description'] ?>
+
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <div class=" contentpdf">
+                            <div>
+                                <H2>Mon Parcours Scolaire</H2>
+                                <?php
+                                foreach ($formations as $formation) : ?>
+                                    <div class="one_formation">
+                                       j'ai etudier à <?= $formation['etablissement'] ?>
+                                        j'ai obtenu mon <?= $formation['diplome'] ?>
+                                       à <?= $formation['lieu'] ?>
+                                        <?= $formation['titre'] ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div>
+            <button class="btn btn-primary" id="download"> télécharger en pdf</button>
+        </div>
     </div>
-    <div>
-        <button class="btn btn-primary" id="download"> télécharger en pdf</button>
-    </div>
-</div>
 </body>
