@@ -15,7 +15,7 @@ if (empty($_SESSION)) {
 }
 ?>
 
-    <body>
+<body>
 
     <main id="main-recruteur">
 
@@ -146,7 +146,7 @@ if (empty($_SESSION)) {
 
     </main>
 
-    </body>
+</body>
 
 <?php
 get_footer();

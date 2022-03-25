@@ -36,119 +36,116 @@ $info_persos['date_de_naissance'] = date("d-m-Y", strtotime($info_persos['date_d
 </head>
 
 <body>
-<div class="pagecv">
-    <!-- <div class="sidebar">
-    sidebar
-</div> -->
-    <div class="bodypdf">
-        <div class="cv-box">
-            <div class="card" id="invoice">
-                <div class="left-column">
-                    <h2>Informations Personnel</h2>
-                    <div>
-                        <p type="nom" name="nom"><?= $info_persos['prenom'] ?></p>
-                    </div>
-                    <div>
-                        <p type="prenom" name="prenom"><?= $info_persos['nom'] ?></p>
-                    </div>
-                    <div>
-                        <p type="email" name="email"><?= $info_persos['email'] ?></p>
-                    </div>
-                    <div>
-                        <p type="date" name="date"><?= $info_persos['date_de_naissance'] ?></p>
-                    </div>
-                    <div>
-                        <p type="num" name="num"><?= $info_persos['telephone'] ?></p>
-                    </div>
-                    <div>
-                        <p type="adresse" name="adresse"><?= $info_persos['addresse_postale'] ?></p>
-                    </div>
-                    <div><label for="permis"> permis:</label>
-                        <?php foreach ($info_persos['permis'] as $permis) : ?>
-                            <p> <?= $permis ?>,</p>
-                        <?php endforeach; ?>
-                    </div>
-                    <div>
-                        <h2>Mes Competences</h2>
+    <div class="pagecv">
+        <div class="bodypdf">
+            <div class="cv-box">
+                <div class="card" id="invoice">
+                    <div class="left-column">
+                        <h2>Informations Personnel</h2>
                         <div>
-                            <h5>Competences maitrisées</h5>
-                            <p type="competence" name="competence"><?= $info_persos['competences'] ?></p>
+                            <p type="nom" name="nom"><?= $info_persos['prenom'] ?></p>
                         </div>
-                        <br>
                         <div>
-                            <h5>Languages maitrisés</h5>
-                            <p type="langues" name="langues"><?= $info_persos['langues'] ?></p>
+                            <p type="prenom" name="prenom"><?= $info_persos['nom'] ?></p>
                         </div>
-                        <br>
                         <div>
-                            <h5>Mes Activités</h5>
-                            <p type="hobbies" name="hobbies"><?= $info_persos['hobbies'] ?></p>
+                            <p type="email" name="email"><?= $info_persos['email'] ?></p>
                         </div>
-                    </div>
-                </div>
-                <div class="right-column">
-                    <div class="header">
-
-                        <div class="titlecv">
-                            <H4 class="title_title">Mon Parcours Scolaire</H4>
-                            <hr>
+                        <div>
+                            <p type="date" name="date"><?= $info_persos['date_de_naissance'] ?></p>
                         </div>
-                        <?php
-                        foreach ($formations as $formation) : ?>
-                            <div class="one_formation">
-                                <div class="etabl">
-                                    Etablissement: <?= $formation['etablissement'] ?>
-                                </div>
-                                <div class="dipl">
-                                    Diplome: <?= $formation['diplome'] ?>
-                                </div>
-                                <div class="lieu">
-                                    Lieu: <?= $formation['lieu'] ?>
-                                </div>
-                                <div class="titre">
-                                    Diplome: <?= $formation['titre'] ?>
-                                </div>
-                                <br>
-                                <hr>
+                        <div>
+                            <p type="num" name="num"><?= $info_persos['telephone'] ?></p>
+                        </div>
+                        <div>
+                            <p type="adresse" name="adresse"><?= $info_persos['addresse_postale'] ?></p>
+                        </div>
+                        <div><label for="permis"> permis:</label>
+                            <?php foreach ($info_persos['permis'] as $permis) : ?>
+                                <p> <?= $permis ?>,</p>
+                            <?php endforeach; ?>
+                        </div>
+                        <div>
+                            <h2>Mes Competences</h2>
+                            <div>
+                                <h5>Competences maitrisées</h5>
+                                <p type="competence" name="competence"><?= $info_persos['competences'] ?></p>
                             </div>
-                        <?php endforeach; ?>
+                            <br>
+                            <div>
+                                <h5>Languages maitrisés</h5>
+                                <p type="langues" name="langues"><?= $info_persos['langues'] ?></p>
+                            </div>
+                            <br>
+                            <div>
+                                <h5>Mes Activités</h5>
+                                <p type="hobbies" name="hobbies"><?= $info_persos['hobbies'] ?></p>
+                            </div>
+                        </div>
                     </div>
+                    <div class="right-column">
+                        <div class="header">
 
-                    <div class=" contentpdf">
-                        <div>
                             <div class="titlecv">
-                                <H4 class="title_titledeux">Mon Parcours Professionel</H4>
+                                <H4 class="title_title">Mon Parcours Scolaire</H4>
                                 <hr>
                             </div>
                             <?php
-                            foreach ($exp_pros
-
-                            as $exp_pro) : ?>
-                            <div class="one_exp">
-                                <div>
-                                    <div>
-                                        Entreprise <?= $exp_pro['entreprise'] ?>
+                            foreach ($formations as $formation) : ?>
+                                <div class="one_formation">
+                                    <div class="etabl">
+                                        Etablissement: <?= $formation['etablissement'] ?>
                                     </div>
-                                    <div>
-                                        Lieu: <?= $exp_pro['lieu'] ?>
+                                    <div class="dipl">
+                                        Diplome: <?= $formation['diplome'] ?>
                                     </div>
-                                    <div>
-                                        Poste: <?= $exp_pro['poste'] ?>
+                                    <div class="lieu">
+                                        Lieu: <?= $formation['lieu'] ?>
                                     </div>
-                                    <div>
-                                        Type de travail: <?= $exp_pro['description'] ?>
+                                    <div class="titre">
+                                        Diplome: <?= $formation['titre'] ?>
                                     </div>
+                                    <br>
+                                    <hr>
                                 </div>
-                                <hr>
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </div>
+
+                        <div class=" contentpdf">
+                            <div>
+                                <div class="titlecv">
+                                    <H4 class="title_titledeux">Mon Parcours Professionel</H4>
+                                    <hr>
+                                </div>
+                                <?php
+                                foreach ($exp_pros
+
+                                    as $exp_pro) : ?>
+                                    <div class="one_exp">
+                                        <div>
+                                            <div>
+                                                Entreprise <?= $exp_pro['entreprise'] ?>
+                                            </div>
+                                            <div>
+                                                Lieu: <?= $exp_pro['lieu'] ?>
+                                            </div>
+                                            <div>
+                                                Poste: <?= $exp_pro['poste'] ?>
+                                            </div>
+                                            <div>
+                                                Type de travail: <?= $exp_pro['description'] ?>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    <?php endforeach; ?>
+                                    </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div>
+                <button class="btn btn-primary" id="download">Télécharger en pdf</button>
+            </div>
         </div>
-        <div>
-            <button class="btn btn-primary" id="download">Télécharger en pdf</button>
-        </div>
-    </div>
 </body>
