@@ -12,7 +12,6 @@ $prepare3 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_exp-pro` WHERE id_user =
 $exp_pros = $wpdb->get_results($prepare3, ARRAY_A);
 
 
-
 $prepare5 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_info_perso` WHERE id_user = %d", [$_GET['id']]);
 $info_persos = $wpdb->get_results($prepare5, ARRAY_A);
 $info_persos = $info_persos[0];
@@ -36,10 +35,7 @@ $info_persos['permis'] = explode("; ", $info_persos['permis']);
 
 <body>
     <div class="pagecv">
-        <!-- <div class="sidebar">
-        sidebar
-    </div> -->
-        <div class="bodypdf" id="bodypdf">
+        <div class="bodypdf">
             <div class="cv-box">
                 <div class="card" id="invoice">
                     <div class="left-column">
@@ -120,7 +116,9 @@ $info_persos['permis'] = explode("; ", $info_persos['permis']);
                                     <hr>
                                 </div>
                                 <?php
-                                foreach ($exp_pros as $exp_pro) : ?>
+                                foreach ($exp_pros
+
+                                    as $exp_pro) : ?>
                                     <div class="one_exp">
                                         <div>
                                             <div>
@@ -145,7 +143,7 @@ $info_persos['permis'] = explode("; ", $info_persos['permis']);
                 </div>
             </div>
             <div>
-                <button class="btn btn-primary" id="download"> télécharger en pdf</button>
+                <button class="btn btn-primary" id="download">Télécharger en pdf</button>
             </div>
         </div>
 </body>
