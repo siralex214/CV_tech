@@ -710,6 +710,7 @@ xsigin/signup popup
   grid-template-areas: "left-column right-column right-column";
   width: 100%;
   box-shadow: 2px 2px 20px 2px #000000;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .cv-box {
@@ -725,14 +726,12 @@ xsigin/signup popup
 }
 
 .one_formation {
-  margin-left: 50%;
   font-size: 1rem;
 }
 .one_exp {
   font-size: 1rem;
   line-height: 1.5rem;
   margin-top: 34px;
-  margin-left: 50%;
 }
 
 .title_title {
