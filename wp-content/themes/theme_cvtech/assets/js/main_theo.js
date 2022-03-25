@@ -8,4 +8,5 @@ document.getElementById("download").addEventListener("click", () => {
     jsPDF: { unit: "mm", format: "A4", orientation: "portrait" },
   };
   html2pdf().from(invoice).set(opt).save();
+
 });

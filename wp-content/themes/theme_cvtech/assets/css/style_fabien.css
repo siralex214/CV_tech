@@ -656,6 +656,7 @@ xsigin/signup popup
 
 /* pdf */
 .btn-primary {
+  cursor: pointer;
   border-width: 0px !important;
   border-radius: 10px;
   letter-spacing: 1px;
