@@ -39,7 +39,7 @@ $info_persos['permis'] = explode("; ", $info_persos['permis']);
         <!-- <div class="sidebar">
         sidebar
     </div> -->
-        <div class="bodypdf">
+        <div class="bodypdf" id="bodypdf">
             <div class="cv-box">
                 <div class="card" id="invoice">
                     <div class="left-column">

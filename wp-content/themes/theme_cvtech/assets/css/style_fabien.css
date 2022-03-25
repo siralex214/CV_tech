@@ -668,7 +668,6 @@ xsigin/signup popup
   margin-right: auto;
   position: absolute;
   left: 40%;
-  /* height: 100%; */
   top: 150%;
 }
 .left-column {
@@ -694,7 +693,6 @@ xsigin/signup popup
   background-color: #cbc8c8;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   height: 100%;
   width: 100%;
 }
@@ -709,9 +707,8 @@ xsigin/signup popup
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "left-column right-column right-column";
-  width: 80%;
+  width: 100%;
   box-shadow: 2px 2px 20px 2px #000000;
-  margin: 0 auto;
 }
 
 .cv-box {
@@ -721,6 +718,9 @@ xsigin/signup popup
   background: #fafafa;
   display: flex;
   align-items: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .one_formation {

@@ -15,7 +15,7 @@ if (empty($_SESSION)) {
 }
 ?>
 
-    <body>
+<body>
 
     <main id="main-recruteur">
 
@@ -28,8 +28,6 @@ if (empty($_SESSION)) {
             $info_cv = $wpdb->get_results("SELECT * FROM cv_wp_custom_info_perso WHERE id_user = $id ", ARRAY_A);
             $info_cv = $info_cv[0];
 
-            // debug($info_user);
-            // debug($info_cv);
             $competences = $info_cv['competences'] = explode("; ", $info_cv['competences']); ?>
             <div class='candidat-profil-container'>
                 <div class='candidat-profil-infos-img'>
@@ -37,8 +35,7 @@ if (empty($_SESSION)) {
                 </div>
                 <div class='candidat-profil-infos-text'>
                     <span class='candidat-profil-name'><?= $info_user['prenom'] . " " . $info_user['nom'] ?></span>
-                    <span class='candidat-profil-location'><i
-                                class='fa-solid fa-location-dot'></i> <?= $info_cv['addresse_postale'] ?></span>
+                    <span class='candidat-profil-location'><i class='fa-solid fa-location-dot'></i> <?= $info_cv['addresse_postale'] ?></span>
                 </div>
                 <div class='candidat-profil-skills'>
                     <ul>
@@ -50,7 +47,7 @@ if (empty($_SESSION)) {
                                     <li class='skills-container'><?= $competences[$i] ?></li>
 
                                 <?php } ?>
-                                <?php $i++;
+                            <?php $i++;
                             }
                             ?>
                         <?php } ?>
@@ -141,7 +138,7 @@ if (empty($_SESSION)) {
 
     </main>
 
-    </body>
+</body>
 
 <?php
 get_footer();
