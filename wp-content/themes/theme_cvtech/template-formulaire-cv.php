@@ -100,7 +100,7 @@ if (!empty($_POST['creationCV'])) {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = "maxime.76.hebert@gmail.com";
+        $mail->Username = "";
         $mail->Password = "";
         $mail->SMTPSecure = 'ssl';
 
@@ -117,7 +117,7 @@ if (!empty($_POST['creationCV'])) {
 
         // Contenu
         $mail->Subject = "Cabinet Bertolucci - CV";
-        $mail->Body = "Bonjour" . $_SESSION['prenom'] . ", votre CV a bien été enregistré. 
+        $mail->Body = "Bonjour, " . $_SESSION['prenom'] . ", votre CV a bien été enregistré. 
         Vous pouvez le retrouver sur votre espace personne.";
 
         // Envoi
@@ -126,6 +126,7 @@ if (!empty($_POST['creationCV'])) {
     } catch (Exception $e) {
         // echo "Message non envoyé. Erreur: {$mail->ErrorInfo}";
     }
+    header("location: mon-profil-utilisateur");
 }
 
 get_header();
@@ -167,11 +168,6 @@ get_header();
                         <label class="label">Adresse 1</label>
                         <input id="adresse_1" class="input" name="adresse_1" type="text"
                                placeholder="n°, rue, résidence, bâtiment">
-                    </div>
-                    <div class="input-box">
-                        <label class="label">Adresse 2</label>
-                        <input id="adresse_2" class="input" name="adresse_2" type="text"
-                               placeholder="code postal, ville">
                     </div>
                 </div>
                 <div id="permis">
@@ -234,5 +230,5 @@ get_header();
         </form>
     </main>
 
-<?php 
+<?php
 get_footer();

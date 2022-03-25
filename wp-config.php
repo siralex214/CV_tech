@@ -24,13 +24,13 @@
 define('DB_NAME', 'sql11480472');
 
 /** Database username */
-define('DB_USER', 'sql11480472');
+define('DB_USER', 'root');
 
 /** Database password */
-define('DB_PASSWORD', 'y5NCU6HQ1t');
+define('DB_PASSWORD', '');
 
 /** Database hostname */
-define('DB_HOST', 'sql11.freesqldatabase.com');
+define('DB_HOST', 'localhost');
 
 /** Database charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');

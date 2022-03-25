@@ -78,7 +78,10 @@ if (!empty($info_persos)) {
                     <span class="candidat-card-profil-name">Bonjour <?= ucfirst($_SESSION['prenom']) ?> <?= ucfirst($_SESSION['nom']) ?></span>
                     <span class="candidat-card-profil-title">Développeur Web</span>
                     <span class="candidat-card-profil-location"><i class="fa-solid fa-location-dot"></i>
-                    <?= $info_persos['addresse_postale'] ?></span>
+                    <?php
+                    if (!empty($info_persos['addresse_postale'])){
+                        echo "<span>". $info_persos['addresse_postale'] ."</span>";
+                    } ?>
                 </div>
             </div>
         </section>

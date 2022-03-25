@@ -19,53 +19,58 @@ if (empty($_SESSION)) {
 
     <main id="main-recruteur">
 
-        <?php foreach ($users as $user) {
+        <?php
+        if (!empty($users)) {
+            foreach ($users as $user) {
+                $id = $user['id_user'];
+                $info_user = $wpdb->get_results("SELECT * FROM cv_wp_custom_users WHERE id = $id", ARRAY_A);
+                $info_user = $info_user[0];
+                $info_cv = $wpdb->get_results("SELECT * FROM cv_wp_custom_info_perso WHERE id_user = $id ", ARRAY_A);
+                $info_cv = $info_cv[0];
 
-            $id = $user['id_user'];
+                // debug($info_user);
+                // debug($info_cv);
+                $competences = $info_cv['competences'] = explode("; ", $info_cv['competences']); ?>
+                <div class='candidat-profil-container'>
+                    <div class='candidat-profil-infos-img'>
+                        <img class='candidat-profil-img'
+                             src='<?= wp_get_upload_dir()['baseurl'] . $info_user['photo'] ?>'>
+                    </div>
+                    <div class='candidat-profil-infos-text'>
+                        <span class='candidat-profil-name'><?= $info_user['prenom'] . " " . $info_user['nom'] ?></span>
+                        <span class='candidat-profil-location'><i
+                                    class='fa-solid fa-location-dot'></i> <?= $info_cv['addresse_postale'] ?></span>
+                    </div>
+                    <div class='candidat-profil-skills'>
+                        <ul>
+                            <?php
+                            $i = 0;
+                            foreach ($competences as $competence) {
+                                while ($i < 3) {
+                                    if (!empty($competences[$i])) { ?>
+                                        <li class='skills-container'><?= $competences[$i] ?></li>
 
-            $info_user = $wpdb->get_results("SELECT * FROM cv_wp_custom_users WHERE id = $id", ARRAY_A);
-            $info_user = $info_user[0];
-            $info_cv = $wpdb->get_results("SELECT * FROM cv_wp_custom_info_perso WHERE id_user = $id ", ARRAY_A);
-            $info_cv = $info_cv[0];
-
-            // debug($info_user);
-            // debug($info_cv);
-            $competences = $info_cv['competences'] = explode("; ", $info_cv['competences']); ?>
-            <div class='candidat-profil-container'>
-                <div class='candidat-profil-infos-img'>
-                    <img class='candidat-profil-img' src='<?= wp_get_upload_dir()['baseurl'] . $info_user['photo'] ?>'>
+                                    <?php } ?>
+                                    <?php $i++;
+                                }
+                                ?>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                    <div class='candidat-profil-links'>
+                        <a href='<?php the_permalink() ?>pdf?id=<?= $info_cv['id_user'] ?>'>
+                            <button class='button-recruteur'>Voir le CV</button>
+                            <a href='mailto:<?= $info_cv['email'] ?>"'>
+                                <button class='button-recruteur button-contact'>Contacter</button>
+                            </a>
+                    </div>
                 </div>
-                <div class='candidat-profil-infos-text'>
-                    <span class='candidat-profil-name'><?= $info_user['prenom'] . " " . $info_user['nom'] ?></span>
-                    <span class='candidat-profil-location'><i
-                                class='fa-solid fa-location-dot'></i> <?= $info_cv['addresse_postale'] ?></span>
-                </div>
-                <div class='candidat-profil-skills'>
-                    <ul>
-                        <?php
-                        $i = 0;
-                        foreach ($competences as $competence) {
-                            while ($i < 3) {
-                                if (!empty($competences[$i])) { ?>
-                                    <li class='skills-container'><?= $competences[$i] ?></li>
 
-                                <?php } ?>
-                                <?php $i++;
-                            }
-                            ?>
-                        <?php } ?>
-                    </ul>
-                </div>
-                <div class='candidat-profil-links'>
-                    <a href='<?php the_permalink() ?>pdf?id=<?= $info_cv['id_user'] ?>'>
-                        <button class='button-recruteur'>Voir le CV</button>
-                        <a href='mailto:<?= $info_cv['email'] ?>"'>
-                            <button class='button-recruteur button-contact'>Contacter</button>
-                        </a>
-                </div>
-            </div>
-
-        <?php } ?>
+            <?php }
+        } else {
+            echo "<h2 style='text-align: center; margin-top: 140px'>Aucun utilisateur n'a enregistré de CV sur votre site.</h2>";
+        }
+        ?>
 
         <!-- <div class=" candidat-profil-container">
                             <div class="candidat-profil-infos-img">

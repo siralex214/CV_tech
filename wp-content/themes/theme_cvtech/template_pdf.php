@@ -15,8 +15,10 @@ $exp_pros = $wpdb->get_results($prepare3, ARRAY_A);
 $prepare5 = $wpdb->prepare("SELECT * FROM `cv_wp_custom_info_perso` WHERE id_user = %d", [$_GET['id']]);
 $info_persos = $wpdb->get_results($prepare5, ARRAY_A);
 $info_persos = $info_persos[0];
+$info_persos['date_de_naissance'] = explode(" ", $info_persos['date_de_naissance']);
 $info_persos['permis'] = explode("; ", $info_persos['permis']);
-
+$info_persos['date_de_naissance'] = $info_persos['date_de_naissance'][0];
+$info_persos['date_de_naissance'] = date("d-m-Y", strtotime($info_persos['date_de_naissance']));
 
 ?>
 <!DOCTYPE html>
